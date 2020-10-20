@@ -1,5 +1,5 @@
 var x = 1
-var timer = setInterval(changeTitle, 1000);
+var timer = setInterval(changeTitle, 3000);
 var z = "hacker19374's Website"
 function changeTitle() {
   if (x == 0) {
