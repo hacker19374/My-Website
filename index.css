@@ -4,5 +4,5 @@ p {
 .project-card {
   margin: 5px; 
   width: 25%; 
-  float: left; 
+  float: right; 
   border: 4px solid cyan;
