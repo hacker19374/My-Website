@@ -1,1 +1,7 @@
-
+p {
+  background-color: red;
+}
+.project-card {
+  float: left;
+  margin: 5px;
+}
