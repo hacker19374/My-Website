@@ -1,5 +1,6 @@
 p {
   background-color: #179595;
+  width: auto;
 }
 .project-card {
   margin: 5px; 
@@ -13,4 +14,7 @@ p {
 h1 {
   text-align: center;
   padding-top: 5px;
+}
+body {
+  background-color: #8b0046;
 }
