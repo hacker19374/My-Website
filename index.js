@@ -12,4 +12,4 @@ function changeTitle() {
 
 };
 
-var timer = setInterval(changeTitle(z), 1000);
+var timer = setInterval(changeTitle, 1000);
