@@ -1,5 +1,5 @@
 p {
-  background-color: red;
+  background-color: #179595;
 }
 .project-card {
   margin: 5px; 
@@ -7,4 +7,8 @@ p {
   float: right; 
   border: 4px solid #007e7e;
   background-color: #008b8b;
+}
+h1 {
+  text-align: center;
+  padding-top: 5px;
 }
