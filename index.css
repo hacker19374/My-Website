@@ -6,7 +6,7 @@ p {
   margin: 5px; 
   width: 25%; 
   float: right; 
-  border: 4px solid #007e7e;
+  border: 4px solid #00688b;
   background-color: #008b8b;
   height: 354.33px;
   margin-bottom: 100px;
@@ -16,5 +16,5 @@ h1 {
   padding-top: 5px;
 }
 body {
-  background-color: #8b0046;
+  background-color: linear-gradient(270deg, red, yellow);;
 }
