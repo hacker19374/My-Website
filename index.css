@@ -16,6 +16,6 @@ h1 {
   padding-top: 5px;
 }
 body {
-  background-image: linear-gradient(#8b0046, #8b008b);
+  background-image: linear-gradient(270deg ,#8b0046, #8b008b);
   height: 100vh;
 }
