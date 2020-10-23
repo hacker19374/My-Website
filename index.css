@@ -17,4 +17,5 @@ h1 {
 }
 body {
   background-image: linear-gradient(#8b0046, #8b008b);
+  height: 100vh;
 }
