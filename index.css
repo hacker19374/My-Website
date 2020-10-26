@@ -19,3 +19,9 @@ body {
   background-image: linear-gradient(270deg ,#8b0046, #8b008b);
   height: 100vh;
 }
+span {
+  cursor: 
+}
+.cards {
+  display: grid;
+}
