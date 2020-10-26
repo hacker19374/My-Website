@@ -23,5 +23,5 @@ span {
 }
 .cards {
   display: grid;
-  float: right;
+  right: 0;
 }
