@@ -25,6 +25,7 @@ span {
   grid-template-columns: repeat(6, 1fr);
   right: 0;
   margin-right: 50px;
+  position: absolute;
 }
 
 .project-card__1 {
