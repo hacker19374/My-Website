@@ -31,13 +31,10 @@ span {
 .project-card__1 {
   grid-column: 5 / 7;
   grid-row: 1;
-  width: 100%;
+  width: 50%;
 }
 .project-card__2 {
   grid-column: 5 / 7;
   grid-row: 2;
-  width: 100%;
-}
-.oof {
-  color: red;
+  width: 50%;
 }
