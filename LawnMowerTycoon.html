@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            
+.sidenav { 
+    height: 100%; 
+    width: 20%; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0px;
+    right: 0px; 
+    background-color: rgb(17, 17, 17); 
+    overflow-x: hidden; 
+    padding-top: 20px; 
+}
+
+        body { 
+            background-color: rgb(34, 189, 34);
+			
+			margin-right: 16%;
+			margin-top: 10%;
+        }
+            #main {
+                text-align: center;
+            }
+            img {
+                width: 30%;
+            }
+			.sidenav p {
+  				padding: 0px 8px 6px 16px;
+ 			 	text-decoration: none;
+  			 	font-size: 15pt;
+ 				color: #818181;
+ 				display: block;
+}
+        </style>
+		<script>
+			var money = 0
+			var moneyAll = 0
+			var clickValue = 1
+			var autoClickValue = 0
+			var clickPrice = 50
+			var autoClickPrice = 50
+			var timer1 = setInterval(update, 5)
+			var timer2 = setInterval(autoClick, 1000)
+			
+			
+			function onCl() {
+				money = money + clickValue;
+				moneyAll = moneyAll + clickValue;
+			}
+			function update() {
+				document.getElementById("money").innerHTML = "Dollars: " + money
+				document.getElementById("total").innerHTML = "Total dollars earned: " + moneyAll
+				
+			}
+			function hireWorker() {
+				
+			}
+			function autoClick() {
+				money = money + autoClickValue
+				moneyAll += autoClickValue
+			}
+			
+		</script>
+    </head>
+<body>
+        <div class="sidenav">
+            <p id="money">Dollars: 0</p>
+            <p id="total">Total dollars: 0</p>
+            <p id="clickPriceDisplay">Click Price: 50</p>
+			<p id="autoPriceDisplay">Auto Click Price: 50</p>
+			<button onclick="" id="workerAdd">Hire a worker</button>
+			<button onclick="mowerUp" id="mowerUp">Upgrade mower</button>
+        </div>
+    <div id="main">    
+    <img src="http://clipart-library.com/images_k/riding-lawn-mower-silhouette/riding-lawn-mower-silhouette-23.png" onclick="onCl()">
+	</div>
+</body>
+	</html>
