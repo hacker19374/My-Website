@@ -1,0 +1,47 @@
+#prices {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+
+.money-visible {
+    display: inline;
+    border: #D175FF 2px solid;
+    padding: 5px 5px 5px 5px;
+    color: #FFD175
+}
+
+.burger {
+    width: 300px;
+}
+
+.burger:hover {
+    width: 320px;
+}
+
+.button {
+    background-color: #C79926;
+    border: #C79926;
+    border-radius: 5px;
+    font-size: 15pt;
+}
+
+.button:hover {
+    background-color: #FFD175;
+    border: none;
+}
+
+body {
+    text-align: center;
+}
+
+.linkWeb {
+    text-decoration: none;
+    color: black;
+    border: #C79926 solid 5px;
+    background-color: #C7AC66;
+    border-radius: 5px;
+    font-size: 15pt;
+}
