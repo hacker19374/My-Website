@@ -1,8 +1,11 @@
+
+        
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Burger Clicker 1.1</title>
-     	<link rel="icon" type="image/png" href="https://hacker19374.github.io/My-Website/burger/pngkey.com-burger-png-790662.png">
+        <!--<link href="" rel="stylesheet" type="text/css">-->
+        <title>Burger Clicker</title>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-GWFGT338YE"></script>
         <script>
@@ -12,148 +15,11 @@
 
             gtag('config', 'G-GWFGT338YE');
         </script>
-        <link href="options.css" rel="stylesheet" type="text/css">
-        <script>
-
-            var timer = setInterval(autoClick, 1000)
-
-            var key = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-
-            var x = 0
-
-            var clVal = 1
-
-            var AcVal = 0
-
-            var AcPr = 50
-
-            var ClPr = 50
-
-            var z = 0
-
-            var saveCode = '0x0x0x0x0x0x0'
-
-            function update() {
-                document.getElementById("p").innerHTML = x + "$"
-
-            }
-
-            function save() {
-                saveOne = 'YUMMY'
-                alert('Sucessfuly Saved, your save code is ' + key + ' ' + saveOne)
-            }
-
-            function onCl() {
-                x = x + clVal
-                document.getElementById("p").innerHTML = x + "$"
-            }
-
-            function autoClick() {
-                x = x + AcVal
-                document.getElementById("p").innerHTML = x + "$"
-            }
-
-            function upgradeAc() {
-                if (x >= AcPr) {
-                    AcVal = AcVal + 1
-                    x = x - AcPr
-                    AcPr = AcPr * 2
-                    update()
-                } else {
-                    alert("Not enough dollars!! You need " + (AcPr - x) + " more dollars.")
-                }
-            }
-
-            function upgradeAcSpeed() {
-                if (x >= (AcPr * 2)) {
-
-                    if (z == 0) {
-                        clearInterval(timer)
-                        timer = setInterval(autoClick, 500)
-                        x = x - AcPr * 2
-                        z++
-                        AcPr = AcPr * 2
-                        update()
-                    } else {
-                        if (z == 1) {
-                            clearInterval(timer)
-                            timer = setInterval(autoClick, 250)
-                            x = x - AcPr * 2
-                            AcPr = AcPr * 2
-                            z++
-                            update()
-                        } else {
-                            alert("You cannot buy this, it is at the max level.")
-                        }
-                    }
-
-                } else {
-                    if (z != 2) {
-                        alert("Not enough dollars!! You need " + ((AcPr * 2) - x) + " more dollars.")
-                    }
-                    update()
-
-                }
-
-            }
-
-            function upgradeCl() {
-                if (x >= ClPr) {
-                    clVal++
-                    x = x - ClPr
-                    ClPr = ClPr * 2
-                    update()
-                } else {
-                    alert("Not enough dollars!! You need " + (ClPr - x) + " more dollars.")
-                }
-            }
-
-            update()
-        </script>
-        <style>
-            .money-visible {
-                display: inline;
-                border: #D175FF 2px solid;
-                width: ;
-                padding: 5px 5px 5px 5px;
-                color: #FFD175
-            }
-
-            .burger {
-                margin-left: ;
-                width: 500px;
-            }
-
-            .burger:hover {
-                width: 520px;
-            }
-
-            .button {
-                background-color: #C79926;
-                border: #C79926;
-                border-radius: 5px;
-                font-size: 15pt;
-            }
-
-            .button:hover {
-                background-color: #FFD175;
-                border: none;
-            }
-
-            body {
-                text-align: center;
-                font-style: ;
-            }
-
-            .linkWeb {
-                text-decoration: none;
-                color: black;
-                border: #C79926 solid 5px;
-                background-color: #C7AC66;
-                border-radius: 5px;
-                font-size: 15pt;
-            }
-        </style>
+        <link rel="icon" type="image/png" href="./burgerIMG.ico">
+        <script src="./script.js"></script>
+        <script src="./Modal%20Box%20Stuff/modal.js"></script>
+        <link rel="stylesheet" type="text/css" href="./style.css"/>
+        <link rel="stylesheet" type="text/css" href="./Modal%20Box%20Stuff/modal.css"/>
     </head>
     <body style="background-color:#2554C7;">
         <div class="border-green inline">
@@ -161,8 +27,18 @@
                 <b>0$</b>
             </h1>
         </div>
+        <!-- Trigger/Open The Modal -->
+        <button id="settings" onclick="open()">Settings</button>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span onclick="exit()" class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+        </div>
         <br>
-        <img class="burger" onclick="onCl()" src="https://hacker19374.github.io/My-Website/burger/pngkey.com-burger-png-790662.png">
+        <img class="burger" onclick="onCl()" src="./burgerIMG.ico">
         <br>
         <br>
         <br>
@@ -171,23 +47,27 @@
         <br>
         <br>
         <footer>
-            <button class="button" onclick="upgradeAc()">
+            <p id="prices" class="button">
+                Autoclick Value Price: $50 <br>
+                Autoclick Speed Price: $100 <br>Click Value Price: $50
+            
+            
+            </p>
+            <button class="button" id="AcValButt" onclick="upgradeAc()">
                 Click me to upgrade <br>the autoclick value
+            
+            
             </button>
-            <button class="button" onclick="upgradeAcSpeed()">
+            <button class="button" id="AcSpdButt" onclick="upgradeAcSpeed()">
                 Click me to upgrade <br>the autoclick speed
+            
+            
             </button>
-            <button class="button" onclick="upgradeCl()">
+            <button class="button" id="ClValButt" onclick="upgradeCl()">
                 Click me to upgrade <br>the click value
+            
+            
             </button>
-            <br>
-            <br>
-            <button class="button" onclick="alert(" This feture is not yet avaible. Sorry for the incovenience.")">
-                Click me to <br>save
-            </button>
-            <br>
-            <br>
-            <a class="linkWeb" href="https://bit.ly/hacker19374" target="_blank">My site</a>
         </footer>
     </body>
 </html>
