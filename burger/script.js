@@ -40,12 +40,12 @@ function saveMoney() {
 
 function onCl() {
     dollarsReal = dollarsReal + clVal;
-    document.getElementById("p").innerHTML = dollarsReal + "$";
+    document.getElementById("p").innerHTML = "$" + dollarsVis;
 }
 
 function autoClick() {
     dollarsReal = dollarsReal + AcVal;
-    document.getElementById("p").innerHTML = dollarsReal + "$";
+    document.getElementById("p").innerHTML = "$" + dollarsVis;
 }
 
 function upgradeAc() {
