@@ -40,7 +40,7 @@ function saveMoney() {
 
 function onCl() {
     dollarsReal = dollarsReal + clVal;
-    document.getElementById("p").innerHTML = "$" + dollarsVis;
+    update();
 }
 
 function autoClick() {
