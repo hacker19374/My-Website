@@ -45,7 +45,7 @@ function onCl() {
 
 function autoClick() {
     dollarsReal = dollarsReal + AcVal;
-    document.getElementById("p").innerHTML = "$" + dollarsVis;
+    update();
 }
 
 function upgradeAc() {
