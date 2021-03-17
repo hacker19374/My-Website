@@ -45,3 +45,7 @@ body {
     border-radius: 5px;
     font-size: 15pt;
 }
+.achievments_unknown {
+    background-color: darkgrey;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Question_mark_grey.svg/220px-Question_mark_grey.svg.png")
+}
