@@ -50,7 +50,7 @@ function update() {
 }
 
 function saveMoney() {
-  if(dollarsReal >= localStorage.moneySave || localStorage.moneySave == "") {
+  if(dollarsReal >= localStorage.moneySave || localStorage.moneySave == "" || localStorage.moneySave === undefined) {
     localStorage.moneySave = dollarsReal;
   }
 }
