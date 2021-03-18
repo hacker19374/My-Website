@@ -50,7 +50,9 @@ function update() {
 }
 
 function saveMoney() {
-  localStorage.moneySave = dollarsReal;
+  if(dollarsReal >= localStorage.moneySave) {
+    localStorage.moneySave = dollarsReal;
+  }
 }
 
 function onCl() {
