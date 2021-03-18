@@ -17,14 +17,20 @@ var z = 0;
 function load() {
   if(localStorage.moneySave > 0 && localStorage.moneySave != "") {
     dollarsReal = +localStorage.moneySave;
-    clVal = +localStorage.clValSave
-    AcVal = +localStorage.AcValSave
-    AcPr = +localStorage.AcPrSave
-    ClPr = +localStorage.ClPrSave
+  }
+  if(localStorage.clValSave > 0 && localStorage.clValSave != NaN) {
+    clVal = +localStorage.clValSave;
+  }
+  if(localStorage.AcValSave > 0 && localStorage.AcValSave != NaN) {
+    AcVal = +localStorage.AcValSave;
+  }
+  if(localStorage.AcPrSave > 0 && localStorage.AcPrSave != NaN) {
+    AcPr = +localStorage.AcPrSave;
+  }
+  if(localStorage.ClPrSave > 0 && localStorage.ClPrSave != NaN) {
+    ClPr = +localStorage.ClPrSave;
   }
 }
-
-load()
 
 function update() {
   if (dollarsReal > 0 && dollarsReal < 9999) {
@@ -50,7 +56,6 @@ function update() {
     AcPr * 2 +
     "<br>Click Value Price: $" +
     ClPr;
-  saveMoney()
 }
 
 function saveMoney() {
