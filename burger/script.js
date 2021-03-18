@@ -50,7 +50,7 @@ function update() {
 }
 
 function saveMoney() {
-  if(dollarsReal >= localStorage.moneySave) {
+  if(dollarsReal >= localStorage.moneySave || localStorage.moneySave == "") {
     localStorage.moneySave = dollarsReal;
   }
 }
