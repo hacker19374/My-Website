@@ -1,69 +1,66 @@
-
-        
-
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="google-site-verification" content="C1fvMPdj5U9oIEFun_qOa38AX4T3DGk-GKSzhlMOcCI" />
-        <title>Burger Clicker</title>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GWFGT338YE"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+  <head>
+    <meta
+      name="google-site-verification"
+      content="C1fvMPdj5U9oIEFun_qOa38AX4T3DGk-GKSzhlMOcCI"
+    />
+    <title>Burger Clicker</title>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GWFGT338YE"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-            gtag('config', 'G-GWFGT338YE');
-        </script>
-        <link rel="icon" type="image/ico" href="burgerIMG.ico">
-        <script src="./script.js"></script>
-        <link rel="stylesheet" type="text/css" href="./style.css"/>
-    </head>
-    <body style="background-color:#2554C7;">
-        <div class="border-green inline">
-            <h1 class="money-visible" id="p">
-                <b>0$</b>
-            </h1>
-        </div>
-        <br>            
-        <div id="main" class="tab-2b">
+      gtag("config", "G-GWFGT338YE");
+    </script>
+    <link rel="icon" type="image/ico" href="./burgerIMG.ico" />
+    <script src="./script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+  <body style="background-color:#2554C7;">
+    <div class="border-green inline">
+      <h1 class="money-visible" id="p">
+        <b>0$</b>
+      </h1>
+    </div>
+    <br />
+    <div id="main" class="tab-2b">
+      <img class="burger" onclick="onCl()" src="./burgerIMG.ico" />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <footer>
+        <p id="prices" class="button">
+          Autoclick Value Price: $50 <br />
+          Autoclick Speed Price: $100 <br />Click Value Price: $50
+        </p>
+        <button class="button" id="AcValButt" onclick="upgradeAc()">
+          Click me to upgrade <br />the autoclick value
+        </button>
+        <button class="button" id="AcSpdButt" onclick="upgradeAcSpeed()">
+          Click me to upgrade <br />the autoclick speed
+        </button>
+        <button class="button" id="ClValButt" onclick="upgradeCl()">
+          Click me to upgrade <br />the click value
+        </button>
+      </footer>
+    </div>
 
-        <img class="burger" onclick="onCl()" src="./burgerIMG.ico">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <footer>
-            <p id="prices" class="button">
-                Autoclick Value Price: $50 <br>
-                Autoclick Speed Price: $100 <br>Click Value Price: $50
-            
-            
-            </p>
-            <button class="button" id="AcValButt" onclick="upgradeAc()">
-                Click me to upgrade <br>the autoclick value
-            
-            
-            </button>
-            <button class="button" id="AcSpdButt" onclick="upgradeAcSpeed()">
-                Click me to upgrade <br>the autoclick speed
-            
-            
-            </button>
-            <button class="button" id="ClValButt" onclick="upgradeCl()">
-                Click me to upgrade <br>the click value
-            
-            
-            </button>
-                </div>
-                    <div id="achievments" class="tab-1a">
-                        <p id="ach.1" class="achievments_unknown">
-                                
-                         </p>
-                    </div>
-              <button id="toggleButton" classs="button" onclick="toggleTabs()">Achievments</button>
-        </footer>
-    </body>
+    <div id="achievments" class="tab-1a">
+      <p id="ach.1" class="achievments_unknown"></p>
+    </div>
+    <button id="toggleButton" classs="button" onclick="toggleTabs()">
+      Achievments
+    </button>
+  </body>
 </html>
