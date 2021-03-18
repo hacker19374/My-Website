@@ -14,6 +14,12 @@ var ClPr = 50;
 
 var z = 0;
 
+function load() {
+  if(localStorage.moneySave > 0 && localStorage.moneySave != "") {
+    dollarsReal = localStorage.moneySave;
+  }
+}
+
 function update() {
   if (dollarsReal > 0 && dollarsReal < 9999) {
     dollarsVis = dollarsReal;
