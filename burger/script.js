@@ -38,6 +38,7 @@ function update() {
     AcPr * 2 +
     "<br>Click Value Price: $" +
     ClPr;
+  saveMoney()
 }
 
 function saveMoney() {
