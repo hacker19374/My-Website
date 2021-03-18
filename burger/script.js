@@ -20,6 +20,8 @@ function load() {
   }
 }
 
+load()
+
 function update() {
   if (dollarsReal > 0 && dollarsReal < 9999) {
     dollarsVis = dollarsReal;
