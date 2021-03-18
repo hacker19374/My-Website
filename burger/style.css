@@ -1,51 +1,51 @@
 #prices {
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 20%;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
 }
 
 .money-visible {
-    display: inline;
-    border: #D175FF 2px solid;
-    padding: 5px 5px 5px 5px;
-    color: #FFD175
+  display: inline;
+  border: #D175FF 2px solid;
+  padding: 5px 5px 5px 5px;
+  color: #FFD175;
 }
 
 .burger {
-    width: 300px;
+  width: 300px;
 }
 
 .burger:hover {
-    width: 320px;
+  width: 320px;
 }
 
 .button {
-    background-color: #C79926;
-    border: #C79926;
-    border-radius: 5px;
-    font-size: 15pt;
+  background-color: #C79926;
+  border: #C79926;
+  border-radius: 5px;
+  font-size: 15pt;
 }
 
 .button:hover {
-    background-color: #FFD175;
-    border: none;
+  background-color: #FFD175;
+  border: none;
 }
 
 body {
-    text-align: center;
+  text-align: center;
 }
 
 .linkWeb {
-    text-decoration: none;
-    color: black;
-    border: #C79926 solid 5px;
-    background-color: #C7AC66;
-    border-radius: 5px;
-    font-size: 15pt;
+  text-decoration: none;
+  color: black;
+  border: #C79926 solid 5px;
+  background-color: #C7AC66;
+  border-radius: 5px;
+  font-size: 15pt;
 }
 .achievments_unknown {
-    background-color: darkgrey;
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Question_mark_grey.svg/220px-Question_mark_grey.svg.png")
+  background-color: darkgrey;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Question_mark_grey.svg/220px-Question_mark_grey.svg.png");
 }
