@@ -17,6 +17,10 @@ var z = 0;
 function load() {
   if(localStorage.moneySave > 0 && localStorage.moneySave != "") {
     dollarsReal = +localStorage.moneySave;
+    clVal = +localStorage.clValSave
+    AcVal = +localStorage.AcValSave
+    AcPr = +localStorage.AcPrSave
+    ClPr = +localStorage.ClPrSave
   }
 }
 
@@ -51,7 +55,19 @@ function update() {
 
 function saveMoney() {
   if(dollarsReal >= localStorage.moneySave || localStorage.moneySave == "" || localStorage.moneySave === undefined) {
-    localStorage.moneySave = dollarsReal;
+    localStorage.moneySave = +dollarsReal;
+  }
+   if(clVal >= localStorage.clValSave || localStorage.clValSave == "" || localStorage.clValSave === undefined) {
+    localStorage.clValSave = +clVal;
+  }
+   if(AcVal >= localStorage.AcValSave || localStorage.AcValSave == "" || localStorage.AcValSave === undefined) {
+    localStorage.AcValSave = +AcVal;
+  }
+   if(AcPr >= localStorage.AcPrSave || localStorage.AcPrSave == "" || localStorage.AcPrSave === undefined) {
+    localStorage.AcPrSave = +AcPr;
+  }
+   if(ClPr >= localStorage.ClPrSave || localStorage.ClPrSave == "" || localStorage.ClPrSave === undefined) {
+    localStorage.ClPrSave = +ClPr;
   }
 }
 
