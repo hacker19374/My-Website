@@ -16,7 +16,7 @@ var z = 0;
 
 function load() {
   if(localStorage.moneySave > 0 && localStorage.moneySave != "") {
-    dollarsReal = localStorage.moneySave;
+    dollarsReal = +localStorage.moneySave;
   }
 }
 
