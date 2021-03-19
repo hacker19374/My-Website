@@ -14,6 +14,10 @@ var ClPr = 50;
 
 var z = 0;
 
+function clearSave() {
+    localStorage.clear();
+}
+
 function load() {
     dollarsReal = +localStorage.moneySave;
     clVal = +localStorage.clValSave;
