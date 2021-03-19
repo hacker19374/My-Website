@@ -15,21 +15,11 @@ var ClPr = 50;
 var z = 0;
 
 function load() {
-  if(localStorage.moneySave > 0 && localStorage.moneySave != "") {
     dollarsReal = +localStorage.moneySave;
-  }
-  if(localStorage.clValSave > 0 && localStorage.clValSave != NaN) {
     clVal = +localStorage.clValSave;
-  }
-  if(localStorage.AcValSave > 0 && localStorage.AcValSave != NaN) {
     AcVal = +localStorage.AcValSave;
-  }
-  if(localStorage.AcPrSave > 0 && localStorage.AcPrSave != NaN) {
     AcPr = +localStorage.AcPrSave;
-  }
-  if(localStorage.ClPrSave > 0 && localStorage.ClPrSave != NaN) {
     ClPr = +localStorage.ClPrSave;
-  }
 }
 
 function update() {
@@ -59,21 +49,11 @@ function update() {
 }
 
 function saveMoney() {
-  if(dollarsReal >= localStorage.moneySave || localStorage.moneySave == "" || localStorage.moneySave === undefined) {
     localStorage.moneySave = +dollarsReal;
-  }
-   if(clVal >= localStorage.clValSave || localStorage.clValSave == "" || localStorage.clValSave === undefined) {
     localStorage.clValSave = +clVal;
-  }
-   if(AcVal >= localStorage.AcValSave || localStorage.AcValSave == "" || localStorage.AcValSave === undefined) {
     localStorage.AcValSave = +AcVal;
-  }
-   if(AcPr >= localStorage.AcPrSave || localStorage.AcPrSave == "" || localStorage.AcPrSave === undefined) {
     localStorage.AcPrSave = +AcPr;
-  }
-   if(ClPr >= localStorage.ClPrSave || localStorage.ClPrSave == "" || localStorage.ClPrSave === undefined) {
     localStorage.ClPrSave = +ClPr;
-  }
 }
 
 function onCl() {
