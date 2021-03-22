@@ -50,7 +50,6 @@ function update() {
       }
     }
   }
-}
   document.getElementById("p").innerHTML = "$" + dollarsVis;
   document.getElementById("prices").innerHTML =
     "Autoclick Value Price: $" +
