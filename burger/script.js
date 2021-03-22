@@ -29,23 +29,28 @@ function load() {
 function update() {
   if (dollarsReal > 0 && dollarsReal < 9999) {
     dollarsVis = dollarsReal;
-  } else {
+  } 
+  else {
     if (dollarsReal > 9999 && dollarsReal < 999999) {
       dollarsVis = Math.round(dollarsReal / 10) / 100 + "K";
-    } else {
+    } 
+    else {
       if (dollarsReal > 999999 && dollarsReal < 999999999) {
         dollarsVis = Math.round(dollarsReal / 10000) / 100 + "M";
-      } else {
+      } 
+      else {
         if (dollarsReal > 999999999 && dollarsReal < 999999999999) {
           dollarsVis = Math.round(dollarsReal / 10000000) / 100 + "B";
         }
         else {
-        if (dollarsReal > 999999999999 && dollarsReal < 999999999999999) {
-          dollarsVis = Math.round(dollarsReal / 10000000000) / 100 + "T";
+          if (dollarsReal > 999999999999 && dollarsReal < 999999999999999) {
+            dollarsVis = Math.round(dollarsReal / 10000000000) / 100 + "T";
+          }
         }
       }
     }
   }
+}
   document.getElementById("p").innerHTML = "$" + dollarsVis;
   document.getElementById("prices").innerHTML =
     "Autoclick Value Price: $" +
