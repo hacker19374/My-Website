@@ -46,6 +46,16 @@ function update() {
           if (dollarsReal > 999999999999 && dollarsReal < 999999999999999) {
             dollarsVis = Math.round(dollarsReal / 10000000000) / 100 + "T";
           }
+          else {
+            if (dollarsReal > 999999999999999 && dollarsReal < 999999999999999999) {
+                dollarsVis = Math.round(dollarsReal / 10000000000000) / 100 + "q";
+            }
+            else {
+                if (dollarsReal > 999999999999 && dollarsReal < 999999999999999) {
+                    dollarsVis = Math.round(dollarsReal / 10000000000000000) / 100 + "Q";
+                }
+            }
+          }
         }
       }
     }
