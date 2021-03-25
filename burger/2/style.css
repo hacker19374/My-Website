@@ -32,7 +32,7 @@
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
-  left: 0;
+  right: 0;
   background-color: #111; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
@@ -54,7 +54,8 @@
 
 /* Style page content */
 .main {
-  margin-left: 30vw; /* Same as the width of the sidebar */
+  margin-left: 30vw; /* Same as the width of the left sidebar */
+  margin-right: 30vw;
   padding: 0px 10px;
 }
 
