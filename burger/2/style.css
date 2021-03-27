@@ -12,12 +12,13 @@
 }
 
 /* The navigation menu links */
-.sidenav a {
+.sidenav .a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
   display: block;
+  text-align: center;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -28,7 +29,7 @@
 /* The sidebar menu */
 .sidenav2 {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 25vw; /* Set the width of the sidebar */
+  width: 20vw; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -42,9 +43,10 @@
 .sidenav2 a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 25px;
   color: #818181;
   display: block;
+  text-align: center;
 }
 
 /* When you mouse over the navigation links, change their color */
