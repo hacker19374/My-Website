@@ -1,4 +1,4 @@
-/* Version 1.1.25*/
+/* Version 1.1.26*/
 
 body {
   background-color: #2554c7; /* Royal Blue */
@@ -25,7 +25,7 @@ body {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: darkviolet;
+  color: #6f009e;
   display: block;
   text-align: center;
 }
@@ -56,7 +56,7 @@ body {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: darkviolet;
+  color: #6f009e;
   display: block;
   text-align: center;
 }
