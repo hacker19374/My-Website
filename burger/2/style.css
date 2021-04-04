@@ -1,3 +1,5 @@
+/* Version 0.0.11*/
+
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -69,4 +71,5 @@
 
 .burger {
   margin-top: calc(50vh - 301.5px);
+  width: 100%;
 }
