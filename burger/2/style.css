@@ -1,4 +1,4 @@
-/* Version 1.1.24*/
+/* Version 1.1.25*/
 
 body {
   background-color: #2554c7; /* Royal Blue */
@@ -13,7 +13,9 @@ body {
   top: 0; /* Stay at the top */
   left: 0;
   background-color: #c79926; /* Goldenrod */
-  border: darkgoldenrod; /*Dark Goldenrod */
+  border: darkgoldenrod;/*Dark Goldenrod */
+  border-style: groove;
+  border-width: 5px;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -43,6 +45,8 @@ body {
   right: 0;
   background-color: #c79926; /* Goldenrod */
   border: darkgoldenrod; /*Dark Goldenrod */
+  border-style: groove;
+  border-width: 5px;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
