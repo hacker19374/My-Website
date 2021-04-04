@@ -1,4 +1,4 @@
-/* Version 0.1.18*/
+/* Version 0.1.19*/
 
 /* The sidebar menu */
 .sidenav {
@@ -71,7 +71,7 @@
 }
 
 .burger {
-  vertical-align: middle;
+  vertical-align: -50vh;
   width: 100%;
   text-align: center;
 }
