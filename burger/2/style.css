@@ -1,4 +1,4 @@
-/* Version 1.1.23*/
+/* Version 1.1.24*/
 
 body {
   background-color: #2554c7; /* Royal Blue */
@@ -23,14 +23,14 @@ body {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: violet;
+  color: darkviolet;
   display: block;
   text-align: center;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: darkviolet;
+  color: violet;
 }
 
 /* The sidebar menu */
@@ -52,14 +52,14 @@ body {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: violet;
+  color: darkviolet;
   display: block;
   text-align: center;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav2 a:hover {
-  color: darkviolet;
+  color: violet;
 }
 
 /* Style page content */
