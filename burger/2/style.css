@@ -1,4 +1,8 @@
-/* Version 0.1.20*/
+/* Version 0.1.21*/
+
+body {
+  background-color: #2554c7; /* Royal Blue */
+}
 
 /* The sidebar menu */
 .sidenav {
@@ -8,7 +12,8 @@
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black */
+  background-color: #c79926; /* Goldenrod */
+  border: darkgoldenrod; /*Dark Goldenrod */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -36,7 +41,8 @@
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   right: 0;
-  background-color: #111; /* Black */
+  background-color: #c79926; /* Goldenrod */
+  border: darkgoldenrod; /*Dark Goldenrod */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -71,7 +77,11 @@
 }
 
 .burger {
-  vertical-align: -55vh;
+  vertical-align: -40vh;
   width: 100%;
   text-align: center;
+}
+
+.burger:active {
+  width: 95%
 }
