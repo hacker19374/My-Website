@@ -1,4 +1,4 @@
-/* Version 0.1.21*/
+/* Version 1.1.22*/
 
 body {
   background-color: #2554c7; /* Royal Blue */
@@ -23,14 +23,14 @@ body {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #662487;
   display: block;
   text-align: center;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #a039d4;
 }
 
 /* The sidebar menu */
@@ -52,14 +52,14 @@ body {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #662487;
   display: block;
   text-align: center;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav2 a:hover {
-  color: #f1f1f1;
+  color: #a039d4;
 }
 
 /* Style page content */
