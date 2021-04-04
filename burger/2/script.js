@@ -1,3 +1,5 @@
+//Version 0.1.5
+
 var money = 0;
 var clickValue = 1;
 var cursorPrice = 30;
@@ -6,10 +8,10 @@ var farmPrice = 2200;
 var cavePrice = 24000;
 
 function update() {
-  document.getElementById("moneyVisible").innerHTML = money;
+  document.getElementById("moneyVisible").innerHTML = money + " Burgers";
 }
 
 function clickBurger() {
-  money += clickValue;
+  money = money + clickValue;
   update();
 }
