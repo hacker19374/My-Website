@@ -1,4 +1,4 @@
-/* Version 0.1.12*/
+/* Version 0.1.13*/
 
 /* The sidebar menu */
 .sidenav {
@@ -70,6 +70,6 @@
 }
 
 .burger {
-  margin-top: calc(50vh - 301.5px);
+  margin-top: calc(50vh - 50%);
   width: 100%;
 }
