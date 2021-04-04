@@ -1,4 +1,4 @@
-/* Version 0.1.17*/
+/* Version 0.1.18*/
 
 /* The sidebar menu */
 .sidenav {
@@ -60,6 +60,7 @@
 .main {
   margin-left: 20vw; /* Same as the width of the left sidebar */
   margin-right: 20vw;
+  height: 100vh;
   padding: 0px 10px;
 }
 
