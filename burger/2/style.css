@@ -1,4 +1,4 @@
-/* Version 0.1.28*/
+/* Version 0.1.29*/
 
 body {
   background-color: #2554c7; /* Royal Blue */
@@ -95,6 +95,7 @@ body {
   border-style: solid;
   border-width: 3px;
   background-color: #9DB2F0;
+  width: 90%;
 }
 
 h3 {
