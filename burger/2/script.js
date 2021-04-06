@@ -15,3 +15,9 @@ function clickBurger() {
   money = money + clickValue;
   update();
 }
+
+buy(byee) {
+  if (byee == "mouse") {
+      
+  }
+}
