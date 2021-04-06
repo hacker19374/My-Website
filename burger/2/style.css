@@ -1,4 +1,4 @@
-/* Version 0.1.27*/
+/* Version 0.1.28*/
 
 body {
   background-color: #2554c7; /* Royal Blue */
@@ -91,9 +91,16 @@ body {
 }
 
 .shop-item {
-  display: inline-block;
   border-color: #65729A;
   border-style: solid;
   border-width: 3px;
   background-color: #9DB2F0;
+}
+
+h3 {
+  display: inline-block;
+}
+
+.description {
+  display: inline-block;
 }
