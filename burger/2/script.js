@@ -1,4 +1,4 @@
-//Version 1.1.7
+//Version 1.1.8
 
 var money = 0;
 var moneyReal = 0;
@@ -25,10 +25,10 @@ function perSecond() {
 
 function tab1(tab) {
   if (tab == stats) {
-    document.getElementById("toggleStuff").innerHTML = "<span id="stats" onclick="tab1(stats)"><u>Stats</u></span>/<span id="lottery" onclick="tab1(lottery)">Lottery</span>"
+    document.getElementById("toggleStuff").innerHTML = "<span id="stats" onclick="tab1(stats)"><u>Stats</u></span>/<span id="lottery" onclick="tab1(lottery)">Lottery</span>";
   }
   else {
-    document.getElementById("toggleStuff").innerHTML = "<span id="stats" onclick="tab1(stats)">Stats</span>/<span id="lottery" onclick="tab1(lottery)"><u>Lottery</u></span>"
+    document.getElementById("toggleStuff").innerHTML = "<span id="stats" onclick="tab1(stats)">Stats</span>/<span id="lottery" onclick="tab1(lottery)"><u>Lottery</u></span>";
   }
 }
 
