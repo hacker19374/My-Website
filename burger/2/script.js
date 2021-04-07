@@ -1,4 +1,4 @@
-//Version 1.1.6
+//Version 1.1.7
 
 var money = 0;
 var moneyReal = 0;
@@ -43,7 +43,7 @@ function clickBurger() {
   update();
 }
 
-buy(byee) {
+function buy(byee) {
   if (byee == "mouse") {
     if (money => cursorPrice) {
       mps = mps + 0.1;
