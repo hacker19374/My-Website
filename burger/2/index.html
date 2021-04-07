@@ -1,4 +1,4 @@
-<!--Version 0.1.10-->
+<!--Version 1.1.11-->
 
 <!DOCTYPE html>
 <html>
@@ -10,10 +10,10 @@
   </head>
   <body>
     <div class="sidenav">
-      <a>
-        <span id="stats">Stats</span>/<span id="lottery">Lottery</span>
+      <a id="toggleStuff">
+        <span id="stats" onclick="tab1(stats)"><u>Stats</u></span>/<span id="lottery" onclick="tab1(lottery)">Lottery</span>
       </a>
-      <a id="moneyVisible">
+      <a id="moneyVisible" class="">
         0 Burgers
       </a>
     </div>
@@ -26,9 +26,13 @@
       </a>
       <div id="mouse" class="shop-item" onclick="buy(mouse)">
         <h3>Mouse</h3>
-        <p class="description">Increases burgers per click</p>
-        <br>
-        <p id="mouse-price">30</p>
+        <p class="description">Sells one burger every 10 seconds</p>
+        <p class="description" id="mouse-price">30 Dollars</p>
+      </div>
+      <div id="grandpa" class="shop-item" onclick="buy(grandpa)">
+        <h3>Grandpa</h3>
+        <p class="description">Cooks one burger every second</p>
+        <p class="description" id="grandpa-price">200 Dollars</p>
       </div>
     </div>
   </body>
