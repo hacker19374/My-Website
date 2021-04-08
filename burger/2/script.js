@@ -1,4 +1,4 @@
-//Version 1.1.10
+//Version 1.1.11
 
 var money = 0;
 var moneyReal = 0;
@@ -8,6 +8,8 @@ var bps = 0;
 var mps = 0;
 var timer = setInterval(perSecond, 1000)
 var clickValue = 1;
+var burgerPrice = 1;
+var sellAmount = 1;
 var cursorPrice = 30;
 var grandpaPrice = 200;
 var farmPrice = 2200;
@@ -31,8 +33,16 @@ function update() {
 }
 
 function clickBurger() {
-  burgers = burgers + clickValue;
+  burgersReal = burgersReal + clickValue;
   update();
+}
+
+function sellBurger() {
+  if (burgersReal >= 1) {
+    burgersReal -= sellAmount;
+    moneyReal += (burgerPrice * sellAmount);
+    update();
+  }
 }
 
 function buy(byee) {
