@@ -1,4 +1,4 @@
-//Version 1.1.12
+//Version 1.1.13
 
 var money = 0;
 var moneyReal = 0;
@@ -77,3 +77,5 @@ function tab1(tab) {
 
   }
 }
+
+sellBurger()
