@@ -18,6 +18,8 @@ var workshopPrice = 260000;
 var bankPrice = 2800000;
 var pyramidPrice = 40000000;
 var alchemistTowerPrice = 660000000;
+var time2 = setTimeout(sellBurger, rand);
+var rand = Math.floor(Math.random() * 1000) + 20000
 
 function perSecond() {
   moneyReal += mps;
@@ -39,9 +41,11 @@ function clickBurger() {
 
 function sellBurger() {
   if (burgersReal >= 1) {
+    rand = Math.floor(Math.random() * 1000) + 20000
     burgersReal -= sellAmount;
     moneyReal += (burgerPrice * sellAmount);
     update();
+    setTimeout(sellBurger, rand);
   }
 }
 
