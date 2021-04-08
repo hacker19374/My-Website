@@ -1,4 +1,4 @@
-//Version 1.1.13
+//Version 1.1.14
 
 var money = 0;
 var moneyReal = 0;
@@ -18,7 +18,6 @@ var workshopPrice = 260000;
 var bankPrice = 2800000;
 var pyramidPrice = 40000000;
 var alchemistTowerPrice = 660000000;
-var time2 = setTimeout(sellBurger, rand);
 var rand = Math.floor(Math.random() * 1000) + 20000
 
 function perSecond() {
@@ -78,4 +77,6 @@ function tab1(tab) {
   }
 }
 
-sellBurger()
+window.onload = function() {
+  sellBurger();
+}
