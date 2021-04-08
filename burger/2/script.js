@@ -1,4 +1,4 @@
-//Version 1.1.11
+//Version 1.1.12
 
 var money = 0;
 var moneyReal = 0;
