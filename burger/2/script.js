@@ -1,4 +1,4 @@
-//Version 1.1.9
+//Version 1.1.10
 
 var money = 0;
 var moneyReal = 0;
@@ -26,7 +26,8 @@ function perSecond() {
 function update() {
   money = Math.floor(moneyReal);
   burgers = Math.floor(burgersReal);
-  document.getElementById("moneyVisible").innerHTML = money + " Burgers";
+  document.getElementById("burgersVisible").innerHTML = burgers + " Burgers";
+  document.getElementById("moneyVisible").innerHTML = money + " Dollars";
 }
 
 function clickBurger() {
