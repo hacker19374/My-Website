@@ -1,4 +1,4 @@
-//Version 1.1.16
+//Version 1.1.17
 
 var money = 0;
 var moneyReal = 0;
@@ -7,7 +7,6 @@ var burgersReal = 0;
 var bps = 0;
 var mps = 0;
 var timer = setInterval(perSecond, 1000)
-var timer2 = setInterval(sellBurger, rand)
 var randMin = 1000;
 var randMax = 20000;
 var clickValue = 1;
@@ -22,6 +21,7 @@ var bankPrice = 2800000;
 var pyramidPrice = 40000000;
 var alchemistTowerPrice = 660000000;
 var rand = Math.floor(Math.random() * randMin) + randMax
+var timer2 = setInterval(sellBurger, rand)
 
 function perSecond() {
   moneyReal += mps;
