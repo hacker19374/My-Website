@@ -1,5 +1,6 @@
-//Version 1.1.17
+//Version 1.1.18
 
+var saveFunction = setInterval(save, 300000)
 var money = 0;
 var moneyReal = 0;
 var burgers = 0;
@@ -20,8 +21,8 @@ var workshopPrice = 260000;
 var bankPrice = 2800000;
 var pyramidPrice = 40000000;
 var alchemistTowerPrice = 660000000;
-var rand = Math.floor(Math.random() * randMin) + randMax
-var timer2 = setInterval(sellBurger, rand)
+var rand = Math.floor(Math.random() * randMin) + randMax;
+var timer2 = setInterval(sellBurger, rand);
 
 function perSecond() {
   moneyReal += mps;
@@ -43,7 +44,7 @@ function clickBurger() {
 
 function sellBurger() {
   if (burgersReal >= 1) {
-    rand = Math.floor(Math.random() * 1000) + 20000
+    rand = Math.floor(Math.random() * 1000) + 20000;
     burgersReal -= sellAmount;
     moneyReal += (burgerPrice * sellAmount);
     update();
@@ -52,8 +53,9 @@ function sellBurger() {
 
 function buy(byee) {
   if (byee == "mouse") {
-    if (money => cursorPrice) {
-      randMax = randMax - ((randMax / 100) * 2)
+    if (moneyReal => cursorPrice) {
+      randMax = randMax - ((randMax / 100) * 2);
+      moneyReal -= cursorPrice;
       cursorPrice = cursorPrice + ((cursorPrice / 100) * (Math.floor(Math.random() * 10) + 1));
       document.getElementById("mouse-price").innerHTML = cursorPrice + " Dollars";
     }
@@ -76,5 +78,28 @@ function tab1(tab) {
     document.getElementById("lottery").innerHTML = "<u>Lottery</u>";    
     document.getElementById("stats").innerHTML = "Stats";
 
+  }
+}
+
+function save() {
+  localStorage.money_real = moneyReal;
+  localStorage.burgers_real = burgersReal;
+  localStorage.bps = bps;
+  localStorage.mps = mps;
+  localStorage.randMin = randMin;
+  localStorage.randMax = randMax;
+  localStorage.clickValue = clickValue;
+  localStorage.burgerPrice = burgerPrice;
+  localStorage.sellAmount = sellAmount;
+  localStorage.cursorPrice = cursorPrice;
+  localStorage.grandpaPrice = grandpaPrice;
+}
+
+function load() {
+  if (localStorage.money_real != "" || localStorage.money_real != undefined) {
+    moneyReal = +localStorage.money_real;
+  }
+  if (localStorage.burgers_real != "" || localStorage.burgers_real != undefined) {
+    burgersReal = +localStorage.burgers_real;
   }
 }
