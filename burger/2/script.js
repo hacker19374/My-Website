@@ -1,4 +1,4 @@
-//Version 1.1.8
+//Version 1.1.9
 
 var money = 0;
 var moneyReal = 0;
@@ -21,15 +21,6 @@ function perSecond() {
   moneyReal += mps;
   burgersReal += bps;
   update();
-}
-
-function tab1(tab) {
-  if (tab == stats) {
-    document.getElementById("toggleStuff").innerHTML = "<span id="stats" onclick="tab1(stats)"><u>Stats</u></span>/<span id="lottery" onclick="tab1(lottery)">Lottery</span>";
-  }
-  else {
-    document.getElementById("toggleStuff").innerHTML = "<span id="stats" onclick="tab1(stats)">Stats</span>/<span id="lottery" onclick="tab1(lottery)"><u>Lottery</u></span>";
-  }
 }
 
 function update() {
@@ -57,5 +48,17 @@ function buy(byee) {
       grandpaPrice = grandpaPrice + ((grandpaPrice / 100) * (Math.floor(Math.random() * 10) + 1));
       document.getElementById("grandpa-price").innerHTML = grandpaPrice + " Dollars";
     }
+  }
+}
+
+function tab1(tab) {
+  if (tab == stats) {
+    document.getElementById("stats").innerHTML = "<u>Stats</u>";
+    document.getElementById("lottery").innerHTML = "Lottery";
+  }
+  else {
+    document.getElementById("lottery").innerHTML = "<u>Lottery</u>";    
+    document.getElementById("stats").innerHTML = "Stats";
+
   }
 }
