@@ -1,4 +1,4 @@
-//Version 1.1.14
+//Version 1.1.15
 
 var money = 0;
 var moneyReal = 0;
@@ -7,6 +7,7 @@ var burgersReal = 0;
 var bps = 0;
 var mps = 0;
 var timer = setInterval(perSecond, 1000)
+var timer2 = setInterval(sellBurger, rand)
 var clickValue = 1;
 var burgerPrice = 1;
 var sellAmount = 1;
@@ -44,7 +45,6 @@ function sellBurger() {
     burgersReal -= sellAmount;
     moneyReal += (burgerPrice * sellAmount);
     update();
-    setTimeout(sellBurger, rand);
   }
 }
 
@@ -75,8 +75,4 @@ function tab1(tab) {
     document.getElementById("stats").innerHTML = "Stats";
 
   }
-}
-
-window.onload = function() {
-  sellBurger();
 }
