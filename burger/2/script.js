@@ -1,4 +1,4 @@
-//Version 1.1.19
+//Version 1.1.20
 
 var saveFunction = setInterval(save, 300000)
 var money = 0;
@@ -9,7 +9,7 @@ var bps = 0;
 var mps = 0;
 var timer = setInterval(perSecond, 1000)
 var randMin = 1000;
-var randMax = 20000;
+var randMax = 15000;
 var clickValue = 1;
 var burgerPrice = 1;
 var sellAmount = 1;
