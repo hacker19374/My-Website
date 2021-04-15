@@ -1,4 +1,4 @@
-//Version 1.1.18
+//Version 1.1.19
 
 var saveFunction = setInterval(save, 300000)
 var money = 0;
@@ -44,7 +44,7 @@ function clickBurger() {
 
 function sellBurger() {
   if (burgersReal >= 1) {
-    rand = Math.floor(Math.random() * 1000) + 20000;
+    rand = Math.floor(Math.random() * randMin) + randMax;
     burgersReal -= sellAmount;
     moneyReal += (burgerPrice * sellAmount);
     update();
@@ -53,7 +53,7 @@ function sellBurger() {
 
 function buy(byee) {
   if (byee == "mouse") {
-    if (moneyReal => cursorPrice) {
+    if (moneyReal >= cursorPrice) {
       randMax = randMax - ((randMax / 100) * 2);
       moneyReal -= cursorPrice;
       cursorPrice = cursorPrice + ((cursorPrice / 100) * (Math.floor(Math.random() * 10) + 1));
@@ -61,7 +61,7 @@ function buy(byee) {
     }
   }
   if (byee == "grandpa") {
-    if (money => grandpaPrice) {
+    if (money >= grandpaPrice) {
       bps = bps + 1;
       grandpaPrice = grandpaPrice + ((grandpaPrice / 100) * (Math.floor(Math.random() * 10) + 1));
       document.getElementById("grandpa-price").innerHTML = grandpaPrice + " Dollars";
