@@ -1,27 +1,27 @@
-//Version 1.1.20
+//Version 1.1.21
 
 var saveFunction = setInterval(save, 300000)
-var money = 0;
-var moneyReal = 0;
-var burgers = 0;
-var burgersReal = 0;
-var bps = 0;
-var mps = 0;
+var money = +0;
+var moneyReal = +0;
+var burgers = +0;
+var burgersReal = +0;
+var bps = +0;
+var mps = +0;
 var timer = setInterval(perSecond, 1000)
-var randMin = 1000;
-var randMax = 15000;
-var clickValue = 1;
-var burgerPrice = 1;
-var sellAmount = 1;
-var cursorPrice = 15;
-var grandpaPrice = 200;
-var farmPrice = 2200;
-var cavePrice = 24000;
-var workshopPrice = 260000;
-var bankPrice = 2800000;
-var pyramidPrice = 40000000;
-var alchemistTowerPrice = 660000000;
-var rand = Math.floor(Math.random() * randMin) + randMax;
+var randMin = +1000;
+var randMax = +15000;
+var clickValue = +1;
+var burgerPrice = +1;
+var sellAmount = +1;
+var cursorPrice = +15;
+var grandpaPrice = +200;
+var farmPrice = +2200;
+var cavePrice = +24000;
+var workshopPrice = +260000;
+var bankPrice = +2800000;
+var pyramidPrice = +40000000;
+var alchemistTowerPrice = +660000000;
+var rand = +Math.floor(Math.random() * randMin) + randMax;
 var timer2 = setInterval(sellBurger, rand);
 
 function perSecond() {
@@ -53,11 +53,12 @@ function sellBurger() {
 
 function buy(byee) {
   if (byee == "mouse") {
-    if (moneyReal >= cursorPrice) {
+    if (moneyReal > cursorPrice || moneyReal = cursorPrice || money >= cursorPrice) {
       randMax = randMax - ((randMax / 100) * 2);
       moneyReal -= cursorPrice;
       cursorPrice = cursorPrice + ((cursorPrice / 100) * (Math.floor(Math.random() * 10) + 1));
       document.getElementById("mouse-price").innerHTML = cursorPrice + " Dollars";
+      update();
     }
   }
   if (byee == "grandpa") {
