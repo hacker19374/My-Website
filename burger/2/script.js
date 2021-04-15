@@ -1,4 +1,4 @@
-//Version 1.1.21
+//Version 1.1.22
 
 var saveFunction = setInterval(save, 300000)
 var money = +0;
@@ -21,7 +21,7 @@ var workshopPrice = +260000;
 var bankPrice = +2800000;
 var pyramidPrice = +40000000;
 var alchemistTowerPrice = +660000000;
-var rand = +Math.floor(Math.random() * randMin) + randMax;
+var rand = Math.floor(Math.random() * randMin) + randMax;
 var timer2 = setInterval(sellBurger, rand);
 
 function perSecond() {
@@ -53,7 +53,7 @@ function sellBurger() {
 
 function buy(byee) {
   if (byee == "mouse") {
-    if (moneyReal > cursorPrice || moneyReal = cursorPrice || money >= cursorPrice) {
+    if (moneyReal >= cursorPrice || moneyReal == cursorPrice || money >= cursorPrice) {
       randMax = randMax - ((randMax / 100) * 2);
       moneyReal -= cursorPrice;
       cursorPrice = cursorPrice + ((cursorPrice / 100) * (Math.floor(Math.random() * 10) + 1));
