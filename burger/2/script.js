@@ -45,28 +45,29 @@ function clickBurger() {
 function sellBurger() {
   if (burgersReal >= 1) {
     rand = Math.floor(Math.random() * randMin) + randMax;
-    burgersReal -= sellAmount;
-    moneyReal += (burgerPrice * sellAmount);
+    burgersReal = burgersReal - sellAmount;
+    moneyReal = moneyReal + (burgerPrice * sellAmount);
     update();
   }
 }
 
-function buy(byee) {
-  if (byee == "mouse") {
+function buyMouse(byee) {
     if (moneyReal >= cursorPrice || moneyReal == cursorPrice || money >= cursorPrice) {
-      randMax = randMax - ((randMax / 100) * 2);
-      moneyReal -= cursorPrice;
-      cursorPrice = cursorPrice + ((cursorPrice / 100) * (Math.floor(Math.random() * 10) + 1));
+      moneyReal = moneyReal - cursorPrice;
+      cursorPrice = cursorPrice + ((cursorPrice / 100) * (Math.floor(Math.random() * 5) + 2));
       document.getElementById("mouse-price").innerHTML = cursorPrice + " Dollars";
+      randMax = randMax - ((randMax / 100) * 2);
       update();
     }
+    else {
+      console.log("Not enough Money, you need " + (cursorPrice - money) + " more dollars.")
+    }
   }
-  if (byee == "grandpa") {
+function buyGrandpa() {
     if (money >= grandpaPrice) {
       bps = bps + 1;
       grandpaPrice = grandpaPrice + ((grandpaPrice / 100) * (Math.floor(Math.random() * 10) + 1));
       document.getElementById("grandpa-price").innerHTML = grandpaPrice + " Dollars";
-    }
   }
 }
 
