@@ -1,4 +1,4 @@
-//Version 1.1.25
+//Version 1.1.26
 
 var saveFunction = setInterval(save, 30000);
 var money = +0;
@@ -33,7 +33,7 @@ function perSecond() {
 function update() {
     money = Math.floor(moneyReal);
     burgers = Math.floor(burgersReal);
-    document.getElementById("mouse-price").innerHTML = Math.ceiling(cursorPrice) + " Dollars";
+    document.getElementById("mouse-price").innerHTML = Math.ceil(cursorPrice) + " Dollars";
     document.getElementById("burgersVisible").innerHTML = burgers + " Burgers";
     document.getElementById("moneyVisible").innerHTML = money + " Dollars";
 }
