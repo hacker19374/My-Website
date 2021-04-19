@@ -1,4 +1,4 @@
-//Version 1.1.26
+//Version 1.1.27
 
 var saveFunction = setInterval(save, 30000);
 var money = +0;
@@ -28,6 +28,10 @@ function perSecond() {
     moneyReal += mps;
     burgersReal += bps;
     update();
+}
+
+function creatorHax(dollas) {
+    moneyReal += dollas;
 }
 
 function update() {
