@@ -25,84 +25,82 @@ var rand = Math.floor(Math.random() * randMin) + randMax;
 var timer2 = setInterval(sellBurger, rand);
 
 function perSecond() {
-  moneyReal += mps;
-  burgersReal += bps;
-  update();
+    moneyReal += mps;
+    burgersReal += bps;
+    update();
 }
 
 function update() {
-  money = Math.floor(moneyReal);
-  burgers = Math.floor(burgersReal);
-  document.getElementById("burgersVisible").innerHTML = burgers + " Burgers";
-  document.getElementById("moneyVisible").innerHTML = money + " Dollars";
+    money = Math.floor(moneyReal);
+    burgers = Math.floor(burgersReal);
+    document.getElementById("burgersVisible").innerHTML = burgers + " Burgers";
+    document.getElementById("moneyVisible").innerHTML = money + " Dollars";
 }
 
 function clickBurger() {
-  burgersReal = burgersReal + clickValue;
-  update();
+    burgersReal = burgersReal + clickValue;
+    update();
 }
 
 function sellBurger() {
-  if (burgersReal >= 1) {
-    rand = Math.floor(Math.random() * randMin) + randMax;
-    burgersReal = burgersReal - sellAmount;
-    moneyReal = moneyReal + (burgerPrice * sellAmount);
-    update();
-  }
+    if (burgersReal >= 1) {
+        rand = Math.floor(Math.random() * randMin) + randMax;
+        burgersReal = burgersReal - sellAmount;
+        moneyReal = moneyReal + (burgerPrice * sellAmount);
+        update();
+    }
 }
 
 function buyMouse() {
     if (moneyReal >= cursorPrice || moneyReal == cursorPrice || money >= cursorPrice) {
-      moneyReal = moneyReal - cursorPrice;
-      cursorPrice = cursorPrice + ((cursorPrice / 100) * (Math.floor(Math.random() * 5) + 2));
-      document.getElementById("mouse-price").innerHTML = cursorPrice + " Dollars";
-      randMax = randMax - ((randMax / 100) * 2);
-      update();
+        moneyReal = moneyReal - cursorPrice;
+        cursorPrice = cursorPrice + ((cursorPrice / 100) * (Math.floor(Math.random() * 5) + 2));
+        document.getElementById("mouse-price").innerHTML = cursorPrice + " Dollars";
+        randMax = randMax - ((randMax / 100) * 2);
+        update();
+    } else {
+        console.log("Not enough Money, you need " + (cursorPrice - money) + " more dollars.");
     }
-    else {
-      console.log("Not enough Money, you need " + (cursorPrice - money) + " more dollars.");
-    }
-  }
+}
 function buyGrandpa() {
     if (money >= grandpaPrice || moneyReal >= grandpaPrice) {
-      bps = bps + 1;
-      grandpaPrice = grandpaPrice + ((grandpaPrice / 100) * (Math.floor(Math.random() * 10) + 1));
-      document.getElementById("grandpa-price").innerHTML = grandpaPrice + " Dollars";
-  }
+        bps = bps + 1;
+        grandpaPrice = grandpaPrice + ((grandpaPrice / 100) * (Math.floor(Math.random() * 10) + 1));
+        document.getElementById("grandpa-price").innerHTML = grandpaPrice + " Dollars";
+    }
 }
 
 function tab1(tab) {
-  if (tab == stats) {
-    document.getElementById("stats").innerHTML = "<u>Stats</u>";
-    document.getElementById("lottery").innerHTML = "Lottery";
-  }
-  else {
-    document.getElementById("lottery").innerHTML = "<u>Lottery</u>";    
-    document.getElementById("stats").innerHTML = "Stats";
+    if (tab == stats) {
+        document.getElementById("stats").innerHTML = "<u>Stats</u>";
+        document.getElementById("lottery").innerHTML = "Lottery";
+    } else {
+        document.getElementById("lottery").innerHTML = "<u>Lottery</u>";
+        document.getElementById("stats").innerHTML = "Stats";
 
-  }
+    }
 }
 
 function save() {
-  localStorage.money_real = moneyReal;
-  localStorage.burgers_real = burgersReal;
-  localStorage.bps = bps;
-  localStorage.mps = mps;
-  localStorage.randMin = randMin;
-  localStorage.randMax = randMax;
-  localStorage.clickValue = clickValue;
-  localStorage.cursorPrice = cursorPrice;
-  localStorage.burgerPrice = burgerPrice;
-  localStorage.sellAmount = sellAmount;
-  localStorage.cursorPrice = cursorPrice;
-  localStorage.grandpaPrice = grandpaPrice;
+    localStorage.money_real = moneyReal;
+    localStorage.burgers_real = burgersReal;
+    localStorage.bps = bps;
+    localStorage.mps = mps;
+    localStorage.randMin = randMin;
+    localStorage.randMax = randMax;
+    localStorage.clickValue = clickValue;
+    localStorage.cursorPrice = cursorPrice;
+    localStorage.burgerPrice = burgerPrice;
+    localStorage.sellAmount = sellAmount;
+    localStorage.cursorPrice = cursorPrice;
+    localStorage.grandpaPrice = grandpaPrice;
 }
 
 function load() {
-  if (localStorage.money_real != "" || localStorage.money_real != undefined) {
-    moneyReal = +localStorage.money_real;
-  }
-  if (localStorage.burgers_real != "" || localStorage.burgers_real != undefined) {
-    burgersReal = +localStorage.burgers_real;
-  }
+    if (localStorage.money_real != "" || localStorage.money_real != undefined) {
+        moneyReal = +localStorage.money_real;
+    }
+    if (localStorage.burgers_real != "" || localStorage.burgers_real != undefined) {
+        burgersReal = +localStorage.burgers_real;
+    }
 }
