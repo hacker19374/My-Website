@@ -33,6 +33,7 @@ function perSecond() {
 function update() {
     money = Math.floor(moneyReal);
     burgers = Math.floor(burgersReal);
+    document.getElementById("mouse-price").innerHTML = Math.floor(cursorPrice) + " Dollars";
     document.getElementById("burgersVisible").innerHTML = burgers + " Burgers";
     document.getElementById("moneyVisible").innerHTML = money + " Dollars";
 }
@@ -63,10 +64,12 @@ function buyMouse() {
     }
 }
 function buyGrandpa() {
-    if (money >= grandpaPrice || moneyReal >= grandpaPrice) {
+    if (money >= grandpaPrice || moneyReal >= grandpaPrice || moneyReal == grandpaPrice) {
         bps = bps + 1;
         grandpaPrice = grandpaPrice + ((grandpaPrice / 100) * (Math.floor(Math.random() * 10) + 1));
         document.getElementById("grandpa-price").innerHTML = grandpaPrice + " Dollars";
+    } else {
+        console.log("Not enough Money, you need " + (grandpaPrice - money) + " more dollars.");
     }
 }
 
