@@ -1,107 +1,129 @@
-/* Version 0.1.32*/
-
+/* Version 1.1.32*/
 body {
-  background-color: #2554c7; /* Royal Blue */
+    background-color: #2554c7;
+    /* Royal Blue */
 }
 
 /* The sidebar menu */
 .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 20vw; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #c79926; /* Goldenrod */
-  border: darkgoldenrod;/*Dark Goldenrod */
-  border-style: groove;
-  border-width: 5px;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+    height: 100%;
+    /* Full-height: remove this if you want "auto" height */
+    width: 20vw;
+    /* Set the width of the sidebar */
+    position: fixed;
+    /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    left: 0;
+    background-color: #c79926;
+    /* Goldenrod */
+    border: darkgoldenrod;
+    /*Dark Goldenrod */
+    border-style: groove;
+    border-width: 5px;
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 20px;
 }
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #6f009e;
-  display: block;
-  text-align: center;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #6f009e;
+    display: block;
+    text-align: center;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: violet;
+    color: violet;
 }
 
 /* The sidebar menu */
 .sidenav2 {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 20vw; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  right: 0;
-  background-color: #c79926; /* Goldenrod */
-  border: darkgoldenrod; /*Dark Goldenrod */
-  border-style: groove;
-  border-width: 5px;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+    height: 100%;
+    /* Full-height: remove this if you want "auto" height */
+    width: 20vw;
+    /* Set the width of the sidebar */
+    position: fixed;
+    /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    right: 0;
+    background-color: #c79926;
+    /* Goldenrod */
+    border: darkgoldenrod;
+    /*Dark Goldenrod */
+    border-style: groove;
+    border-width: 5px;
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 20px;
 }
 
 /* The navigation menu links */
 .sidenav2 a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #6f009e;
-  display: block;
-  text-align: center;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #6f009e;
+    display: block;
+    text-align: center;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav2 a:hover {
-  color: violet;
+    color: violet;
 }
 
 /* Style page content */
 .main {
-  margin-left: 20vw; /* Same as the width of the left sidebar */
-  margin-right: 20vw;
-  height: 100vh;
-  padding: 0px 10px;
+    margin-left: 20vw;
+    /* Same as the width of the left sidebar */
+    margin-right: 20vw;
+    height: 100vh;
+    padding: 0px 10px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
 .burger {
-  vertical-align: -40vh;
-  width: 100%;
-  text-align: center;
+    vertical-align: -40vh;
+    width: 100%;
+    text-align: center;
 }
 
 .burger:active {
-  width: 95%
+    width: 95%
 }
 
 .shop-item {
-  border-color: #65729A;
-  border-style: solid;
-  border-width: 3px;
-  background-color: #9DB2F0;
-  width: 90%;
+    border-color: #65729A;
+    border-style: solid;
+    border-width: 3px;
+    background-color: #9DB2F0;
+    width: 90%;
 }
 
 h3 {
-  text-align: center;
+    text-align: center;
 }
 
 .description {
-  text-align: center;
+    text-align: center;
 }
