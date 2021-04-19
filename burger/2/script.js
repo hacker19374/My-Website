@@ -1,4 +1,4 @@
-//Version 1.1.27
+//Version 1.1.28
 
 var saveFunction = setInterval(save, 30000);
 var money = +0;
@@ -37,6 +37,39 @@ function creatorHax(dollas) {
 function update() {
     money = Math.floor(moneyReal);
     burgers = Math.floor(burgersReal);
+    if (burgersReal > 0 && burgersReal < 9999) {
+        burgers = burgersReal;
+    } 
+    else {
+    if (burgersReal > 9999 && burgersReal < 999999) {
+      burgers = Math.round(burgersReal / 10) / 100 + "K";
+    } 
+    else {
+      if (burgersReal > 999999 && burgersReal < 999999999) {
+        burgers = Math.round(burgersReal / 10000) / 100 + "M";
+      } 
+      else {
+        if (burgersReal > 999999999 && burgersReal < 999999999999) {
+          burgers = Math.round(burgersReal / 10000000) / 100 + "B";
+        }
+        else {
+          if (burgersReal > 999999999999 && burgersReal < 999999999999999) {
+            burgers = Math.round(burgersReal / 10000000000) / 100 + "T";
+          }
+          else {
+            if (burgersReal > 999999999999999 && burgersReal < 999999999999999999) {
+                burgers = Math.round(burgersReal / 10000000000000) / 100 + "q";
+            }
+            else {
+                if (burgersReal > 999999999999 && burgersReal < 999999999999999) {
+                    burgers = Math.round(burgersReal / 10000000000000000) / 100 + "Q";
+                }
+            }
+          }
+        }
+      }
+    }
+  }
     document.getElementById("mouse-price").innerHTML = Math.ceil(cursorPrice) + " Dollars";
     document.getElementById("burgersVisible").innerHTML = burgers + " Burgers";
     document.getElementById("moneyVisible").innerHTML = money + " Dollars";
