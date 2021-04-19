@@ -1,4 +1,4 @@
-//Version 1.1.22
+//Version 1.1.23
 
 var saveFunction = setInterval(save, 300000)
 var money = +0;
@@ -13,7 +13,7 @@ var randMax = +15000;
 var clickValue = +1;
 var burgerPrice = +1;
 var sellAmount = +1;
-var cursorPrice = +15;
+var cursorPrice = +10;
 var grandpaPrice = +200;
 var farmPrice = +2200;
 var cavePrice = +24000;
@@ -51,7 +51,7 @@ function sellBurger() {
   }
 }
 
-function buyMouse(byee) {
+function buyMouse() {
     if (moneyReal >= cursorPrice || moneyReal == cursorPrice || money >= cursorPrice) {
       moneyReal = moneyReal - cursorPrice;
       cursorPrice = cursorPrice + ((cursorPrice / 100) * (Math.floor(Math.random() * 5) + 2));
@@ -60,11 +60,11 @@ function buyMouse(byee) {
       update();
     }
     else {
-      console.log("Not enough Money, you need " + (cursorPrice - money) + " more dollars.")
+      console.log("Not enough Money, you need " + (cursorPrice - money) + " more dollars.");
     }
   }
 function buyGrandpa() {
-    if (money >= grandpaPrice) {
+    if (money >= grandpaPrice || moneyReal >= grandpaPrice) {
       bps = bps + 1;
       grandpaPrice = grandpaPrice + ((grandpaPrice / 100) * (Math.floor(Math.random() * 10) + 1));
       document.getElementById("grandpa-price").innerHTML = grandpaPrice + " Dollars";
@@ -91,6 +91,7 @@ function save() {
   localStorage.randMin = randMin;
   localStorage.randMax = randMax;
   localStorage.clickValue = clickValue;
+  localStorage.cursorPrice = cursorPrice;
   localStorage.burgerPrice = burgerPrice;
   localStorage.sellAmount = sellAmount;
   localStorage.cursorPrice = cursorPrice;
