@@ -1,6 +1,6 @@
-//Version 1.1.23
+//Version 1.1.24
 
-var saveFunction = setInterval(save, 300000)
+var saveFunction = setInterval(save, 30000);
 var money = +0;
 var moneyReal = +0;
 var burgers = +0;
