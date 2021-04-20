@@ -1,4 +1,4 @@
-//Version 1.1.28
+//Version 1.1.29
 
 var saveFunction = setInterval(save, 30000);
 var money = +0;
@@ -92,9 +92,9 @@ function sellBurger() {
 function buyMouse() {
     if (moneyReal >= cursorPrice || moneyReal == cursorPrice || money >= cursorPrice) {
         moneyReal = moneyReal - cursorPrice;
-        cursorPrice = cursorPrice + ((cursorPrice / 100) * (Math.floor(Math.random() * 5) + 2));
+        cursorPrice = cursorPrice + ((cursorPrice / 100) * (Math.floor(Math.random() * 10) + 5));
         document.getElementById("mouse-price").innerHTML = cursorPrice + " Dollars";
-        randMax = randMax - ((randMax / 100) * 2);
+        randMax = randMax - ((randMax / 100) * 5);
         update();
     } else {
         console.log("Not enough Money, you need " + (cursorPrice - money) + " more dollars.");
@@ -102,8 +102,8 @@ function buyMouse() {
 }
 function buyGrandpa() {
     if (money >= grandpaPrice || moneyReal >= grandpaPrice || moneyReal == grandpaPrice) {
-        bps = bps + 1;
-        grandpaPrice = grandpaPrice + ((grandpaPrice / 100) * (Math.floor(Math.random() * 10) + 1));
+        mps = mps + 0.1;
+        grandpaPrice = grandpaPrice + ((grandpaPrice / 100) * (Math.floor(Math.random() * 10) + 5));
         document.getElementById("grandpa-price").innerHTML = grandpaPrice + " Dollars";
     } else {
         console.log("Not enough Money, you need " + (grandpaPrice - money) + " more dollars.");
