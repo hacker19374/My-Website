@@ -1,4 +1,4 @@
-//Version 1.1.29
+//Version 1.1.30
 
 var saveFunction = setInterval(save, 30000);
 var money = +0;
@@ -14,8 +14,8 @@ var clickValue = +1;
 var burgerPrice = +1;
 var sellAmount = +1;
 var cursorPrice = +10;
-var grandpaPrice = +200;
-var farmPrice = +2200;
+var grandpaPrice = +50;
+var farmPrice = +250;
 var cavePrice = +24000;
 var workshopPrice = +260000;
 var bankPrice = +2800000;
