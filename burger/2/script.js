@@ -71,6 +71,7 @@ function update() {
     }
   }
     document.getElementById("mouse-price").innerHTML = Math.ceil(cursorPrice) + " Dollars";
+    document.getElementById("grandpa-price").innerHTML = Math.ceil(grandpaPrice) + " Dollars";
     document.getElementById("burgersVisible").innerHTML = burgers + " Burgers";
     document.getElementById("moneyVisible").innerHTML = money + " Dollars";
 }
@@ -103,6 +104,7 @@ function buyMouse() {
 function buyGrandpa() {
     if (money >= grandpaPrice || moneyReal >= grandpaPrice || moneyReal == grandpaPrice) {
         mps = mps + 0.1;
+        moneyReal = moneyReal - grandpaPrice;
         grandpaPrice = grandpaPrice + ((grandpaPrice / 100) * (Math.floor(Math.random() * 10) + 5));
         document.getElementById("grandpa-price").innerHTML = grandpaPrice + " Dollars";
     } else {
