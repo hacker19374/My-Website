@@ -1,4 +1,4 @@
-//Version 1.1.30
+//Version 1.1.32
 
 var saveFunction = setInterval(save, 30000);
 var money = +0;
@@ -31,7 +31,13 @@ function perSecond() {
 }
 
 function creatorHax(dollas) {
-    moneyReal += dollas;
+    if (dollas == "a lot") {
+        moneyReal += 100;
+        moneyReal *= 5;
+    } else {
+        moneyReal /= 2;
+        console.log("NO CHEATING!! You get 1/2 of your money TAKEN AWAY!!!");
+    }
 }
 
 function update() {
