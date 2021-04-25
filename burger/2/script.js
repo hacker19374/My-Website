@@ -1,5 +1,6 @@
-//Version 1.1.32
+//Version 1.1.33
 
+var saveCode = btoa(saveCodeData)
 var saveFunction = setInterval(save, 30000);
 var money = +0;
 var moneyReal = +0;
@@ -23,6 +24,19 @@ var pyramidPrice = +40000000;
 var alchemistTowerPrice = +660000000;
 var rand = Math.floor(Math.random() * randMin) + randMax;
 var timer2 = setInterval(sellBurger, rand);
+var saveCodeData = {
+    burgers:burgersReal,
+    money:moneyReal,
+    bps:bps,
+    mps:mps,
+    randomMin:randMin,
+    randomMax:randMax,
+    clickVal:clickValue,
+    burgerPr:burgerPrice,
+    sellAmount:sellAmount,
+    cursorPr:cursorPrice,
+    grandpaPr:grandpaPrice
+};
 
 function perSecond() {
     moneyReal += mps;
@@ -42,6 +56,7 @@ function creatorHax(dollas) {
 
 function update() {
     money = Math.floor(moneyReal);
+    console.log(saveCode);
     burgers = Math.floor(burgersReal);
     if (burgersReal > 0 && burgersReal < 9999) {
         burgers = burgersReal;
