@@ -1,4 +1,4 @@
-//Version 1.1.33
+//Version 1.1.35
 
 var saveCode = btoa(saveCodeData)
 var saveFunction = setInterval(save, 30000);
@@ -39,7 +39,7 @@ var saveCodeData = {
 };
 
 function goSay() {
-    alert(saveCeodeData);
+    alert(saveCodeData);
 }
 
 function perSecond() {
