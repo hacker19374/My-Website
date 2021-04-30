@@ -38,6 +38,10 @@ var saveCodeData = {
     grandpaPr:grandpaPrice
 };
 
+function goSay() {
+    alert(saveCeodeData);
+}
+
 function perSecond() {
     moneyReal += mps;
     burgersReal += bps;
