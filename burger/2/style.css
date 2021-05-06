@@ -1,4 +1,4 @@
-/* Version 1.1.36*/
+/* Version 1.1.37*/
 body {
     background-color: #2554c7;
     /* Royal Blue */
@@ -20,7 +20,7 @@ body {
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
