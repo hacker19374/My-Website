@@ -1,4 +1,4 @@
-/* Version 1.1.34*/
+/* Version 1.1.35*/
 body {
     background-color: #2554c7;
     /* Royal Blue */
@@ -10,7 +10,10 @@ body {
   overflow: hidden;
   width: 100%;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1;
+  height: 15px;
 }
 
 /* Style the links inside the navigation bar */
@@ -45,7 +48,7 @@ body {
     /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1;
     /* Stay on top */
-    top: 0;
+    top: 15px;
     /* Stay at the top */
     left: 0;
     background-color: #c79926;
@@ -84,7 +87,7 @@ body {
     /* Fixed Sidebar (stay in place on scroll) */
     z-index: 2;
     /* Stay on top */
-    top: 0;
+    top: 15px;
     /* Stay at the top */
     right: 0;
     background-color: #c79926;
