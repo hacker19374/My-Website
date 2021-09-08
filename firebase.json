@@ -1,0 +1,13 @@
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+{
+  "rules": {
+    ".read": "now < 1633665600000",  // 2021-10-8
+    ".write": "now < 1633665600000",  // 2021-10-8
+  }
+}
