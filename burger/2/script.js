@@ -9,19 +9,14 @@ var burgersReal = +0;
 var bps = +0;
 var mps = +0;
 var timer = setInterval(perSecond, 1000)
-var randMin = +1000;
-var randMax = +15000;
+var randMin = +300;
+var randMax = +5000;
 var clickValue = +1;
 var burgerPrice = +1;
 var sellAmount = +1;
 var cursorPrice = +10;
 var grandpaPrice = +50;
-var farmPrice = +250;
-var cavePrice = +24000;
-var workshopPrice = +260000;
-var bankPrice = +2800000;
-var pyramidPrice = +40000000;
-var alchemistTowerPrice = +660000000;
+var oven1Price = +200;
 var rand = Math.floor(Math.random() * randMin) + randMax;
 var timer2 = setInterval(sellBurger, rand);
 var saveCodeData = {
@@ -35,7 +30,8 @@ var saveCodeData = {
     burgerPr:burgerPrice,
     sellAmount:sellAmount,
     cursorPr:cursorPrice,
-    grandpaPr:grandpaPrice
+    grandpaPr:grandpaPrice,
+    oven1Pr:oven1Price
 };
 
 function goSay() {
@@ -134,6 +130,16 @@ function buyGrandpa() {
         document.getElementById("grandpa-price").innerHTML = grandpaPrice + " Dollars";
     } else {
         console.log("Not enough Money, you need " + (grandpaPrice - money) + " more dollars.");
+    }
+}
+function buyOven1() {
+    if (money >= oven1Price || moneyReal >= oven1Price || moneyReal == oven1Price) {
+        clickValue = clickValue + 1;
+        moneyReal = moneyReal - oven1Price;
+        oven1Price = oven1Price + ((oven1Price / 100) * (Math.floor(Math.random() * 10) + 5));
+        document.getElementById("super-oven-1-price").innerHTML = oven1Price + " Dollars";
+    } else {
+        console.log("Not enough Money, you need " + (oven1Price - money) + " more dollars.");
     }
 }
 
