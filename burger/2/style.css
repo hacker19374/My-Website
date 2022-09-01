@@ -22,7 +22,7 @@ body {
   float: left;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  margin-right: 10px;
   font-size: 15px;
 }
 
@@ -174,3 +174,4 @@ h3 {
 .price {
     font-weight: 700;
 }
+
