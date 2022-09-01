@@ -23,7 +23,8 @@ body {
   color: white;
   text-align: center;
   margin-right: 10px;
-  font-size: 15px;
+  padding-right: 14px;
+  font-size: 14px;
 }
 
 /* Change the color of links on hover */
