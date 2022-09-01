@@ -128,7 +128,7 @@ function buyGrandpa() {
         moneyReal = moneyReal - grandpaPrice;
         grandpaPrice = grandpaPrice + ((grandpaPrice / 100) * (Math.floor(Math.random() * 10) + 5));
         document.getElementById("grandpa-price").innerHTML = grandpaPrice + " Dollars";
-        if (document.getElementById("super-oven-name") == "???") {
+        if (document.getElementById("super-oven-name").innerHTML == "???") {
             document.getElementById("super-oven-name").innerHTML = "Super Oven 1.0";
             document.getElementById("super-oven-1-price").innerHTML = oven1Price + " Dollars";
             document.getElementById("oven-1-Description").innerHTML = "The first model of the Super Ovens, increases burgers per click by one.";
