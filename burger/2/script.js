@@ -93,7 +93,7 @@ function update() {
   }
     document.getElementById("mouse-price").innerHTML = Math.ceil(cursorPrice) + " Dollars";
     document.getElementById("grandpa-price").innerHTML = Math.ceil(grandpaPrice) + " Dollars";
-    if (grandpaPrice != 0) {
+    if (grandpaPrice != 50) {
         document.getElementById("super-oven-1-price").innerHTML = Math.ceil(oven1Price) + " Dollars";
     };
     document.getElementById("burgersVisible").innerHTML = burgers + " Burgers";
