@@ -102,6 +102,7 @@ body {
     overflow-x: hidden;
     /* Disable horizontal scroll */
     padding-top: 20px;
+    overflow: scroll;
 }
 
 /* The navigation menu links */
