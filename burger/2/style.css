@@ -3,6 +3,7 @@ body {
     background-color: #2554c7;
     /* Royal Blue */
     margin: 0px 0px 0px 0px;
+    overflow: hidden;
 }
 
 /* Add a black background color to the top navigation */
