@@ -15,6 +15,7 @@ body {
   right: 0;
   z-index: 1;
   height: 15px;
+    overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
@@ -125,6 +126,7 @@ body {
     margin-top: 15px;
     height: 100vh;
     padding: 0px 10px;
+    overflow: hidden;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
