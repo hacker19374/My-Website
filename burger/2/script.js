@@ -20,22 +20,22 @@ var oven1Price = +200;
 var rand = Math.floor(Math.random() * randMin) + randMax;
 var timer2 = setInterval(sellBurger, rand);
 var saveCodeData = {
-    burgers:burgersReal,
-    money:moneyReal,
-    bps:bps,
-    mps:mps,
-    randomMin:randMin,
-    randomMax:randMax,
-    clickVal:clickValue,
-    burgerPr:burgerPrice,
-    sellAmount:sellAmount,
-    cursorPr:cursorPrice,
-    grandpaPr:grandpaPrice,
-    oven1Pr:oven1Price
+    burgers: burgersReal,
+    money: moneyReal,
+    bps: bps,
+    mps: mps,
+    randomMin: randMin,
+    randomMax: randMax,
+    clickVal: clickValue,
+    burgerPr: burgerPrice,
+    sellAmount: sellAmount,
+    cursorPr: cursorPrice,
+    grandpaPr: grandpaPrice,
+    oven1Pr: oven1Price
 };
 
 function goSay() {
-    alert(saveCodeData);
+    alert(saveCodeData.burgers + saveCodeData.money + saveCodeData.bps + saveCodeData.mps + saveCodeData.randomMin + saveCodeData.randomMax + saveCodeData.ClickVal + saveCodeData.burgerPr + saveCodeData.sellAmount + saveCodeData.cursorPr + saveCodeData.grandpaPr + saveCodeData.oven1Pr);
 }
 
 function perSecond() {
