@@ -137,6 +137,7 @@ function buyGrandpa() {
             document.getElementById("oven-1-Description").innerHTML = "The first model of the Super Ovens, increases burgers per click by one.";
             document.getElementById("super-oven-1").classList.add("shop-item");
             document.getElementById("super-oven-1").classList.remove("hidden");
+            document.getElementById("grandpa-price").onclick = "buyOven1()";
         };
     } else {
         console.log("Not enough Money, you need " + (grandpaPrice - money) + " more dollars.");
