@@ -1,0 +1,43 @@
+body {
+  background: radial-gradient(circle at 100%, #66aa11, #66bb00 50%, #66cc00 75%, #eee999 75%);
+}
+
+#menu {
+  margin-top: 5px;
+}
+
+#comments {
+  border:5px solid brown;
+  margin-top:5px;
+  height:900px;
+  width:100%;
+}
+
+#form {
+  border: 3px solid blue;
+  height: 700px;
+  float:right;
+  margin:10px;
+  background-color: lightblue;
+}
+
+#name {
+  width: 150px;
+  margin-right: 8px;
+}
+
+#header {
+  text-align: center;
+  background-color: black;
+  color: white;
+  font-size: 2.5em;
+  font-family: futura;
+  border-radius: 10px;
+  margin: 0 10px -16px 15px;
+}
+
+.icon {
+  width: 55px;
+  height: 45px;
+  padding-right: 10px;
+}
