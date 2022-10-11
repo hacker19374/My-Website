@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Responsive</title>
+    <script>
+            var array = []
+
+      function validate() {
+        // ***VARIABLES***               ***VARIABLES***            ***VARIABLES***            ***VARIABLES***
+        
+      var name = document.getElementById("name")
+      var textarea = document.getElementById("textarea")
+      var title = document.getElementById("title")
+      var textColor = document.getElementById("textColor")
+      var bgColor = document.getElementById("bgColor")
+      var radiobtns = document.getElementById("radiobtns")
+      var icons = document.querySelectorAll("[name='icon']")
+      var message = document.getElementById("message")
+      var x = 0
+      
+      var radio_choice = false
+      var blank_field = true
+        
+        
+        
+        if (name.value == "") {
+          name.style.border = "1px solid red"
+        }
+        else {
+          name.style.border = "1px solid green"
+          blank_field = false
+        }
+        
+        
+        
+        if (textarea.value == "") {
+          textarea.style.border = "1px solid red"
+        }
+        else {
+          textarea.style.border = "1px solid blue"
+          blank_field = false
+        }
+        
+        
+        
+        if (title.value == "") {
+          title.style.border = "1px solid red"
+        }
+        else {
+          title.style.border = "1px solid green"
+          blank_field = false
+        }
+        
+        
+        
+        if (textColor.value == "Choose a Color.") {
+          textColor.style.border = "1px solid red"
+        }
+        else {
+          textColor.style.border = "1px solid green"
+          blank_field = false
+        }
+        
+        
+        
+        if (bgColor.value == "Choose a Background Color") {
+          bgColor.style.border = "1px solid red"
+        }
+        else {
+          bgColor.style.border = "1px solid green"
+          blank_field = false
+        }
+        
+        
+        for(var i=0; i < icons.length; i++){
+          if (icons[i].checked == true) {
+            radio_choice = true
+            x = 1
+            radiobtns.style.border = ""
+          }
+          else {
+            if (x = 0) {
+              radio_choice = false
+            }
+              radiobtns.style.border = "1px solid red"
+          }
+        }
+        
+        
+        
+        if (radio_choice == true && blank_field == false) {
+          message.innerHTML = ""
+          save()
+        }
+        else {
+          message.innerHTML = "<h3 style='color:red;'>You missed a spot!</h3>"
+        }
+      } //end function validate
+      function save() {
+           
+        var name = document.getElementById("name")
+        var textarea = document.getElementById("textarea")
+        var title = document.getElementById("title")
+        var icons = document.querySelectorAll("[name='icon']")
+        
+        var storage = {name: name.value, title: title.value, textarea: textarea.value}
+        
+        array.push(storage)
+        display()
+      } //end function save
+      
+      
+      
+      function display() {
+        var show = document.getElementById("show")
+        var post = ""
+        for (var i=0; i < array.length; i++) {
+          post += "<strong> "+array[i].name+ "</strong><br>";
+          post += "<strong> "+array[i].title+ "</strong><br>";
+          post += array[i].textarea;
+        }
+        show.innerHTML = post;
+      } //end function save
+      
+      
+      
+    </script>
+    
+  </head>
+  
+  <body>
+    
+    <div class="container">
+      
+      <div class="row">
+        
+        <div class="col-sm-4" id="logo">
+          <img id="logo" class="img-responsive" src="./46a4bac33ae544efa20308d6a66b084f.png">
+        </div>
+      </div> <!--end logo row-->
+      <div class="row">
+        <div class="col-sm-12" id="menu">
+          <nav class="navbar navbar-expand bg-info navbar-light">
+            <ul class="navbar-nav">
+              <li class="nav-link" href="#"></li>
+              <li class="nav-link" href="#"></li>
+              <li class="nav-link" href="#"></li>
+            </ul>
+          </nav>
+        </div>
+      </div> <!--End menu row-->
+      <div class="row">
+        <div class="col-sm-12" id="comments">
+          COMMENTS
+          <div class="col-sm-12 col-md-5" id="form">
+            <header>
+              Leave a comment...
+            </header>
+            <div id="message"></div>
+            <form class="form-inline">
+              <label>
+                Name:
+              </label>
+              <input type="text" class="form-control" id="name" placeholder="Enter Name">
+              <label>Color</label>
+              <select class="form-control" id="textColor">
+                <option>Choose a Color.</option>
+                <option>Red</option>
+                <option>Yellow</option>
+                <option>Green</option>
+                <option>Blue</option>
+              </select>
+            </form>
+            <form>
+              <label>Title:</label>
+              <input type="text" class="form-control" id="title" placeholder="Comment Title">
+              <label>
+                Background Color:
+              </label>
+              <select class="form-control" id="bgColor">
+                <option>Choose a Background Color</option>
+                <option>Red</option>
+                <option>Yellow</option>
+                <option>Green</option>
+                <option>Blue</option>
+              </select>
+            </form>
+            <form class="form-inline" id="radiobtns">
+              <label>Icons:</label>
+              <input type="radio" name="icon" id="i1" value="https://findicons.com/files/icons/548/sportset/128/basketball.png">
+              <img src="https://findicons.com/files/icons/548/sportset/128/basketball.png" class="icon">
+              <input type="radio" name="icon" id="i2" value="https://findicons.com/files/icons/548/sportset/128/american_football.png">
+              <img src="https://findicons.com/files/icons/548/sportset/128/american_football.png" class="icon">
+              <input type="radio" name="icon" id="i3" value="https://findicons.com/files/icons/548/sportset/128/soccer.png">
+              <img src="https://findicons.com/files/icons/548/sportset/128/soccer.png" class="icon">
+              <input type="radio" name="icon" id="i4" value="https://findicons.com/files/icons/548/sportset/128/baseball.png">
+              <img src="https://findicons.com/files/icons/548/sportset/128/baseball.png" class="icon" onclick="document.getElementById('i4').checked">
+            </form>
+            <label>Comment</label>
+            <textarea class="form-control" rows="8" id="textarea"></textarea>
+            <input class="btn btn-primary" onclick="validate()" type="button" value="Submit">
+          </div><!--end form id div-->
+          <div id="show">
+            
+          </div>
+        </div><!--end comment id div-->
+      </div> <!--end comment row-->
+    </div> <!--end container div-->
+  </body>
+</html>
