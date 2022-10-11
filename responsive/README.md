@@ -1,4 +1,4 @@
-#Responsive Website w/ bootstrap
+# Responsive Website w/ bootstrap
 
-#NOTICE
-This is currently a WIP (work in progress)
+## NOTICE
+**This is currently a WIP (work in progress)**
