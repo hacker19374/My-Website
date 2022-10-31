@@ -1,1 +1,92 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Fish Game! </title>
+    <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+    <script>
+      function start(){
+        sjs.open("target", 800, 500);
+        
+        var background = new sjs.Image("Images/space7.png");
+        background.setSize(sjs.getWidth(), sjs.getHeight());
+        
+        //Player Properties below here
+        var player = new sjs.Image("Images/ship_left.png")
+        player.type = "player"
+        player.setSize(53, 63)
+        player.friction = .25;
+        player.accel = .5;
+        
+        
+        sjs.keyDown(RIGHT_KEY, function(){
+          player.setImage("Images/ship_right.png")
+          player.pushRight()
+        })
+        
+        sjs.keyDown(LEFT_KEY, function(){
+          player.setImage("Images/ship_left.png")
+          player.pushLeft()
+        })
+        
+        sjs.keyDown(UP_KEY, function(){
+          player.pushUp();
+        });
+        
+        sjs.keyDown(DOWN_KEY, function(){
+          player.pushDown();
+        });
+        
+        
+        //Power up
+        setInterval(function(){
+          var x = Math.floor(Math.random() * 783);
+          var y = Math.floor(Math.random() * 470);
+          var powerUp = new sjs.Image("Images/crumbs.png");
+          powerUp.type = "powerUp";
+          powerUp.setGravity();
+          powerUp.setSize(17,30);
+          powerUp.noBounds = true;
+          powerUp.moveTo(x, y);
+          powerUp.friction = .2
+        }, 5000);
+        
+        sjs.onHit("powerUp","bottom_screen",function(x,y){
+          setTimeout(function(){
+            x.destroy()
+          },20)
+        })
+        
+        sjs.onHit("player","powerUp",function(x,y){
+          x.grow(22,25.2)
+          y.destroy()
+          setTimeout(function(){
+            x.grow(-22,-25.2)
+          },4000)
+        })
+        
+        //Enemies
+        setInterval(function(){
+          var speed = Math.round(1 + Math.random()*10);
+          if(Math.random() > 0.5){
+            var enemy = new sjs.Image("Images/red_right.png")
+            enemy.type = "enemy";
+            enemy.setSize(55.8,69.6);
+            enemy.noBounds = true;
+            enemy.friction = 0;
+            enemy.pushRight(speed)
+            enemy.scaleSize(.5 + Math.random() * 1.2);
+            enemy.moveTo(-enemy.getWidth(), Math.random()*(enemy.getClamp().y))
+          }
+        },1000)
+        
+        sjs.left_screen.offset(-500)
+        
+      } //end start
+    </script>
+  </head>
+  <body onload="start()">
+    <h1> Fish Game! </h1>
+  
+    <div id="target" style="margin:auto;background:grey;"></div>
+  </body>
+</html>
