@@ -36,6 +36,24 @@
           player.pushDown();
         });
         
+        sjs.keyDown(D_KEY, function(){
+          player.setImage("Images/ship_right.png")
+          player.pushRight()
+        })
+        
+        sjs.keyDown(A_KEY, function(){
+          player.setImage("Images/ship_left.png")
+          player.pushLeft()
+        })
+        
+        sjs.keyDown(W_KEY, function(){
+          player.pushUp();
+        });
+        
+        sjs.keyDown(S_KEY, function(){
+          player.pushDown();
+        });
+        
         
         //Power up
         setInterval(function(){
@@ -76,10 +94,44 @@
             enemy.pushRight(speed)
             enemy.scaleSize(.5 + Math.random() * 1.2);
             enemy.moveTo(-enemy.getWidth(), Math.random()*(enemy.getClamp().y))
+          } else {
+            var enemy = new sjs.Image("Images/red_left.png")
+            enemy.type = "enemy";
+            enemy.setSize(55.8,69.6);
+            enemy.noBounds = true;
+            enemy.friction = 0;
+            enemy.pushLeft(speed)
+            enemy.scaleSize(.5 + Math.random() * 1.2);
+            enemy.moveTo(sjs.getWidth(), Math.random()*(enemy.getClamp().y));
           }
         },1000)
         
         sjs.left_screen.offset(-500)
+        sjs.right_screen.offset(500);
+        
+        
+        sjs.onHit("enemy",["right_screen","left_screen"], function(x,y){
+          x.destroy();
+        });
+        
+        
+        
+        //Score
+        var score = 0
+        var score_txt = new sjs.Text("Score: 0", 21, "orange")
+        
+        
+        sjs.onHit("player","enemy", function(x,y){
+          if (x.getWidth() > y.getWidth() && x.getHeight() > y.getHeight()){
+            score = score + 1
+            score_txt.setText("Score: "+score)
+            localStorage.setItem("score", score)
+            x.grow(5.58,6.96)
+          } else {
+            x.destroy()
+          }
+          y.destroy()
+        })
         
       } //end start
     </script>
@@ -88,6 +140,5 @@
     <h1> Fish Game! </h1>
   
     <div id="target" style="margin:auto;background:grey;"></div>
-    <p>Use the arrow keys to move. Eat smaller fish to get bigger and try to get the biggest you can! This game was made from lessons 3-4 of Simply Coding.</p>
   </body>
 </html>
