@@ -17,6 +17,28 @@
       function start(){
         sjs.open("target", 800, 500);
         
+        //Background Music
+        
+        var playM = new Audio('Music/mad_robots.mp3');
+        var toggle = true;
+        var musicOn = false;
+        sjs.keyDown(SPACE_KEY, function(){
+          if(toggle == true){
+            if(musicOn == false){
+              playM.play()
+              musicOn = true
+            } else {
+              playM.pause()
+              musicOn = false
+            }
+            toggle = false
+            setTimeout(function(){
+              toggle = true
+            },1000)
+          }//End if toggle statement
+        }) //End keydown function
+        
+        
         var background = new sjs.Image("Images/space7.png");
         background.setSize(sjs.getWidth(), sjs.getHeight());
         
@@ -136,13 +158,26 @@
             score = score + 1
             score_txt.setText("Score: "+score)
             localStorage.setItem("score", score)
+            if (score > localStorage.highscore || localStorage.highscore == null) {
+              localStorage.setItem("highscore", score)
+            }
             x.grow(5.58,6.96)
+            if(score >= 20){
+              window.location = "win.html"
+            }
           } else {
             x.destroy()
+            localStorage.setItem("score", score)
+            window.location = "gameover.html"
           }
           y.destroy()
         })
         
+        var music_txt = new sjs.Text("Press space to toggle music.", 21, "orange")
+        music_txt.centerH().offset(0,400)
+        setTimeout(function(){
+          music_txt.destroy()
+        },2000);
       } //end start
     </script>
   </head>
