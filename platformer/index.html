@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Menu </title>
+    <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+    <script>
+      function start(){
+        sjs.open();
+        var menu_text = new sjs.Text("Evil Robots", 28, "blue");
+        menu_text.centerH();
+        var designBtn = new sjs.Button("Design Level", function(){
+          window.location = "platform.html";
+        });
+        designBtn.center();
+        var level1Btn = new sjs.Button("Level 1", function(){
+          window.location = "level1.html";
+        });
+        level1Btn.center().offset(0, 50);
+        var info_text = new sjs.Text("Created By Tyler Beneedum", 20, "black");
+        info_text.bottom().centerH();
+      }
+    </script>
+  </head>
+  <body onload="start()">
+    <h1> Platform Game </h1>
+    
+    <div id="target" style="margin:auto;background:grey;"></div>
+  </body>
+</html>
