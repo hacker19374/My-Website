@@ -15,10 +15,51 @@
     </script>
     <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
     <script>
+      var level = [];
+      
       function start() {
         sjs.open("target", 800, 500)
+        //Background Music
+        var playM = new Audio("Music/shelf_life.mp3")
+        var toggle = true
+        var musicOn = false
+        sjs.keyDown(SPACE_KEY, function(){
+          if(toggle == true){
+            if (musicOn == false) {
+              playM.play()
+              musicOn = true;
+            } else {
+              playM.pause()
+              musicOn = false
+            }
+            toggle = false
+            setTimeout(function(){
+              toggle = true
+            },1000)
+          } // end if toggle statement
+        }) //end keyDown function
+        
+        
         var background = new sjs.Image("Images/background.png")
         background.setSize(2500,500)
+        
+        var music_txt = new sjs.Text("Press the spacebar to toggle music",21,"white")
+        music_txt.center()
+        setTimeout(function(){
+          music_txt.destroy()
+        },2000)
+        
+        var testBtn = new sjs.Button("Test", function(){
+          localStorage.setItem('level', sjs.saveImageArray(level));
+          window.open('test.html', '_blank');
+        })
+        
+        var showBtn = new sjs.Button("Show", function(){
+          var output = document.querySelector("#output");
+          output.innerHTML = sjs.saveImageArray(level);
+        });
+        
+        showBtn.offset(75, 0);
         
         //Player Properties
         var player = new sjs.Image("Images/r_idle.png")
@@ -93,7 +134,71 @@
           } //end if statement
         }); //end EventListener function
         
+        sjs.keyDown(DOWN_KEY, function(){
+          if(canShoot == true){
+            canShoot = false;
+            var laser = new sjs.Image("Images/laser.png");
+            laser.type = "laser";
+            laser.setSize(100,50);
+            laser.friction = 0;
+            laser.noBounds = true;
+            if(r_facing == true){
+              laser.moveTo(player.getX()+44,player.getY()+7);
+              laser.pushRight(25.5);
+            } else {
+              laser.moveTo(player.getX()+-60,player.getY()+7);
+              laser.pushLeft(25.5);
+            }
+            setTimeout(function(){
+              canShoot = true;
+            },1500);
+          } //end canShoot if statement
+        }) //end keyDown function DOWN_KEY
+        
         //onHit functions
+        sjs.onHit("player","platform", function(x,y){
+          sjs.stoppedBy(x,y)
+          if (canJump == false && x.y < y.y-85) {
+            canJump = true
+            r_track = 0
+            l_track = 0
+          }
+        })
+        
+        sjs.onHit("player","jump_pad", function(x,y){
+          if(x.isAboveOf(y) == true){
+            player.pushUp(50);
+          } else {
+            sjs.stoppedBy(x,y);
+          }
+        });
+        
+        sjs.onHit("trash",["platform","jump_pad", "powerUp","score","enemy","flag"], function(x,y){
+            y.destroy();
+            sjs.removeFromArray(level,y);
+          });
+        
+        sjs.onHit("enemy","bottom_screen", function(x,y){
+          sjs.stoppedBy(x,y);
+        });
+        
+        sjs.onHit("enemy",["left_screen","right_screen"], function(x,y){
+          sjs.bounceOff(x,y);
+        });
+        
+        sjs.onHit("enemy","platform", function(x,y){
+          if(x.isAboveOf(y) == true){
+            sjs.stoppedBy(x,y);
+          } else {
+            sjs.bounceOff(x,y);
+          }
+        });
+        
+        var canShoot = false;
+        sjs.onHit("player","powerUp", function(x,y){
+          canShoot = true;
+          y.destroy()
+        });
         
         
         sjs.onHit("player","bottom_screen",function(x,y){
@@ -104,6 +209,14 @@
             l_track = 0;
           }
         })
+        
+        var trash = new sjs.Text("Trash",15,"orange")
+        trash.type = "trash";
+        trash.moveTo(720,10);
+        trash.fixed = true;
+        trash.setHeight(60);
+        trash.node.style.background = "green";
+        trash.node.style.borderTop = "4px solid yellow";
       } //end start function
       
       
@@ -111,6 +224,7 @@
       
       function platform() {
         var platform = new sjs.Image("Images/platform.png");
+        level.push(platform)
         platform.type = "platform"
         platform.setHeight(30);
         platform.center().offset(-sjs.gx,10)
@@ -118,7 +232,77 @@
           platform.draggable()
           platform.follow(sjs.mouse)
         })
-      }
+      } // end Platform function
+      
+      function powerUp() {
+        var powerUp = new sjs.Image("Images/power_up.png");
+        level.push(powerUp);
+        powerUp.type = "powerUp";
+        powerUp.setHeight(30);
+        powerUp.center().offset(-sjs.gx,10);
+        powerUp.onMouseDown(function(){
+          powerUp.draggable();
+          powerUp.follow(sjs.mouse);
+        });
+      } // end powerUp function
+      
+      function score() {
+        var score = new sjs.Image("Images/score.gif");
+        level.push(score);
+        score.type = "score";
+        score.setHeight(30);
+        score.center().offset(-sjs.gx,10);
+        score.onMouseDown(function(){
+          score.draggable();
+          score.follow(sjs.mouse);
+        });
+        
+      } // end score function
+      
+      function flag() {
+        var flag = new sjs.Image("Images/flag_bad.png");
+        level.push(flag);
+        flag.type = "flag";
+        flag.setHeight(80);
+        flag.center().offset(-sjs.gx,10);
+        flag.onMouseDown(function(){
+          flag.draggable();
+          flag.follow(sjs.mouse);
+        });
+      } // end flag function
+      
+      function enemy() {
+        var enemy = new sjs.Image("Images/r_enemy.gif");
+        level.push(enemy);
+        enemy.type = "enemy";
+        enemy.center().offset(-sjs.gx,10);
+        enemy.friction = 0;
+        enemy.noBounds = true;
+        enemy.setHFlipImages("Images/l_enemy.gif","Images/r_enemy.gif");
+        enemy.onMouseDown(function(){
+          enemy.follow(sjs.mouse)
+          enemy.removeGravity()
+          enemy.stop()
+        })
+        enemy.onMouseUp(function(){
+          enemy.unfollow(sjs.mouse)
+          enemy.setGravity()
+          enemy.pushHFacing()
+          enemy.accel=.5
+        })
+      } //end enemy function
+      
+      function jumpPad() {
+        var jump_pad = new sjs.Image("Images/jump_pad.png");
+        level.push(jump_pad);
+        jump_pad.type = "jump_pad";
+        jump_pad.center().offset(-sjs.gx,10);
+        jump_pad.setHeight(15);
+        jump_pad.onMouseDown(function(){
+          jump_pad.draggable();
+          jump_pad.follow(sjs.mouse);
+        });
+      } //end jump_pad function
     </script>
   </head>
   <body onload="start()">
@@ -126,8 +310,17 @@
     
     <center>
       <input type="image" src="Images/platform.png" onclick="platform()">
+      <input type="image" src="Images/power_up.png" onclick="powerUp()">
+      <input type="image" src="Images/score.gif" onclick="score()">
+      <input type="image" src="Images/flag_bad.png" onclick="flag()">
+      <input type="image" src="Images/r_enemy.gif" onclick="enemy()">
+      <input type="image" src="Images/jump_pad.png" onclick="jumpPad()">
     </center>
     
     <div id="target" style="margin:auto;background:grey;"></div>
+    
+    <br/>
+    <div id="output" style="margin:0 50 0 50;"></div>
+    <br/><br/>
   </body>
 </html>
