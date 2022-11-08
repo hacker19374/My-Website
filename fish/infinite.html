@@ -40,7 +40,9 @@
         
         
         var background = new sjs.Image("Images/space7.png");
-        background.setSize(sjs.getWidth(), sjs.getHeight());
+        var bgW = 8000
+        var bgH = 5000
+        background.setSize(bgW, bgH);
         
         //Player Properties below here
         var player = new sjs.Image("Images/ship_left.png")
@@ -161,7 +163,14 @@
             if (score > localStorage.highscore || localStorage.highscore == null) {
               localStorage.setItem("highscore", score)
             }
-            x.grow(5.58,6.96)
+            if (score <= 15) {
+              x.grow(5.58,6.96)
+            }
+            else {
+              bgW = bgW - (bgW / 20);
+              bgH = bgH - (bgH / 20);
+              background.setSize(bgW,bgH)
+            }
           } else {
             x.destroy()
             localStorage.setItem("score", score)
