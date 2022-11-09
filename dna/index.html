@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="protiens.js"></script>
+  <script>
+    var dnaValue = []
+    var dnaCopy = ""
+    var rnaValue = ""
+    var protien = 0
+    var protienStrand = ""
+    var protiens = []
+
+    function run() {
+      dnaValue = []
+      protien = 0
+      protienStrand = ""
+      protiens = []
+      dnaCopy = ""
+      rnaValue = ""
+      dnaValue.push(dnaStrand.value)
+      for (var i = 0; i <= dnaValue[0].length; i++) {
+        if (dnaValue[0].charAt(i) == "a") {
+          rnaValue += "u"
+          protienStrand += "u"
+          dnaCopy += "t"
+        }
+        if (dnaValue[0].charAt(i) == "t") {
+          rnaValue += "a"
+          protienStrand += "a"
+          dnaCopy += "a"
+        }
+        if (dnaValue[0].charAt(i) == "c") {
+          rnaValue += "g"
+          protienStrand += "g"
+          dnaCopy += "g"
+        }
+        if (dnaValue[0].charAt(i) == "g") {
+          rnaValue += "c"
+          protienStrand += "c"
+          dnaCopy += "c"
+        }
+        protien++
+        if (protien == 3) {
+          protiens.push(protienStrand)
+          localStorage.setItem("protien", protien);
+          localStorage.setItem("protienStrand", protienStrand);
+          localStorage.setItem("protiens", (protiens + ","));
+          protienStrand = ""
+        }
+        if (protien == 4) {
+          protien = 1
+        }
+
+        console.log(protien)
+      }
+
+
+      document.getElementById("dnaCopy").innerHTML = ("Complimentary DNA strand: 5' " + dnaCopy + " 3'")
+      document.getElementById("rna").innerHTML = ("Complimentary RNA strand: 3' " + rnaValue + " 5'")
+
+      startProt()
+    }
+  </script>
+</head>
+
+<body>
+  <input id="dnaStrand" type="text" name="dna" placeholder="DNA Strand Here" value="actgac">
+  <input type="button" id="submit" value="Submit" onclick="run()">
+  <p id="dnaCopy"></p>
+  <p id="rna"></p>
+  <p id="protiens"></p>
+  <br>
+</body>
+
+</html>
