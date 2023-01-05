@@ -13,13 +13,17 @@ function sendInput() {
 function getChatbotResponse(input) {
   input = input.toLowerCase();
   fetch("chatbot-responses.json")
-    .then(response => response.json())
-    .then(data => {
-      for (var i = 0; i < data.length; i++) {
-        if (data[i].input == input) {
-          return data[i].output;
-        }
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // log the data to the console
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].input == input) {
+        return data[i].output;
       }
-      return "I'm sorry, I didn't understand your input. Could you please rephrase that?";
-    });
+    }
+    return "I'm sorry, I didn't understand your input. Could you please rephrase that?";
+  });
+
 }
+
+
