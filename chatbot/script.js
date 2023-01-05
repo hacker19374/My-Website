@@ -16,6 +16,7 @@ function getChatbotResponse(input) {
   .then(response => response.json())
   .then(data => {
     console.log(data); // log the data to the console
+    var Data = data;
     for (var i = 0; i < data.length; i++) {
       if (data[i].input == input) {
         return data[i].output;
