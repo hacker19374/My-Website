@@ -26,3 +26,6 @@ function getChatbotResponse(input) {
   });
 
 }
+
+
+
