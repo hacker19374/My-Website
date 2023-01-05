@@ -4,10 +4,12 @@ function sendInput() {
   // Clear the user's input
   document.getElementById("userInput").value = "";
   // Send the user's input to the chatbot and get the response
-  var chatbotResponse = getChatbotResponse(userInput);
-  // Display the chatbot's response
-  document.getElementById("chatbotResponse").innerHTML = chatbotResponse;
+  getChatbotResponse(userInput).then(response => {
+    // Display the chatbot's response
+    document.getElementById("chatbotResponse").innerHTML = response;
+  });
 }
+
 function getChatbotResponse(input) {
   input = input.toLowerCase();
   fetch("chatbot-responses.json")
