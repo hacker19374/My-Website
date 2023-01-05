@@ -1,4 +1,4 @@
 # My-Website
 My website that I can add all of my projects and stuff.
 
-I might post more projects here every so often, but most of my coding will be on [beneedum.com](https://www.beneedum.com)
+I will post all of my coding projects here, and links to any of them will be posted on [beneedum.com](https://www.beneedum.com)
