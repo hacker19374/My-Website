@@ -23,5 +23,3 @@ function getChatbotResponse(input) {
       return "I'm sorry, I didn't understand your input. Could you please rephrase that?";
     });
 }
-
-
