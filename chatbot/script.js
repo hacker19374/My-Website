@@ -11,15 +11,15 @@ function sendInput() {
 }
 
 var Data = {};
-function getChatbotResponse(input) {
-  input = input.toLowerCase();
+function getChatbotResponse(Input) {
+  iNput = Input.toLowerCase();
   fetch("chatbot-responses.json")
   .then(response => response.json())
   .then(data => {
     console.log(data); // log the data to the console
     Data = data;
     for (var i = 0; i < Data.length; i++) {
-      if (Data[i].input == input) {
+      if (Data[i].input == iNput) {
         return Data[i].output;
       }
     }
