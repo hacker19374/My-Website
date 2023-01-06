@@ -1,29 +1,29 @@
 function sendInput() {
-  // Get the user's input
-  var userInput = document.getElementById("userInput").value;
-  // Clear the user's input
-  document.getElementById("userInput").value = "";
-  // Send the user's input to the chatbot and get the response
-  getChatbotResponse(userInput).then(response => {
-    // Display the chatbot's response
-    document.getElementById("chatbotResponse").innerHTML = response;
-  });
-}
-
-var Data = {};
-function getChatbotResponse(Input) {
-  iNput = Input.toLowerCase();
-  fetch("chatbot-responses.json")
-  .then(response => response.json())
-  .then(data => {
-    console.log(data); // log the data to the console
-    Data = data;
-    for (var i = 0; i < Data.length; i++) {
-      if (Data[i].input == iNput) {
-        return Data[i].output;
-      }
+  var input = document.getElementById("userInput").value;
+  for (var i = 0; i < text.inputs.length; i++) {
+    if (input.toLowerCase() == text.inputs[i]) {
+      document.getElementById("chatbotResponse").innerHTML = text.outputs[i];
+      
     }
-    return "I'm sorry, I didn't understand your input. Could you please rephrase that?";
-  });
-
+    else {
+      document.getElementById("chatbotResponse").innerHTML = "Sorry, I don't know how to respond to that, please fix your spelling, or type something I can understand.";
+    }
+  }
 }
+
+
+var text =
+{
+"inputs":
+  [
+    "hi",
+    "hello",
+    "how are you"
+  ],
+"outputs":
+  [
+    "Hello! How can I help you today?",
+    "Hi there! What can I do for you?",
+    "I'm just a computer program, so I don't have feelings. But I'm here to assist you!"
+  ]
+};
