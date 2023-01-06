@@ -1,29 +1,30 @@
+var value = {};
+
 function sendInput() {
   // Get the user's input
   var userInput = document.getElementById("userInput").value;
   // Clear the user's input
   document.getElementById("userInput").value = "";
   // Send the user's input to the chatbot and get the response
-  getChatbotResponse(userInput).then(response => {
-    // Display the chatbot's response
-    document.getElementById("chatbotResponse").innerHTML = response;
-  });
+  value = getChatbotResponse(userInput);
+  document.getElementById("chatbotResponse").innerHTML = response;
 }
 
-var Data = {};
+
 function getChatbotResponse(input) {
   input = input.toLowerCase();
   fetch("chatbot-responses.json")
   .then(response => response.json())
   .then(data => {
-    console.log(data); // log the data to the console
-    Data = data;
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].input == input) {
-        return data[i].output;
-      }
-    }
-    return "I'm sorry, I didn't understand your input. Could you please rephrase that?";
+    // Get the user's input
+    var userInput = document.getElementById("userInput").value;
+    // Find the index of the user's input in the "inputs" array
+    var inputIndex = data.inputs.indexOf(userInput);
+    // Get the corresponding output from the "outputs" array
+    var chatbotResponse = data.outputs[inputIndex];
+    // Display the chatbot's response
+    document.getElementById("chatbotResponse").innerHTML = chatbotResponse;
   });
+
 
 }
