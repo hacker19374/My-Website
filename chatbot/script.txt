@@ -1,0 +1,31 @@
+function sendInput() {
+  // Get the user's input
+  var userInput = document.getElementById("userInput").value;
+  // Clear the user's input
+  document.getElementById("userInput").value = "";
+  // Send the user's input to the chatbot and get the response
+  getChatbotResponse(userInput)
+  .then(); response => {
+    // Display the chatbot's response
+    document.getElementById("chatbotResponse").innerHTML = response;
+  };
+}
+
+
+function getChatbotResponse(input) {
+  input = input.toLowerCase();
+  fetch("chatbot-responses.json")
+  .then(response => response.json())
+  .then(data => {
+    // Get the user's input
+    var userInput = document.getElementById("userInput").value;
+    // Find the index of the user's input in the "inputs" array
+    var inputIndex = data.inputs.indexOf(userInput);
+    // Get the corresponding output from the "outputs" array
+    var chatbotResponse = data.outputs[inputIndex];
+    // Display the chatbot's response
+    document.getElementById("chatbotResponse").innerHTML = chatbotResponse;
+  });
+
+
+}

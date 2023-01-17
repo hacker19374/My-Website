@@ -1,11 +1,4 @@
-[
-  {
-    "input": "hi",
-    "output": "Hello! How can I help you today?"
-    
-  },
-  {
-    "input": "how are you",
-    "output": "I'm just a computer program, so I don't have feelings. But I'm here to assist you!"
-  }
-]
+{
+  "inputs": ["hi", "hello", "how are you"],
+  "outputs": ["Hello! How can I help you today?", "Hi there! What can I do for you?", "I'm just a computer program, so I don't have feelings. But I'm here to assist you!"]
+}

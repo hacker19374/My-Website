@@ -6,13 +6,51 @@
       .sendBtn {
         background-color: limegreen;
         border: 0px solid white;
+        position: fixed;
+        bottom: 0%;
+        width: 18%;
+        height: 7%;
+        right: 0;
+      }
+      input {
+        position: fixed;
+        bottom: 0%;
+        border: 0px solid white;
+        background-color: lime;
+        width: 82%;
+        height: 6.72%;
+        margin-left: -0.5%;
+        font-size: 20pt;
+      }
+      #chatbotResponse {
+        position: fixed;
+        bottom: 10%;
+        right: 0;
+        background-color: darkgreen;
+        color: white;
+        padding: 3px;
+        border-radius: 3px;
+        font-size: 20pt;
+        margin-left: 25%;
+      }
+      body {
+        background-color: lightgrey;
+      }
+      h1 {
+        text-align: center;
+      }
+      h5 {
+        color: #777;
+        text-align: center;
       }
     </style>
   </head>
-  <body>
+  <body onload="load()">
+    <h1><u>   My Custom Chatbot   </u></h1>
+    <h5>Type 'help' for the commands</h5>
     <input type="text" value="" placeholder="Type your message here..." id="userInput">
     <script src="./script.js"></script>
-    <button onclick="sendInput()">Send</button>
+    <button onclick="sendInput()" class="sendBtn">Send</button>
     <div id="chatbotResponse"></div>
     <br>
   </body>
