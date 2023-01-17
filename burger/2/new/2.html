@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="./2.css" rel="stylesheet">
+    <script src="./2.js"></script>
+    <title>Burger Clicker 2</title>
+  </head>
+  <body>
+    <div id="shop" class="col-3 shop">
+      <h2 style="width:100%;text-align:center;"><u>Shop</u></h2>
+      <button class="button" id="mouseBtn">Mouse</button>
+      <button class="button" id="grandpaBtn">Grandpa</button>
+      <button class="button">Shop Item</button>
+      <button class="button">Shop Item</button>
+      <button class="button">Shop Item</button>
+      <button class="button">Shop Item</button>
+      <button class="button">Shop Item</button>
+      <button class="button">Shop Item</button>
+      <button class="button">Shop Item</button>
+      <button class="button">Shop Item</button>
+      <button class="button">Shop Item</button>
+      <button class="button">Shop Item</button>
+      <button class="button">Shop Item</button>
+      <button class="button">Shop Item</button>
+      
+    </div>
+    <div id="clickArea" class="clickA col-9">
+        <img src="burger.png" draggable="false" class="burger" id="burger" alt="">
+    </div>
+    <div class="stats col-9">
+        <button id="toggleButton" class="button" style="width:20%;height:15%;margin:0;">Upgrades</button>
+      <div id="stats" class="tab-2a">
+        <h1 class="money" id="money">$0</h1>
+        <h6 class="money" id="total_money">You have made 0 dollars in total.</h6>
+      </div>
+      <div id="upgrades" class="tab-1b">
+        <h1 class="upgrades" id="clickPu"><u>Upgrade click power</u></h1>
+        <svg version="1.1" width="500" height="300" viewBox="0 0 16 9">
+          <rect id="cP1" x="1" y="1" width="4" height="2" style="fill:silver;stroke:black" stroke-width="0.1" ry="1" rx="1"/>
+          <rect x="3" y="1" width="2" height="2" fill="#83dd2a" stroke="#83dd2a" stroke-width="0.2" ry="1" rx="0"/>
+          <line x1="2.9" y1="0.95" x2="2.9" y2="3.05" style="stroke:black;stroke-width:0.1" />
+          <rect id="cP2" x="3.5" y="1" width="2.5" height="2" fill="silver" stroke="black" stroke-width="0.1" />
+          <rect id="cP3" x="6.6" y="1" width="2.5" height="2" fill="silver" stroke="black" stroke-width="0.1" />
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>

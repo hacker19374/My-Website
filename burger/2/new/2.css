@@ -31,13 +31,44 @@
   background-color:#83dd2a;
   height:50vh;
   border:1px solid #000a01;
+  border-right: 0px solid black;
 }
 
 
 body {
   overflow: hidden;
+  background-color: #83dd2a;
 }
 
 .burger {
-  width: 10%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3vh;
+  height: 40vh;
+}
+
+.money {
+  text-align: center;
+  margin-top: 7px;
+}
+
+.tab-1a {
+  display: none;
+}
+
+.tab-2a {
+  display: block;
+}
+
+.tab-1b {
+  display: none;
+}
+
+.tab-2b {
+  display: block;
+}
+
+.upgrades {
+  text-align: center;
 }
