@@ -18,20 +18,15 @@
       <h2 style="width:100%;text-align:center;"><u>Shop</u></h2>
       <button class="button" id="mouseBtn">Mouse - $50</button>
       <button class="button" id="grandpaBtn">Grandpa - $300</button>
-      <button class="button">Shop Item</button>
-      <button class="button">Shop Item</button>
-      <button class="button">Shop Item</button>
-      <button class="button">Shop Item</button>
-      <button class="button">Shop Item</button>
-      <button class="button">Shop Item</button>
-      <button class="button">Shop Item</button>
-      <button class="button">Shop Item</button>
-      <button class="button">Shop Item</button>
-      <button class="button">Shop Item</button>
-      <button class="button">Shop Item</button>
-      <button class="button">Shop Item</button>
-      
+      <button class="button" id="dinerBtn">Local Diner - $2k</button>
+      <button class="button locked">Coming Soon!</button>
+      <button class="button locked">Coming Soon!</button>
+      <button class="button locked">Coming Soon!</button>
+      <button class="button locked">Coming Soon!</button>
+      <button class="button locked">Coming Soon!</button>
+      <button class="button locked">Coming Soon!</button>
     </div>
+    
     <div id="notification" style="background-color:rgba(66,66,66,0.72);position:absolute;height:100%;width:100vw">
       <div id="box" style="display:block;background-color:lightgrey;border-radius:30px;width:30%;height:60%;margin:auto;margin-top:20vh;">
         <h1 style="width:100%;text-align:center;margin-bottom:20px;">Save Data</h1>
@@ -45,26 +40,36 @@
         </div>
       </div>
     </div>
-    <div id="clickArea" class="clickA col-9">
-        <img src="burger.png" draggable="false" class="burger" id="burger" onmousedown="">
+    <div id="splash" style="background-color:black;position:absolute;width:100vw;height:100vh;">
+      <h1 style="color:white;text-align:center;margin-top:45vh;">Made with love by Tyler Benedum.</h1>
     </div>
+    
+    <div id="clickArea" class="clickA col-9">
+      
+      <img src="burger.png" draggable="false" class="burger" id="burger" onmousedown="">
+      
+    </div>
+    
     <div class="stats col-9">
-        
-        <button id="toggleButton" class="button" style="width:20%;height:15%;margin:0;">Upgrades</button>
-        
-        
+      
+      <button id="toggleButton" class="button" style="width:20%;height:15%;margin-left:1vw;">Upgrades</button>
+      <button id="prestige" class="button" style="width:20%;height:15%;margin-top:4px;margin-left:43vw;" onclick="alert('Coming Soon!')">Prestige</button>
+      
+      
       <div id="stats" class="tab-2a">
-        <h1 class="money moneyS" id="money">$0</h1>
+        <h1 class="money moneyS" id="money">$0</h1><span></span>
         <h6 class="money" id="total_money">You have made 0 dollars in total.</h6>
         <p style="border-bottom: 1px solid grey;width: 80%; margin: 3px auto 40px auto"></p>
+        <h4 id="dps" class="money"><i>0 MPS</i></h4>
         <h4 id="mice_owned" class="money"></h4>
         <h4 id="gramps_owned" class="money"></h4>
+        <h4 id="diners_owned" class="money"></h4>
       </div>
       
       
       <div id="upgrades" class="tab-1b">
         <h1 class="moneyS" style="position:absolute;right:26%;top:52%">$0</h1>
-        <h1 class="upgrades" id="clickPu"><u>Upgrade click power</u></h1>
+        <h1 class="upgrades" id="clickPu"><u>Upgrade click power - $500</u></h1>
         <svg id="click_power" style="display:block;margin:auto;" version="1.1" width="20vw" height="40vh" viewBox="0 0 16 36">
           <rect id="cP1" x="1" y="1" width="4" height="2" style="fill:silver;stroke:black" stroke-width="0.1" ry="1" rx="1"/>
           <rect x="3" y="1" width="2" height="2" fill="#83dd2a" stroke="#83dd2a" stroke-width="0.2" ry="1" rx="0"/>
@@ -78,5 +83,6 @@
         </svg>
       </div>
     </div>
+    
   </body>
 </html>

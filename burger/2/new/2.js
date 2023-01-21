@@ -10,23 +10,34 @@
 
 
 
-
-
-
+  
+  
+  
 var loadd = setTimeout(load,1);
+var splashie = setTimeout(function(){
+  document.getElementById("splash").style.display = "none";
+},700);
 var money = 0;
 var moneyS = "$" + money;
 var moneyT = 0;
+
 var grandpas = 0;
 var mOuse = 0;
+var diners = 0;
+
+var mps = 0;
+
 var tick = setInterval(tick, 1000);
 var text = "Stats";
 var txt = 1;
+
 var clickPprice = 500;
 var clickPnum = 0;
 var clickPower = 1;
+
 var time = 0;
 var startT = false;
+
 
 
 
@@ -45,8 +56,9 @@ var startT = false;
 function mous() {
   if (money >= 50) {
     mOuse++;
+    mps += 0.2;
     money -= 50;
-    moneyS = "$" + Math.floor(money);
+    moneyS = "$" + short(Math.floor(money));
     if (mOuse == 1) {
       document.getElementById("mice_owned").innerHTML = mOuse + " Cursor";
     } else {
@@ -61,12 +73,30 @@ function mous() {
 function grandpa() {
   if (money >= 300) {
     grandpas++;
+    mps += 1;
     money -= 300;
-    moneyS = "$" + Math.floor(money);
+    moneyS = "$" + short(Math.floor(money));
     if (grandpas == 1) {
       document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpa";
     } else {
       document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpas";
+    }
+    update();
+  } else {
+    console.log("Not enough money!!!!");
+  }
+}
+
+function diner() {
+  if (money >= 2000) {
+    diners++;
+    mps += 5;
+    money -= 2000;
+    moneyS = "$" + short(Math.floor(money));
+    if (diners == 1) {
+      document.getElementById("diners_owned").innerHTML = diners + " Diner";
+    } else {
+      document.getElementById("diners_owned").innerHTML = diners + " Diners";
     }
     update();
   } else {
@@ -91,9 +121,11 @@ function grandpa() {
 function tick() {
   money += (grandpas * 1);
   moneyT += (grandpas * 1);
-  money += (mOuse * 0.2);
-  moneyT += (mOuse * 0.2);
-  moneyS = "$" + Math.floor(money);
+  money += (mOuse * 0.20);
+  moneyT += (mOuse * 0.20);
+  money += (diners * 5);
+  moneyT += (diners * 5);
+  moneyS = "$" + short(Math.floor(money));
   if (startT === true) {
     window.localStorage.setItem("money", Math.floor(money));
     time++;
@@ -101,6 +133,9 @@ function tick() {
     window.localStorage.setItem("moneyT", Math.floor(moneyT));
     window.localStorage.setItem("grandpas", grandpas);
     window.localStorage.setItem("mice", mOuse);
+    window.localStorage.setItem("diners", diners);
+    window.localStorage.setItem("clickPnum", clickPnum);
+    localStorage.setItem("saveT", Date.now());
   }
   update();
 }
@@ -131,6 +166,7 @@ function load() {
   document.getElementById("burger").addEventListener("click", onCl);
   document.getElementById("grandpaBtn").addEventListener("click", grandpa);
   document.getElementById("mouseBtn").addEventListener("click", mous);
+  document.getElementById("dinerBtn").addEventListener("click", diner);
   document.getElementById("toggleButton").addEventListener("click", toggleTabs);
   document.getElementById("clickPu").addEventListener("click", upgradeCp);
   document.getElementById("burger").addEventListener("mousedown", dow);
@@ -155,10 +191,12 @@ function load() {
   if (localStorage.getItem("time") !== 0 && localStorage.getItem("time") !== null) {
     //document.getElementById("notification").style.display = "none";
     startT= false;
-    if (localStorage.getItem("remember") == "no" || localStorage.getItem("remember") === null) {
+    if (localStorage.getItem("remember") === null) {
     document.getElementById("loadSt").innerHTML = "You have $" + localStorage.getItem("money") + " and have played for " + (Math.ceil(localStorage.getItem("time") / 60)) + " minutes.";
-    } else {
+    } else if (localStorage.getItem("remember") == "yes") {
       saveY();
+    } else if (localStorage.getItem("remember") == "no") {
+      saveN();
     }
   } else {
     document.getElementById("notification").style.display = "none";
@@ -194,21 +232,91 @@ function saveY() {
   grandpas = +(localStorage.grandpas);
   if (grandpas == 1) {
       document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpa";
-    } else if (grandpas !== 0) {
+    }
+  else if (grandpas !== 0) {
       document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpas";
     }
   mOuse = +(localStorage.mice);
   if (mOuse == 1) {
     document.getElementById("mice_owned").innerHTML = mOuse + " Cursor";
-  } else if (mOuse !== 0) {
+  }
+  else if (mOuse !== 0) {
     document.getElementById("mice_owned").innerHTML = mOuse + " Cursors";
   }
+  diners = +(localStorage.diners);
+  if (diners == 1) {
+    document.getElementById("diners_owned").innerHTML = diners + " Diner";
+  }
+  else if (diners !== 0) {
+    document.getElementById("diners_owned").innerHTML = diners + " Diners";
+  }
   moneyT = +(localStorage.moneyT);
+  clickPnum = +(localStorage.clickPnum);
+  if (clickPnum === 0) {
+      
+    
+  }
+  else if (clickPnum == 1) {
+      document.getElementById("cP1").style.fill = "rgb(100,120,120)";
+      clickPower = 2;
+      clickPprice = 1000;
+      document.getElementById("clickPu").innerHTML = "<u>Upgrade click power - $" + clickPprice + "</u>";
+  }
+  else if (clickPnum == 2) {
+      document.getElementById("cP1").style.fill = "rgb(100,120,120)";
+      document.getElementById("cP2").style.fill = "rgb(100,120,120)";
+      clickPower = 3;
+      clickPprice = 2000;
+      document.getElementById("clickPu").innerHTML = "<u>Upgrade click power - $" + clickPprice + "</u>";
+  }
+  else if (clickPnum == 3) {
+      document.getElementById("cP1").style.fill = "rgb(100,120,120)";
+      document.getElementById("cP2").style.fill = "rgb(100,120,120)";
+      document.getElementById("cP3").style.fill = "rgb(100,120,120)";
+      clickPower = 4;
+      clickPprice = 4000;
+      document.getElementById("clickPu").innerHTML = "<u>Upgrade click power - $" + clickPprice + "</u>";
+  }
+  else if (clickPnum == 4) {
+      document.getElementById("cP4").style.fill = "rgb(100,120,120)";
+      document.getElementById("cP1").style.fill = "rgb(100,120,120)";
+      document.getElementById("cP2").style.fill = "rgb(100,120,120)";
+      document.getElementById("cP3").style.fill = "rgb(100,120,120)";
+      clickPower = 5;
+      clickPprice = 4000;
+      document.getElementById("clickPu").innerHTML = "<u>Upgrade click power - $" + clickPprice + "</u>";
+  }
+  else if (clickPnum == 5) {
+      document.getElementById("cP5").style.fill = "rgb(100,120,120)";
+      document.getElementById("cP4").style.fill = "rgb(100,120,120)";
+      document.getElementById("cP1").style.fill = "rgb(100,120,120)";
+      document.getElementById("cP2").style.fill = "rgb(100,120,120)";
+      document.getElementById("cP3").style.fill = "rgb(100,120,120)";
+      clickPower = 6;
+      clickPprice = 4000;
+      document.getElementById("clickPu").innerHTML = "<u>Maximum click power reached!!</u>";
+    }
   document.getElementById("notification").style.display = "none";
-  startT = true;
   if (remembe.checked === true) {
     localStorage.setItem("remember", "yes");
   }
+  startT = true;
+  var oldT = localStorage.saveT;
+  var diff = Date.now() - oldT;
+  var sec = Math.floor(diff / 1000);
+  var offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec);
+  if (sec >= 60 && sec <= 86400) {
+    alert("You earned " + offlineMoney + " dollars while you were away!");
+    money += offlineMoney;
+    moneyT += offlineMoney;
+  } else if (sec >= 86400) {
+    sec = 86400;
+    offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec);
+    alert("You earned " + offlineMoney + " dollars while you were away!");
+    money += offlineMoney;
+    moneyT += offlineMoney;
+  }
+  
   update();
 }
 
@@ -223,15 +331,40 @@ function update() {
   for (let i = 0; i < nodeList.length; i++) {
     nodeList[i].innerHTML = moneyS;
   }
-  document.getElementById("total_money").innerHTML = "You have made " + Math.floor(moneyT) + " dollars in total.";
-  document.cookie = "money=" + money;
+  document.getElementById("total_money").innerHTML = "You have made " + short(Math.floor(moneyT)) + " dollars in total.";
+  mps = (mOuse * 0.2) + grandpas + (diners * 5);
+  document.getElementById("dps").innerHTML = "<i>" + mps.toFixed(1) + " MPS</i>";
+  
 }
 
 function onCl() {
   money += clickPower;
   moneyT += clickPower;
-  moneyS = "$" + Math.floor(money);
+  moneyS = "$" + short(Math.floor(money));
   update();
+}
+
+function short(val) {
+  if (val >= 1000 && val < 1000000) {
+    return((val / 1000).toFixed(2) + "k")
+  } else if (val >= 100000 && val < 1000000000) {
+    return((val / 1000000).toFixed(2) + "m")
+  } else if (val >= 100000000 && val < 1000000000000) {
+    return((val / 1000000000).toFixed(2) + "b")
+  } else if (val >= 100000000000 && val < 1000000000000000) {
+    return((val / 1000000000000).toFixed(2) + "t")
+  } else if (val >= 100000000000000 && val < 1000000000000000000) {
+    return((val / 1000000000000000).toFixed(2) + "q")
+  } else if (val >= 100000000000000000 && val < 1000000000000000000000) {
+    return((val / 1000000000000000000).toFixed(2) + "Q")
+  } else if (val >= 100000000000000000000 && val < 1000000000000000000000000) {
+    return((val / 1000000000000000000000).toFixed(2) + "Sx")
+  } else if (val >= 100000000000000000000000 && val < 1000000000000000000000000000) {
+    return((val / 1000000000000000000000000).toFixed(2) + "Sp")
+  }
+  else if (val < 1000 || val > 900000000000000000000000000) {
+    return(val)
+  }
 }
 
 
@@ -256,6 +389,7 @@ function upgradeCp() {
       clickPnum++;
       clickPower++;
       clickPprice += clickPprice;
+      document.getElementById("clickPu").innerHTML = "<u>Upgrade click power - $" + clickPprice + "</u>";
       update();
     } else if (clickPnum == 1) {
       document.getElementById("cP2").style.fill = "rgb(100,120,120)";
@@ -263,6 +397,7 @@ function upgradeCp() {
       clickPnum++;
       clickPower++;
       clickPprice += clickPprice;
+      document.getElementById("clickPu").innerHTML = "<u>Upgrade click power - $" + clickPprice + "</u>";
       update();
     } else if (clickPnum == 2) {
       document.getElementById("cP3").style.fill = "rgb(100,120,120)";
@@ -270,6 +405,7 @@ function upgradeCp() {
       clickPnum++;
       clickPower++;
       clickPprice += clickPprice;
+      document.getElementById("clickPu").innerHTML = "<u>Upgrade click power - $" + clickPprice + "</u>";
       update();
     } else if (clickPnum == 3) {
       document.getElementById("cP4").style.fill = "rgb(100,120,120)";
@@ -277,6 +413,7 @@ function upgradeCp() {
       clickPnum++;
       clickPower++;
       clickPprice += clickPprice;
+      document.getElementById("clickPu").innerHTML = "<u>Upgrade click power - $" + clickPprice + "</u>";
       update();
     } else if (clickPnum == 4) {
       document.getElementById("cP5").style.fill = "rgb(100,120,120)";
@@ -284,6 +421,7 @@ function upgradeCp() {
       clickPnum++;
       clickPower++;
       clickPprice += clickPprice;
+      document.getElementById("clickPu").innerHTML = "<u>Maximum click power reached!!</u>";
       update();
     }
     else {
