@@ -1,39 +1,37 @@
 .button {
-  width:80%;
-  text-align:center;
-  margin-left:10%;
+  width: 80%;
+  text-align: center;
+  margin-left: 10%;
   margin-bottom: 5%;
-  height:6%;
-  font-size:4vh;
-  background-color:#235af3;
-  box-shadow:1px 2px 5px #000a01;
-  border:0 solid black;
-  border-radius:5px;
+  height: 6%;
+  font-size: 4vh;
+  background-color: #235af3;
+  box-shadow: 1px 2px 5px #000a01;
+  border: 0 solid black;
+  border-radius: 5px;
 }
 
 .shop {
-  background-color:#83dd2a;
-  border:3px solid #000a01;
-  position:absolute;
-  height:100%;
-  right:0;
+  background-color: #83dd2a;
+  border: 3px solid #000a01;
+  position: absolute;
+  height: 100vh;
+  right: 0;
   overflow: scroll;
-  
 }
 
 .clickA {
-  background-color:#83dd2a;
-  height:50vh;
-  border:2px solid #000a01;
+  background-color: #83dd2a;
+  height: 50vh;
+  border: 2px solid #000a01;
 }
 
 .stats {
-  background-color:#83dd2a;
-  height:50vh;
-  border:1px solid #000a01;
+  background-color: #83dd2a;
+  height: 50vh;
+  border: 1px solid #000a01;
   border-right: 0px solid black;
 }
-
 
 body {
   overflow: hidden;
@@ -46,6 +44,7 @@ body {
   margin-right: auto;
   margin-top: 3vh;
   height: 40vh;
+  cursor: pointer;
 }
 
 .money {
@@ -71,4 +70,5 @@ body {
 
 .upgrades {
   text-align: center;
+  cursor: pointer;
 }
