@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    
+    @keyframes common {
+      from {background-color: skyblue}
+      to {background-color: #0080ff;}
+    }
+    @keyframes rare {
+      from {background-color: lime}
+      to {background-color: #80ff00;}
+    }
+    @keyframes epic {
+      from {background-color: purple}
+      to {background-color: #bf00ff;}
+    }
+    @keyframes leg {
+      from {background-color: gold}
+      to {background-color: #ffff00;}
+    }
+      .common {
+        text-align: center;
+        width: 20%;
+        height: 40vh;
+        background-color: skyblue;
+        border-radius: 5px;
+        display: block;
+        float: left;
+        margin: 3px;
+        animation: common 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+      }
+      .rare {
+        text-align: center;
+        width: 20%;
+        height: 40vh;
+        background-color: lime;
+        border-radius: 5px;
+        display: block;
+        float: left;
+        margin: 3px;
+        animation: rare 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+      }
+      .epic {
+        text-align: center;
+        width: 20%;
+        height: 40vh;
+        background-color: purple;
+        border-radius: 5px;
+        display: block;
+        float: left;
+        margin: 3px;
+        animation: epic 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+      }
+      .leg {
+        text-align: center;
+        width: 20%;
+        height: 40vh;
+        background-color: gold;
+        border-radius: 5px;
+        display: block;
+        float: left;
+        margin: 3px;
+        animation: leg 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+      }
+      .hide {
+        display: none;
+      }
+    </style>
+    <script>
+      var random = 0
+      function roll() {
+        var num1 = document.getElementById("num1")
+        random = (Math.floor(Math.random() * 1000) + 1)
+        if (random <= 599) {
+          num1.classList.add("common")
+          num1.classList.remove("hide")
+          document.getElementById("num1R").innerHTML = "Common"
+          types(1, "c")
+          console.log("common")
+        } else if (random > 599 && random <= 899) {
+          num1.classList.add("rare")
+          num1.classList.remove("hide")
+          document.getElementById("num1R").innerHTML = "Rare"
+          types(1, "r")
+          console.log("rare")
+        } else if (random > 899 && random <= 989) {
+          num1.classList.add("epic")
+          num1.classList.remove("hide")
+          document.getElementById("num1R").innerHTML = "Epic"
+          types(1, "e")
+          console.log("epic")
+        } else if (random > 989 && random <= 999) {
+          num1.classList.add("leg")
+          num1.classList.remove("hide")
+          document.getElementById("num1R").innerHTML = "Legendary"
+          types(1, "l")
+          console.log("legendary")
+        } else {
+          console.log("mythic")
+        }
+        
+        var num2 = document.getElementById("num2")
+        random = (Math.floor(Math.random() * 1000) + 1)
+        if (random <= 599) {
+          num2.classList.add("common")
+          num2.classList.remove("hide")
+          document.getElementById("num2R").innerHTML = "Common"
+          types(2, "c")
+          console.log("common")
+        } else if (random > 599 && random <= 899) {
+          num2.classList.add("rare")
+          num2.classList.remove("hide")
+          document.getElementById("num2R").innerHTML = "Rare"
+          types(2, "r")
+          console.log("rare")
+        } else if (random > 899 && random <= 989) {
+          num2.classList.add("epic")
+          num2.classList.remove("hide")
+          document.getElementById("num2R").innerHTML = "Epic"
+          types(2, "e")
+          console.log("epic")
+        } else if (random > 989 && random <= 999) {
+          num2.classList.add("leg")
+          num2.classList.remove("hide")
+          document.getElementById("num2R").innerHTML = "Legendary"
+          types(2, "l")
+          console.log("legendary")
+        } else {
+          console.log("mythic")
+        }
+        
+        var num3 = document.getElementById("num3")
+        random = (Math.floor(Math.random() * 1000) + 1)
+        if (random <= 599) {
+          num3.classList.add("common")
+          num3.classList.remove("hide")
+          document.getElementById("num3R").innerHTML = "Common"
+          types(3, "c")
+          console.log("common")
+        } else if (random > 599 && random <= 899) {
+          num3.classList.add("rare")
+          num3.classList.remove("hide")
+          document.getElementById("num3R").innerHTML = "Rare"
+          types(3, "r")
+          console.log("rare")
+        } else if (random > 899 && random <= 999) {
+          num3.classList.add("epic")
+          num3.classList.remove("hide")
+          document.getElementById("num3R").innerHTML = "Epic"
+          types(3, "e")
+          console.log("epic")
+        } else if (random == 1000) {
+          num3.classList.add("leg")
+          num3.classList.remove("hide")
+          document.getElementById("num3R").innerHTML = "Legendary"
+          types(3, "l")
+          console.log("legendary")
+        } else {
+          console.log("error")
+        }
+      }
+      
+      function types(n, r) {
+        if (n == 1) {
+          var rando = Math.floor(Math.random() * 5) + 1
+          if (rando == 1) {
+            document.getElementById("num1t").innerHTML = "Bacon"
+            if (r == "c") {
+              document.getElementById("num1d").innerHTML = "-1% shop prices"
+            } else if (r == "r") {
+              document.getElementById("num1d").innerHTML = "-2% shop prices"
+            } else if (r == "e") {
+              document.getElementById("num1d").innerHTML = "-3.5% shop prices"
+            } else if (r == "l") {
+              document.getElementById("num1d").innerHTML = "-5% shop prices"
+            }
+          }
+          if (rando == 2) {
+            document.getElementById("num1t").innerHTML = "Lettuce"
+            if (r == "c") {
+              document.getElementById("num1d").innerHTML = "+1% money earned for everything"
+            } else if (r == "r") {
+              document.getElementById("num1d").innerHTML = "+2% money earned for everything"
+            } else if (r == "e") {
+              document.getElementById("num1d").innerHTML = "+3% money earned for everything"
+            } else if (r == "l") {
+              document.getElementById("num1d").innerHTML = "+6% money earned for everything"
+            }
+          }
+          if (rando == 3) {
+            document.getElementById("num1t").innerHTML = "Tomato"
+            if (r == "c") {
+              document.getElementById("num1d").innerHTML = "1% faster tick speed"
+            } else if (r == "r") {
+              document.getElementById("num1d").innerHTML = "2% faster tick speed"
+            } else if (r == "e") {
+              document.getElementById("num1d").innerHTML = "3% faster tick speed"
+            } else if (r == "l") {
+              document.getElementById("num1d").innerHTML = "4.5% faster tick speed"
+            }
+          }
+          if (rando == 4) {
+            document.getElementById("num1t").innerHTML = "Mustard"
+            if (r == "c") {
+              document.getElementById("num1d").innerHTML = "-0.5% upgrade prices"
+            } else if (r == "r") {
+              document.getElementById("num1d").innerHTML = "-1% upgrade prices"
+            } else if (r == "e") {
+              document.getElementById("num1d").innerHTML = "-1.75% upgrade prices"
+            } else if (r == "l") {
+              document.getElementById("num1d").innerHTML = "-2.5% upgrade prices"
+            }
+          }
+          if (rando == 5) {
+            document.getElementById("num1t").innerHTML = "Pickles"
+            if (r == "c") {
+              document.getElementById("num1d").innerHTML = "+30 minutes of offline time"
+            } else if (r == "r") {
+              document.getElementById("num1d").innerHTML = "+45 minutes of offline time"
+            } else if (r == "e") {
+              document.getElementById("num1d").innerHTML = "+1.5 hours of offline time"
+            } else if (r == "l") {
+              document.getElementById("num1d").innerHTML = "+3 hours of offline time"
+            }
+          }
+        } else if (n == 2) {
+          var rando = Math.floor(Math.random() * 5) + 1
+          if (rando == 1) {
+            document.getElementById("num2t").innerHTML = "Bacon"
+            if (r == "c") {
+              document.getElementById("num2d").innerHTML = "-1% shop prices"
+            } else if (r == "r") {
+              document.getElementById("num2d").innerHTML = "-2% shop prices"
+            } else if (r == "e") {
+              document.getElementById("num2d").innerHTML = "-3.5% shop prices"
+            } else if (r == "l") {
+              document.getElementById("num2d").innerHTML = "-5% shop prices"
+            }
+          }
+          if (rando == 2) {
+            document.getElementById("num2t").innerHTML = "Lettuce"
+            if (r == "c") {
+              document.getElementById("num2d").innerHTML = "+1% money earned for everything"
+            } else if (r == "r") {
+              document.getElementById("num2d").innerHTML = "+2% money earned for everything"
+            } else if (r == "e") {
+              document.getElementById("num2d").innerHTML = "+3% money earned for everything"
+            } else if (r == "l") {
+              document.getElementById("num2d").innerHTML = "+6% money earned for everything"
+            }
+          }
+          if (rando == 3) {
+            document.getElementById("num2t").innerHTML = "Tomato"
+            if (r == "c") {
+              document.getElementById("num2d").innerHTML = "1% faster tick speed"
+            } else if (r == "r") {
+              document.getElementById("num2d").innerHTML = "2% faster tick speed"
+            } else if (r == "e") {
+              document.getElementById("num2d").innerHTML = "3% faster tick speed"
+            } else if (r == "l") {
+              document.getElementById("num2d").innerHTML = "4.5% faster tick speed"
+            }
+          }
+          if (rando == 4) {
+            document.getElementById("num2t").innerHTML = "Mustard"
+            if (r == "c") {
+              document.getElementById("num2d").innerHTML = "-0.5% upgrade prices"
+            } else if (r == "r") {
+              document.getElementById("num2d").innerHTML = "-1% upgrade prices"
+            } else if (r == "e") {
+              document.getElementById("num2d").innerHTML = "-1.75% upgrade prices"
+            } else if (r == "l") {
+              document.getElementById("num2d").innerHTML = "-2.5% upgrade prices"
+            }
+          }
+          if (rando == 5) {
+            document.getElementById("num2t").innerHTML = "Pickles"
+            if (r == "c") {
+              document.getElementById("num2d").innerHTML = "+30 minutes of offline time"
+            } else if (r == "r") {
+              document.getElementById("num2d").innerHTML = "+45 minutes of offline time"
+            } else if (r == "e") {
+              document.getElementById("num2d").innerHTML = "+1.5 hours of offline time"
+            } else if (r == "l") {
+              document.getElementById("num2d").innerHTML = "+3 hours of offline time"
+            }
+          }
+        } else {
+          var rando = Math.floor(Math.random() * 5) + 1
+          if (rando == 1) {
+            document.getElementById("num3t").innerHTML = "Bacon"
+            if (r == "c") {
+              document.getElementById("num3d").innerHTML = "-1% shop prices"
+            } else if (r == "r") {
+              document.getElementById("num3d").innerHTML = "-2% shop prices"
+            } else if (r == "e") {
+              document.getElementById("num3d").innerHTML = "-3.5% shop prices"
+            } else if (r == "l") {
+              document.getElementById("num3d").innerHTML = "-5% shop prices"
+            }
+          }
+          if (rando == 2) {
+            document.getElementById("num3t").innerHTML = "Lettuce"
+            if (r == "c") {
+              document.getElementById("num3d").innerHTML = "+1% money earned for everything"
+            } else if (r == "r") {
+              document.getElementById("num3d").innerHTML = "+2% money earned for everything"
+            } else if (r == "e") {
+              document.getElementById("num3d").innerHTML = "+3% money earned for everything"
+            } else if (r == "l") {
+              document.getElementById("num3d").innerHTML = "+6% money earned for everything"
+            }
+          }
+          if (rando == 3) {
+            document.getElementById("num3t").innerHTML = "Tomato"
+            if (r == "c") {
+              document.getElementById("num3d").innerHTML = "1% faster tick speed"
+            } else if (r == "r") {
+              document.getElementById("num3d").innerHTML = "2% faster tick speed"
+            } else if (r == "e") {
+              document.getElementById("num3d").innerHTML = "3% faster tick speed"
+            } else if (r == "l") {
+              document.getElementById("num3d").innerHTML = "4.5% faster tick speed"
+            }
+          }
+          if (rando == 4) {
+            document.getElementById("num3t").innerHTML = "Mustard"
+            if (r == "c") {
+              document.getElementById("num3d").innerHTML = "-0.5% upgrade prices"
+            } else if (r == "r") {
+              document.getElementById("num3d").innerHTML = "-1% upgrade prices"
+            } else if (r == "e") {
+              document.getElementById("num3d").innerHTML = "-1.75% upgrade prices"
+            } else if (r == "l") {
+              document.getElementById("num3d").innerHTML = "-2.5% upgrade prices"
+            }
+          }
+          if (rando == 5) {
+            document.getElementById("num3t").innerHTML = "Pickles"
+            if (r == "c") {
+              document.getElementById("num3d").innerHTML = "+30 minutes of offline time"
+            } else if (r == "r") {
+              document.getElementById("num3d").innerHTML = "+45 minutes of offline time"
+            } else if (r == "e") {
+              document.getElementById("num3d").innerHTML = "+1.5 hours of offline time"
+            } else if (r == "l") {
+              document.getElementById("num3d").innerHTML = "+3 hours of offline time"
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body onload="roll()">
+      <h1 style="text-align:center">Choose One:</h1>
+    <div style="margin-left:25vw;" id="container">
+      <div id="num1" class="hide">
+        <h2 id="num1t">Lettuce</h2>
+        <p id="num1d">+5% Money Earned</p>
+        <h4 id="num1R">Common</h4>
+      </div>
+      <div id="num2" class="hide">
+        <h2 id="num2t">Lettuce</h2>
+        <p id="num2d">+5% Money Earned</p>
+        <h4 id="num2R">Common</h4>
+      </div>
+      <div id="num3" class="hide">
+        <h2 id="num3t">Lettuce</h2>
+        <p id="num3d">+5% Money Earned</p>
+        <h4 id="num3R">Common</h4>
+      </div>
+    </div>
+  </body>
+</html>
