@@ -287,12 +287,16 @@ function saveY() {
   else if (diners !== 0) {
     document.getElementById("diners_owned").innerHTML = diners + " Diners";
   }
-  largeRs = +(localStorage.largeR);
-  if (largeRs == 1) {
-    document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturant";
-  }
-  else if (largeRs !== 0) {
-    document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturants";
+  if (largeRs !== undefined) {
+    largeRs = +(localStorage.largeR);
+    if (largeRs == 1) {
+      document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturant";
+    }
+    else if (largeRs !== 0) {
+      document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturants";
+    }
+  } else {
+    largeRs = 0;
   }
   moneyT = +(localStorage.moneyT);
   clickPnum = +(localStorage.clickPnum);
@@ -348,14 +352,23 @@ function saveY() {
   var oldT = localStorage.saveT;
   var diff = Date.now() - oldT;
   var sec = Math.floor(diff / 1000);
-  var offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec);
+  var offlineMoney = 0;
+  if (largeRs !== undefined && largeRs !== null) {
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec);
+    } else {
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec);
+    }
   if (sec >= 60 && sec <= 14400) {
     alert("You earned " + short(offlineMoney) + " dollars while you were away!");
     money += offlineMoney;
     moneyT += offlineMoney;
   } else if (sec >= 14400) {
     sec = 14400;
-    offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec);
+    if (largeRs !== undefined && largeRs !== null) {
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec);
+    } else {
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec);
+    }
     alert("You earned " + short(offlineMoney) + " dollars while you were away!");
     money += offlineMoney;
     moneyT += offlineMoney;
