@@ -116,6 +116,7 @@ function largeR() {
     } else {
       document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturants";
     }
+    update();
   } else {
     console.log("Not enough money!!!!");
   }
