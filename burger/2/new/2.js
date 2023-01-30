@@ -1,4 +1,4 @@
-
+// jshint maxerr:1000
 
 
 
@@ -25,6 +25,7 @@ var grandpas = 0;
 var mOuse = 0;
 var diners = 0;
 var largeRs = 0;
+var sChains = 0;
 
 var mps = 0;
 
@@ -55,10 +56,10 @@ var startT = false;
 
 
 function mous() {
-  if (money >= 50) {
+  if (money >= 100) {
     mOuse++;
     mps += 0.2;
-    money -= 50;
+    money -= 100;
     moneyS = "$" + (Math.floor(money));
     if (mOuse == 1) {
       document.getElementById("mice_owned").innerHTML = mOuse + " Cursor";
@@ -72,10 +73,10 @@ function mous() {
 }
 
 function grandpa() {
-  if (money >= 300) {
+  if (money >= 950) {
     grandpas++;
     mps += 1;
-    money -= 300;
+    money -= 950;
     moneyS = "$" + Math.floor(money);
     if (grandpas == 1) {
       document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpa";
@@ -89,10 +90,10 @@ function grandpa() {
 }
 
 function diner() {
-  if (money >= 2000) {
+  if (money >= 9025) {
     diners++;
     mps += 5;
-    money -= 2000;
+    money -= 9025;
     moneyS = "$" + Math.floor(money);
     if (diners == 1) {
       document.getElementById("diners_owned").innerHTML = diners + " Diner";
@@ -106,15 +107,32 @@ function diner() {
 }
 
 function largeR() {
-  if (money >= 13000) {
+  if (money >= 85730) {
     largeRs++;
     mps += 25;
-    money -= 13000;
+    money -= 85730;
     moneyS = "$" + Math.floor(money);
     if (largeRs == 1) {
       document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturant";
     } else {
       document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturants";
+    }
+    update();
+  } else {
+    console.log("Not enough money!!!!");
+  }
+}
+
+function sChain() {
+  if (money >= 943030) {
+    sChains++;
+    mps += 150;
+    money -= 943030;
+    moneyS = "$" + Math.floor(money);
+    if (sChains == 1) {
+      document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chain";
+    } else {
+      document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chains";
     }
     update();
   } else {
@@ -145,7 +163,11 @@ function tick() {
   moneyT += (diners * 5);
   money += (largeRs * 25);
   moneyT += (largeRs * 25);
+  money += (sChains * 150);
+  moneyT += (sChains * 150);
   moneyS = "$" + Math.floor(money);
+  money = Math.round(money);
+  moneyT = Math.round(moneyT);
   if (startT === true) {
     window.localStorage.setItem("money", Math.floor(money));
     time++;
@@ -154,9 +176,13 @@ function tick() {
     window.localStorage.setItem("grandpas", grandpas);
     window.localStorage.setItem("mice", mOuse);
     window.localStorage.setItem("diners", diners);
+    window.localStorage.setItem("sChains", sChains);
     window.localStorage.setItem("largeR", largeRs);
     window.localStorage.setItem("clickPnum", clickPnum);
     localStorage.setItem("saveT", Date.now());
+  }
+  if (money == isNaN || moneyT == isNaN || money === undefined || moneyT === undefined) {
+    saveN();
   }
   update();
 }
@@ -189,6 +215,7 @@ function load() {
   document.getElementById("mouseBtn").addEventListener("click", mous);
   document.getElementById("dinerBtn").addEventListener("click", diner);
   document.getElementById("resturantBtn").addEventListener("click", largeR);
+  document.getElementById("smallC").addEventListener("click", sChain);
   document.getElementById("toggleButton").addEventListener("click", toggleTabs);
   document.getElementById("clickPu").addEventListener("click", upgradeCp);
   document.getElementById("burger").addEventListener("mousedown", dow);
@@ -204,25 +231,31 @@ function load() {
     this.innerHTML = "$0.2 per second";
   });
   document.getElementById("mouseBtn").addEventListener("mouseout", function(){
-    this.innerHTML = "Mouse - $50";
+    this.innerHTML = "Mouse - $100";
   });
   document.getElementById("grandpaBtn").addEventListener("mouseover", function(){
     this.innerHTML = "$1 per second";
   });
   document.getElementById("grandpaBtn").addEventListener("mouseout", function(){
-    this.innerHTML = "Grandpa - $300";
+    this.innerHTML = "Grandpa - $950";
   });
   document.getElementById("dinerBtn").addEventListener("mouseover", function(){
     this.innerHTML = "$5 per second";
   });
   document.getElementById("dinerBtn").addEventListener("mouseout", function(){
-    this.innerHTML = "Local Diner - $2k";
+    this.innerHTML = "Local Diner - $9k";
   });
   document.getElementById("resturantBtn").addEventListener("mouseover", function(){
     this.innerHTML = "$25 per second";
   });
   document.getElementById("resturantBtn").addEventListener("mouseout", function(){
-    this.innerHTML = "Large Resturant - $13k";
+    this.innerHTML = "Large Resturant - $85.7k";
+  });
+  document.getElementById("smallC").addEventListener("mouseover", function(){
+    this.innerHTML = "$150 per second";
+  });
+  document.getElementById("smallC").addEventListener("mouseout", function(){
+    this.innerHTML = "Small Resturant Chain - $943k";
   });
   if (localStorage.getItem("time") !== 0 && localStorage.getItem("time") !== null) {
     //document.getElementById("notification").style.display = "none";
@@ -247,8 +280,25 @@ function saveN() {
   window.localStorage.setItem("time", 0);
   window.localStorage.setItem("mice", 0);
   window.localStorage.setItem("grandpas", 0);
-  window.localStorage.setItem("moneyT", 0);
   window.localStorage.setItem("largeR", 0);
+  window.localStorage.setItem("sChains", 0);
+  window.localStorage.setItem("moneyT", 0);
+  money = 0;
+  moneyS = "$" + money;
+  moneyT = 0;
+  grandpas = 0;
+  mOuse = 0;
+  diners = 0;
+  largeRs = 0;
+  sChains = 0;
+  mps = 0;
+  text = "Stats";
+  txt = 1;
+  clickPprice = 500;
+  clickPnum = 0;
+  clickPower = 1;
+  time = 0;
+  startT = false;
   if (remembe.checked === true) {
     localStorage.setItem("remember", "no");
   }
@@ -298,11 +348,20 @@ function saveY() {
   } else {
     largeRs = 0;
   }
+  if (sChains !== undefined) {
+    sChains = +(localStorage.sChains);
+    if (sChains == 1) {
+      document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chain";
+    }
+    else if (sChains !== 0) {
+      document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chains";
+    }
+  } else {
+    sChains = 0;
+  }
   moneyT = +(localStorage.moneyT);
   clickPnum = +(localStorage.clickPnum);
   if (clickPnum === 0) {
-      
-    
   }
   else if (clickPnum == 1) {
       document.getElementById("cP1").style.fill = "rgb(100,120,120)";
@@ -354,9 +413,9 @@ function saveY() {
   var sec = Math.floor(diff / 1000);
   var offlineMoney = 0;
   if (largeRs !== undefined && largeRs !== null) {
-      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec);
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec);
     } else {
-      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec);
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec);
     }
   if (sec >= 60 && sec <= 14400) {
     alert("You earned " + short(offlineMoney) + " dollars while you were away!");
@@ -365,9 +424,9 @@ function saveY() {
   } else if (sec >= 14400) {
     sec = 14400;
     if (largeRs !== undefined && largeRs !== null) {
-      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec);
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec);
     } else {
-      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec);
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec);
     }
     alert("You earned " + short(offlineMoney) + " dollars while you were away!");
     money += offlineMoney;
@@ -427,7 +486,7 @@ function update() {
     nodeList[i].innerHTML = moneyS;
   }
   document.getElementById("total_money").innerHTML = "You have made " + short(Math.floor(moneyT)) + " dollars in total.";
-  mps = (mOuse * 0.2) + grandpas + (diners * 5) + (largeRs * 25);
+  mps = (mOuse * 0.2) + grandpas + (diners * 5) + (largeRs * 25) + (sChains * 150);
   document.getElementById("dps").innerHTML = "<i>" + mps.toFixed(1) + " MPS</i>";
   
 }
@@ -441,24 +500,24 @@ function onCl() {
 
 function short(val) {
   if (val >= 1000 && val < 1000000) {
-    return((val / 1000).toFixed(2) + "k")
+    return((val / 1000).toFixed(2) + "k");
   } else if (val >= 100000 && val < 1000000000) {
-    return((val / 1000000).toFixed(2) + "m")
+    return((val / 1000000).toFixed(2) + "m");
   } else if (val >= 100000000 && val < 1000000000000) {
-    return((val / 1000000000).toFixed(2) + "b")
+    return((val / 1000000000).toFixed(2) + "b");
   } else if (val >= 100000000000 && val < 1000000000000000) {
-    return((val / 1000000000000).toFixed(2) + "t")
+    return((val / 1000000000000).toFixed(2) + "t");
   } else if (val >= 100000000000000 && val < 1000000000000000000) {
-    return((val / 1000000000000000).toFixed(2) + "q")
+    return((val / 1000000000000000).toFixed(2) + "q");
   } else if (val >= 100000000000000000 && val < 1000000000000000000000) {
-    return((val / 1000000000000000000).toFixed(2) + "Q")
+    return((val / 1000000000000000000).toFixed(2) + "Q");
   } else if (val >= 100000000000000000000 && val < 1000000000000000000000000) {
-    return((val / 1000000000000000000000).toFixed(2) + "Sx")
+    return((val / 1000000000000000000000).toFixed(2) + "Sx");
   } else if (val >= 100000000000000000000000 && val < 1000000000000000000000000000) {
-    return((val / 1000000000000000000000000).toFixed(2) + "Sp")
+    return((val / 1000000000000000000000000).toFixed(2) + "Sp");
   }
   else if (val < 1000 || val > 900000000000000000000000000) {
-    return(val)
+    return(val);
   }
 }
 
@@ -530,7 +589,7 @@ function types(n, r) {
       }
     }
   } else if (n == 2) {
-    var rando = Math.floor(Math.random() * 5) + 1
+    rando = Math.floor(Math.random() * 5) + 1
     if (rando == 1) {
       document.getElementById("num2t").innerHTML = "Bacon"
       if (r == "c") {
@@ -592,7 +651,7 @@ function types(n, r) {
       }
     }
   } else {
-    var rando = Math.floor(Math.random() * 5) + 1
+    rando = Math.floor(Math.random() * 5) + 1
     if (rando == 1) {
       document.getElementById("num3t").innerHTML = "Bacon"
       if (r == "c") {
@@ -620,37 +679,37 @@ function types(n, r) {
     if (rando == 3) {
       document.getElementById("num3t").innerHTML = "Tomato"
       if (r == "c") {
-        document.getElementById("num3d").innerHTML = "1% faster tick speed"
+        document.getElementById("num3d").innerHTML = "1% faster tick speed";
       } else if (r == "r") {
-        document.getElementById("num3d").innerHTML = "2% faster tick speed"
+        document.getElementById("num3d").innerHTML = "2% faster tick speed";
       } else if (r == "e") {
-        document.getElementById("num3d").innerHTML = "3% faster tick speed"
+        document.getElementById("num3d").innerHTML = "3% faster tick speed";
       } else if (r == "l") {
-        document.getElementById("num3d").innerHTML = "4.5% faster tick speed"
+        document.getElementById("num3d").innerHTML = "4.5% faster tick speed";
       }
     }
     if (rando == 4) {
-      document.getElementById("num3t").innerHTML = "Mustard"
+      document.getElementById("num3t").innerHTML = "Mustard";
       if (r == "c") {
-        document.getElementById("num3d").innerHTML = "-0.5% upgrade prices"
+        document.getElementById("num3d").innerHTML = "-0.5% upgrade prices";
       } else if (r == "r") {
-        document.getElementById("num3d").innerHTML = "-1% upgrade prices"
+        document.getElementById("num3d").innerHTML = "-1% upgrade prices";
       } else if (r == "e") {
-        document.getElementById("num3d").innerHTML = "-1.75% upgrade prices"
+        document.getElementById("num3d").innerHTML = "-1.75% upgrade prices";
       } else if (r == "l") {
-        document.getElementById("num3d").innerHTML = "-2.5% upgrade prices"
+        document.getElementById("num3d").innerHTML = "-2.5% upgrade prices";
       }
     }
     if (rando == 5) {
-      document.getElementById("num3t").innerHTML = "Pickles"
+      document.getElementById("num3t").innerHTML = "Pickles";
       if (r == "c") {
-        document.getElementById("num3d").innerHTML = "+30 minutes of offline time"
+        document.getElementById("num3d").innerHTML = "+30 minutes of offline time";
       } else if (r == "r") {
-        document.getElementById("num3d").innerHTML = "+45 minutes of offline time"
+        document.getElementById("num3d").innerHTML = "+45 minutes of offline time";
       } else if (r == "e") {
-        document.getElementById("num3d").innerHTML = "+1.5 hours of offline time"
+        document.getElementById("num3d").innerHTML = "+1.5 hours of offline time";
       } else if (r == "l") {
-        document.getElementById("num3d").innerHTML = "+3 hours of offline time"
+        document.getElementById("num3d").innerHTML = "+3 hours of offline time";
       }
     }
   }
