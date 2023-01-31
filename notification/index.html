@@ -19,6 +19,9 @@ if (localStorage.getItem("showNotification") === "true") {
     new Notification("Here's your notification text");
     localStorage.removeItem("showNotification");
   }
+  else {
+    alert("Notification Permission Denied")
+  }
 }
 </script>
 </head>
