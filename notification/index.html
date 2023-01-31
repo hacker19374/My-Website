@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Notification test</title>
+<script>
+window.addEventListener("beforeunload", function (e) {
+  localStorage.setItem("showNotification", true);
+});
+
+if (localStorage.getItem("showNotification") === "true") {
+  if (Notification.permission === "default") {
+    Notification.requestPermission().then(function (permission) {
+      if (permission === "granted") {
+        new Notification("Here's your notification text");
+        localStorage.removeItem("showNotification");
+      }
+    });
+  } else if (Notification.permission === "granted") {
+    new Notification("Here's your notification text");
+    localStorage.removeItem("showNotification");
+  }
+}
+</script>
+</head>
+<body>
+  <button onclick="javascript:Notification.requestPermission()">Allow Notifications</button>
+</body>
+</html>
