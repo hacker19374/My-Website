@@ -2,7 +2,7 @@
 
 Just some things about [Burger Clicker 2](htpps://hacker19374.github.io/My-Website/burger/2/new). 
 
-You can support me by buying me a burger: [![Coffee]([https://s18955.pcdn.co/wp-content/uploads/2018/02/github.png](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20burger&emoji=%F0%9F%8D%94&slug=beneedum&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff))](https://buymeacoffee.com/beneedum)
+You can support me by buying me a burger: [![Buy me a Burger](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20burger&emoji=%F0%9F%8D%94&slug=beneedum&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff)](https://buymeacoffee.com/beneedum)
 
 
 ## Changelog 
