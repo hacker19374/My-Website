@@ -7,6 +7,10 @@ You can support me by buying me a burger: [![Buy me a Burger](https://img.buymea
 
 ## Changelog 
 
+### v0.4.2
+- Fixed google analytics. (between all the file transfering, it somehow got removed)
+- Added an icon of a burger, so the icon doesn't show up as the default.
+
 ### v0.4.1
 - Added a view changelog button in the settings tab.
 
