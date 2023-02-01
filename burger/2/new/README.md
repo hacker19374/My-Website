@@ -7,6 +7,9 @@ You can support me by buying me a burger: [![Buy me a Burger](https://img.buymea
 
 ## Changelog 
 
+### v0.4.1
+- Added a view changelog button in the settings tab.
+
 ### v0.4.0
 - Added a better tab system for better orginization.
 - Added large resturant chain and state in the shop.
