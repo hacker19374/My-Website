@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
   <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Serif+Pro">
@@ -15,24 +15,28 @@
     <meta http-equiv="content-type" content="text/html">
     <meta name="application-name" content="Burger Clicker 2">
   </head>
-  <body>
+  <body id="body">
     <div id="shop" class="col-3 shop">
       <h2 style="width:100%;text-align:center;"><u>Shop</u></h2>
       <button class="button" id="mouseBtn">Mouse - $100</button>
       <button class="button" id="grandpaBtn">Grandpa - $950</button>
-      <button class="button" id="dinerBtn">Local Diner - $9k</button>
-      <button class="button" id="resturantBtn">Large Resturant - $85.7k</button>
-      <button class="button" id="smallC">Small Resturant Chain - $943.03k</button>
-      <button class="button locked" id="">Coming Soom</button>
-      <button class="button locked" id="">Coming Soom</button>
-      <button class="button locked" id="">Coming Soom</button>
-      <button class="button locked" id="">Coming Soom</button>
-      <button class="button locked" id="">Coming Soom</button>
-      <button class="button locked" id="">Coming Soom</button>
-      <button class="button locked" id="">Coming Soom</button>
+      <button class="button locked" id="dinerBtn">Locked</button>
+      <button class="button locked" id="resturantBtn">Locked</button>
+      <button class="button locked" id="smallC">Locked</button>
+      <button class="button locked" id="bigC">Locked</button>
+      <button class="button locked" id="state">Locked</button>
+      <button class="button locked" id="btc">Locked</button>
+      <button class="button locked" id="monopoly">Locked</button>
+      <button class="button locked" id="space">Locked</button>
+      <button class="button locked" id="planet">Locked</button>
+      <button class="button locked" id="galaxy">Locked</button>
+      <button class="button locked" id="time">Locked</button>
+      <button class="button locked" id="control">Locked</button>
+      <button class="button locked" id="quantum">Locked</button>
+      <button class="button locked" id="beatTheGame">Locked</button>
     </div>
     
-    <div id="notification" style="background-color:rgba(66,66,66,0.72);position:absolute;height:100%;width:100vw">
+    <div id="notification" style="background-color:rgba(66,66,66,0.72);position:absolute;height:100%;width:100vw;z-index:1;">
       <div id="box" style="display:block;background-color:lightgrey;border-radius:30px;width:30%;height:60%;margin:auto;margin-top:20vh;">
         <h1 style="width:100%;text-align:center;margin-bottom:20px;">Save Data</h1>
         <p style="width:100%;text-align:center;">Do you want to load your save data?</p>
@@ -50,7 +54,7 @@
       
     </div>
     
-    <div id="splash" style="background-color:black;position:absolute;width:100vw;height:100vh;">
+    <div id="splash" style="background-color:black;position:absolute;width:100vw;height:100vh;z-index:2">
       <h1 style="color:white;text-align:center;margin-top:45vh;">Made with love by Tyler Benedum.</h1>
     </div>
     
@@ -60,17 +64,24 @@
       
     </div>
     
-    <div class="stats col-9">
+    <div class="stats col-9" id="bottomBar">
       
-      <button id="toggleButton" class="button" style="width:20%;height:15%;margin-left:1vw;">Upgrades</button>
-      <button id="prestige" class="button" style="width:20%;height:15%;margin-top:4px;margin-left:43vw;" onclick="prestige">Prestige</button>
+      <div class="tab">
+        <button class="tablinks" id="defualtOpen" onclick="openCity(event, 'Stats')">Stats</button>
+        <button class="tablinks" id="" onclick="openCity(event, 'Upgrades')">Upgrades</button>
+        <button class="tablinks" id="" onclick="alert('Coming Soon!')">Prestige</button>
+        <button class="tablinks" id="" onclick="openCity(event, 'Feedback')">Feedback</button>
+        <button class="tablinks" id="" onclick="openCity(event, 'settings')">Settings</button>
+      </div>
       
       
-      <div id="stats" class="tab-2a">
+      <div id="Stats" class="tabcontent">
         <h1 class="money moneyS" id="money">$0</h1><span></span>
         <h6 class="money" id="total_money">You have made 0 dollars in total.</h6>
         <p style="border-bottom: 1px solid grey;width: 80%; margin: 3px auto 40px auto"></p>
         <h4 id="dps" class="money"><i>0 MPS</i></h4>
+        <h4 id="states_owned" class="money"></h4>
+        <h4 id="lChain_owned" class="money"></h4>
         <h4 id="sChain_owned" class="money"></h4>
         <h4 id="largeR_owned" class="money"></h4>
         <h4 id="diners_owned" class="money"></h4>
@@ -79,9 +90,9 @@
       </div>
       
       
-      <div id="upgrades" class="tab-1b">
-        <h1 class="moneyS" style="position:absolute;right:56%;top:52%">$0</h1>
-        <h1 class="upgrades" id="clickPu"><u>Upgrade click power - $500</u></h1>
+      <div id="Upgrades" class="tabcontent">
+        <h1 class="moneyS" style="margin:auto;text-align:center;">$0</h1>
+        <h1 class="upgrades" id="clickPu"><u>Upgrade click power - $2000</u></h1>
         <svg id="click_power" style="display:block;margin:auto;" version="1.1" width="20vw" height="40vh" viewBox="0 0 16 36">
           <rect id="cP1" x="1" y="1" width="4" height="2" style="fill:silver;stroke:black" stroke-width="0.1" ry="1" rx="1"/>
           <rect x="3" y="1" width="2" height="2" fill="#83dd2a" stroke="#83dd2a" stroke-width="0.2" ry="1" rx="0"/>
@@ -93,8 +104,30 @@
           <rect id="cP4" x="9.7" y="1" width="2.5" height="2" fill="silver" stroke="black" stroke-width="0.1" />
           <line x1="12.8" y1="0.95" x2="12.8" y2="3.05" style="stroke:black;stroke-width:0.1" />
         </svg>
+        <div id="tick-speed"></div>
       </div>
+      
+      
+      <div id="Feedback" class="tabcontent">
+        <h1>Feedback</h1>
+        <p>You can email me at <a style="color:#111509;" href="mailto:tylerstech84@gmail.com">tylerstech84@gmail.com</a> if you have any suggestions or ideas!</p>
+      </div>
+      
+      <div id="settings" class="tabcontent">
+        <h1>Settings</h1>
+        <h3 onclick="localStorage.clear('money');location.reload()">Reset Progress.</h3>
+      </div>
+      
     </div>
-    
+    <!--  Mobile Detection  -->
+    <script>
+      if (window.innerHeight >= window.innerWidth) {
+        alert("No mobile devices!")
+        document.getElementById("body").innerHTML = ""
+        document.getElementById("body").style.backgroundColor = ""
+        
+      }
+      setTimeout(function(){document.getElementById("defualtOpen").click()},1000)
+    </script>
   </body>
 </html>
