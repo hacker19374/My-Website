@@ -196,7 +196,7 @@ function cryptob() {
       document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrency";
       unlok(6);
     } else {
-      document.getElementById("cyrpto_owned").innerHTML = cryptos + " Cryptocurrencies";
+      document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrencies";
     }
     update();
   } else {
@@ -376,7 +376,7 @@ function max(it) {
       if (cryptos == 1) {
         document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrency";
       } else {
-        document.getElementById("cyrpto_owned").innerHTML = cryptos + " Cryptocurrencies";
+        document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrencies";
       }
     }
     update();
@@ -761,7 +761,7 @@ function saveN() {
   sChains = 0;
   lChains = 0;
   states = 0;
-  crypto = 0;
+  cryptos = 0;
   monos = 0;
   spac = 0;
   mps = 0;
