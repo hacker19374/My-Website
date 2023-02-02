@@ -5,7 +5,13 @@ Just some things about [Burger Clicker 2](htpps://hacker19374.github.io/My-Websi
 You can support me by buying me a burger: [![Buy me a Burger](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20burger&emoji=%F0%9F%8D%94&slug=beneedum&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff)](https://buymeacoffee.com/beneedum)
 
 
-## Changelog 
+## Changelog
+
+## v0.5.0
+- Added 2 new shop items, Monopoly and Explore Space.
+- Fixed support for older versions, I just had to change some of the variables to localStorage.
+- Made the shop tab bigger to fit the max buttons in.
+- Added buy max for the shop items, where it either buys the maximum amount of whatever, or 100. (So the game doesn't lag out and crash)
 
 ### v0.4.2
 - Fixed google analytics. (between all the file transfering, it somehow got removed)
