@@ -28,6 +28,9 @@ var largeRs = 0;
 var sChains = 0;
 var lChains = 0;
 var states = 0;
+var cryptos = 0;
+var monos = 0;
+var spac = 0;
 
 var mps = 0;
 
@@ -63,7 +66,7 @@ function mous() {
     mOuse++;
     mps += 0.2;
     money -= 100;
-    moneyS = "$" + (Math.floor(money));
+    moneyS = "$" + (Math.round(money));
     if (mOuse == 1) {
       document.getElementById("mice_owned").innerHTML = mOuse + " Cursor";
     } else {
@@ -80,7 +83,7 @@ function grandpa() {
     grandpas++;
     mps += 1;
     money -= 950;
-    moneyS = "$" + Math.floor(money);
+    moneyS = "$" + Math.round(money);
     if (grandpas == 1) {
       document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpa";
       unlok(0);
@@ -98,7 +101,7 @@ function diner() {
     diners++;
     mps += 5;
     money -= 9025;
-    moneyS = "$" + Math.floor(money);
+    moneyS = "$" + Math.round(money);
     if (diners == 1) {
       document.getElementById("diners_owned").innerHTML = diners + " Diner";
       unlok(1);
@@ -116,7 +119,7 @@ function largeR() {
     largeRs++;
     mps += 25;
     money -= 85730;
-    moneyS = "$" + Math.floor(money);
+    moneyS = "$" + Math.round(money);
     if (largeRs == 1) {
       document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturant";
       unlok(2);
@@ -134,7 +137,7 @@ function sChain() {
     sChains++;
     mps += 150;
     money -= 943030;
-    moneyS = "$" + Math.floor(money);
+    moneyS = "$" + Math.round(money);
     if (sChains == 1) {
       document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chain";
       unlok(3);
@@ -152,9 +155,10 @@ function lChain() {
     lChains++;
     mps += 800;
     money -= 10373000;
-    moneyS = "$" + Math.floor(money);
+    moneyS = "$" + Math.round(money);
     if (lChains == 1) {
       document.getElementById("lChain_owned").innerHTML = lChains + " Large Resturant Chain";
+      unlok(4);
     } else {
       document.getElementById("lChain_owned").innerHTML = lChains + " Large Resturant Chains";
     }
@@ -169,14 +173,70 @@ function state() {
     states++;
     mps += 4000;
     money -= 124476000;
-    moneyS = "$" + Math.floor(money);
+    moneyS = "$" + Math.round(money);
     if (states == 1) {
       document.getElementById("states_owned").innerHTML = states + " State";
+      unlok(5);
     } else {
       document.getElementById("states_owned").innerHTML = states + " States";
     }
     update();
   } else {
+    console.log("Not enough money!!!!");
+  }
+}
+
+function cryptob() {
+  if (money >= 1618188000) {
+    cryptos++;
+    mps += 30000;
+    money -= 1618188000;
+    moneyS = "$" + Math.round(money);
+    if (cryptos == 1) {
+      document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrency";
+      unlok(6);
+    } else {
+      document.getElementById("cyrpto_owned").innerHTML = cryptos + " Cryptocurrencies";
+    }
+    update();
+  } else {
+    console.log("Not enough money!!!!");
+  }
+}
+
+function monopoly() {
+  if (money >= 22654632000) {
+    monos++;
+    mps += 500000;
+    money -= 22654632000;
+    moneyS = "$" + Math.round(money);
+    if (monos == 1) {
+      document.getElementById("mono_owned").innerHTML = monos + " Monopoly";
+      unlok(7);
+    } else {
+      document.getElementById("mono_owned").innerHTML = monos + " Monopolies";
+    }
+    update();
+  }
+  else {
+    console.log("Not enough money!!!!");
+  }
+}
+
+function space() {
+  if (money >= 339819480000) {
+    spac++;
+    mps += 2000000;
+    money -= 339819480000;
+    moneyS = "$" + Math.round(money);
+    if (spac == 1) {
+      document.getElementById("space_owned").innerHTML = "Explored space " + spac + " time";
+    } else {
+      document.getElementById("space_owned").innerHTML = "Explored space " + spac + " times";
+    }
+    update();
+  }
+  else {
     console.log("Not enough money!!!!");
   }
 }
@@ -194,19 +254,179 @@ function state() {
 
 
 
+var number = 0;
+function max(it) {
+  if (it == "m") {
+    number = Math.floor(money / 100);
+    for (var i = 0; i < number && i < 100; i++) {
+      mOuse++;
+      money -= 100;
+      mps += 0.2;
+      if (mOuse == 1) {
+        document.getElementById("mice_owned").innerHTML = mOuse + " Cursor";
+      } else {
+        document.getElementById("mice_owned").innerHTML = mOuse + " Cursors";
+      }
+    }
+    update();
+  }
+  if (it == "g") {
+    number = Math.floor(money / 950);
+    for (var i = 0; i < number && i < 100; i++) {
+      grandpas++;
+      mps += 1;
+      money -= 950;
+      moneyS = "$" + Math.round(money);
+      if (grandpas == 1) {
+        document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpa";
+        unlok(0);
+      } else {
+        document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpas";
+      }
+    }
+    update();
+  }
+  if (it == "d") {
+    number = Math.floor(money / 9025);
+    for (var i = 0; i < number && i < 100; i++) {
+      diners++;
+      mps += 5;
+      money -= 9025;
+      moneyS = "$" + Math.round(money);
+      if (diners == 1) {
+        document.getElementById("diners_owned").innerHTML = diners + " Diner";
+        unlok(1);
+      } else {
+        document.getElementById("diners_owned").innerHTML = diners + " Diners";
+      }
+    }
+    update();
+  }
+  if (it == "r") {
+    number = Math.floor(money / 85730);
+    for (var i = 0; i < number && i < 100; i++) {
+      largeRs++;
+      mps += 25;
+      money -= 85730;
+      moneyS = "$" + Math.round(money);
+      if (largeRs == 1) {
+        document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturant";
+        unlok(2);
+      } else {
+        document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturants";
+      }
+    }
+    update();
+  }
+  if (it == "sC") {
+    number = Math.floor(money / 947030);
+    for (var i = 0; i < number && i < 100; i++) {
+      sChains++;
+      mps += 150;
+      money -= 943030;
+      moneyS = "$" + Math.round(money);
+      if (sChains == 1) {
+        document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chain";
+        unlok(3);
+      } else {
+        document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chains";
+      }
+    }
+    update();
+  }
+  if (it == "bC") {
+    number = Math.floor(money / 10373000);
+    for (var i = 0; i < number && i < 100; i++) {
+      lChains++;
+      mps += 800;
+      money -= 10373000;
+      moneyS = "$" + Math.round(money);
+      if (lChains == 1) {
+        document.getElementById("lChain_owned").innerHTML = lChains + " Large Resturant Chain";
+        unlok(4);
+      } else {
+        document.getElementById("lChain_owned").innerHTML = lChains + " Large Resturant Chains";
+      }
+    }
+    update();
+  }
+  if (it == "s") {
+    number = Math.floor(money / 124476000);
+    for (var i = 0; i < number && i < 100; i++) {
+      states++;
+      mps += 4000;
+      money -= 124476000;
+      moneyS = "$" + Math.round(money);
+      if (states == 1) {
+        document.getElementById("states_owned").innerHTML = states + " State";
+        unlok(5);
+      } else {
+        document.getElementById("states_owned").innerHTML = states + " States";
+      }
+    }
+    update();
+  }
+  if (it == "c") {
+    number = Math.floor(money / 1618188000);
+    for (var i = 0; i < number && i < 100; i++) {
+      cryptos++;
+      mps += 30000;
+      money -= 1618188000;
+      moneyS = "$" + Math.round(money);
+      if (cryptos == 1) {
+        document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrency";
+      } else {
+        document.getElementById("cyrpto_owned").innerHTML = cryptos + " Cryptocurrencies";
+      }
+    }
+    update();
+  }
+  if (it == "mn") {
+    number = Math.floor(money / 22654632000);
+    for (var i = 0; i < number && i < 100; i++) {
+      monos++;
+      mps += 500000;
+      money -= 22654632000;
+      moneyS = "$" + Math.round(money);
+      if (monos == 1) {
+        document.getElementById("mono_owned").innerHTML = monos + " Monopoly";
+      } else {
+        document.getElementById("mono_owned").innerHTML = monos + " Monopolies";
+      }
+    }
+    update();
+  }
+  if (it == "sp") {
+    number = Math.floor(money / 339819480000);
+    for (var i = 0; i < number && i < 100; i++) {
+      spac++;
+      mps += 2000000;
+      money -= 339819480000;
+      moneyS = "$" + Math.round(money);
+      if (spac == 1) {
+        document.getElementById("space_owned").innerHTML = "Explored space " + spac + " time";
+      } else {
+        document.getElementById("space_owned").innerHTML = "Explored space " + spac + " times";
+      }
+    }
+    update();
+  }
+}
 
 function unlok(num) {
-  if (num == 3) {
-    document.getElementById("bigC").innerHTML = "Large Resturant Chain - $10.37m";
-      document.getElementById("bigC").addEventListener("click", lChain);
-      document.getElementById("bigC").addEventListener("mouseover", function(){
-        this.innerHTML = "$800 per second";
-      });
-      document.getElementById("bigC").addEventListener("mouseout", function(){
-        this.innerHTML = "Large Resturant Chain - $10.3m";
-      });
-      document.getElementById("bigC").classList.remove("locked");
-      unlocked = 6;
+  if (num === 0) {
+    document.getElementById("dinerBtn").addEventListener("click", diner);
+    document.getElementById("dinerBtn").classList.remove("locked");
+    document.getElementById("dinerBtn").innerHTML = "Local Diner - $9k";
+    document.getElementById("dinerBtn").addEventListener("mouseover", function(){
+      this.innerHTML = "$5 per second";
+    });
+    document.getElementById("dinerBtn").addEventListener("mouseout", function(){
+      this.innerHTML = "Local Diner - $9k";
+    });
+    document.getElementById("maxD").classList.remove("locked");
+    document.getElementById("maxD").addEventListener("click",function(){max('d')});
+    unlocked = 3;
   }
   if (num == 1) {
     document.getElementById("resturantBtn").addEventListener("click", largeR);
@@ -218,6 +438,8 @@ function unlok(num) {
         this.innerHTML = "Large Resturant - $85.7k";
       });
       document.getElementById("resturantBtn").innerHTML = "Resturant - $85.7k";
+      document.getElementById("maxR").classList.remove("locked");
+      document.getElementById("maxR").addEventListener("click",function(){max('r')});
       unlocked = 4;
   }
   if (num == 2) {
@@ -230,19 +452,77 @@ function unlok(num) {
       });
       document.getElementById("smallC").classList.remove("locked");
       document.getElementById("smallC").innerHTML = "Small Resturant Chain - $943k";
+      document.getElementById("maxSC").classList.remove("locked");
+      document.getElementById("maxSC").addEventListener("click",function(){max('sC')});
       unlocked = 5;
   }
-  if (num === 0) {
-    document.getElementById("dinerBtn").addEventListener("click", diner);
-      document.getElementById("dinerBtn").classList.remove("locked");
-      document.getElementById("dinerBtn").innerHTML = "Local Diner - $9k";
-      document.getElementById("dinerBtn").addEventListener("mouseover", function(){
-        this.innerHTML = "$5 per second";
+  if (num == 3) {
+    document.getElementById("bigC").innerHTML = "Large Resturant Chain - $10.37m";
+      document.getElementById("bigC").addEventListener("click", lChain);
+      document.getElementById("bigC").addEventListener("mouseover", function(){
+        this.innerHTML = "$800 per second";
       });
-      document.getElementById("dinerBtn").addEventListener("mouseout", function(){
-        this.innerHTML = "Local Diner - $9k";
+      document.getElementById("bigC").addEventListener("mouseout", function(){
+        this.innerHTML = "Large Resturant Chain - $10.3m";
       });
-      unlocked = 3;
+      document.getElementById("bigC").classList.remove("locked");
+      document.getElementById("maxBC").classList.remove("locked");
+      document.getElementById("maxBC").addEventListener("click",function(){max('bC')});
+      unlocked = 6;
+  }
+  if (num == 4) {
+    document.getElementById("state").addEventListener("click", state);
+    document.getElementById("state").addEventListener("mouseover", function(){
+      this.innerHTML = "$4k per second";
+    });
+    document.getElementById("state").addEventListener("mouseout", function(){
+      this.innerHTML = "State - $124m";
+    });
+    document.getElementById("state").classList.remove("locked");
+    document.getElementById("state").innerHTML = "State - $124m";
+    document.getElementById("maxS").classList.remove("locked");
+    document.getElementById("maxS").addEventListener("click",function(){max('s')});
+    unlocked = 7;
+  }
+  if (num == 5) {
+    document.getElementById("btc").addEventListener("click", cryptob);
+    document.getElementById("btc").addEventListener("mouseover", function(){
+      this.innerHTML = "$30k per second";
+    });
+    document.getElementById("btc").addEventListener("mouseout", function(){
+      this.innerHTML = "Cryptocurrency - $1.62b";
+    });
+    document.getElementById("btc").classList.remove("locked");
+    document.getElementById("btc").innerHTML = "Cryptocurrency - $1.62b";
+    document.getElementById("maxC").classList.remove("locked");
+    document.getElementById("maxC").addEventListener("click",function(){max('c')});
+    unlocked = 8;
+  }
+  if (num == 6) {
+    document.getElementById("monopoly").addEventListener("click", monopoly);
+    document.getElementById("monopoly").addEventListener("mouseover", function(){
+      this.innerHTML = "$500k per second";
+    });
+    document.getElementById("monopoly").addEventListener("mouseout", function(){
+      this.innerHTML = "Monopoly - $22.7b";
+    });
+    document.getElementById("monopoly").classList.remove("locked");
+    document.getElementById("monopoly").innerHTML = "Monopoly - $22.7b";
+    document.getElementById("maxMn").classList.remove("locked");
+    document.getElementById("maxMn").addEventListener("click",function(){max('mn')});
+  }
+  if (num == 7) {
+    document.getElementById("space").addEventListener("click", space);
+    document.getElementById("space").addEventListener("mouseover", function(){
+      this.innerHTML = "$2m per second";
+    });
+    document.getElementById("space").addEventListener("mouseout", function(){
+      this.innerHTML = "Space Exploration - $340b";
+    });
+    document.getElementById("space").classList.remove("locked");
+    document.getElementById("space").innerHTML = "Space Exploration - $340b";
+    document.getElementById("maxSp").classList.remove("locked");
+    document.getElementById("maxSp").addEventListener("click",function(){max('sp')});
   }
 }
 
@@ -282,9 +562,13 @@ function tick() {
   moneyT += (lChains * 800);
   money += (states * 4000);
   moneyT += (states * 4000);
+  money += (cryptos * 30000);
+  moneyT += (cryptos * 30000);
+  money += (monos * 500000);
+  moneyT += (monos * 500000);
+  money += (spac * 2000000);
+  moneyT += (spac * 2000000);
   moneyS = "$" + Math.floor(money);
-  money = Math.round(money);
-  moneyT = Math.round(moneyT);
   if (startT === true) {
     window.localStorage.setItem("money", Math.floor(money));
     time++;
@@ -297,12 +581,49 @@ function tick() {
     window.localStorage.setItem("sChains", sChains);
     window.localStorage.setItem("lChains", lChains);
     window.localStorage.setItem("states", states);
+    window.localStorage.setItem("cryptos", cryptos);
+    window.localStorage.setItem("monos", monos);
     window.localStorage.setItem("clickPnum", clickPnum);
     localStorage.setItem("unlocked", unlocked);
     localStorage.setItem("saveT", Date.now());
+    if (mps > 0) {
+      var he = Math.floor((Math.random() * 30) + 5);
+      var si = Math.round(Math.random());
+      
+      var bu = document.createElement("img");
+      bu.src = "burger.png";
+      document.getElementById("clickArea").appendChild(bu);
+      bu.style.width = "50px";
+      bu.style.position = "absolute";
+      bu.style.top = he + "vh";
+      bu.style.top = "calc(" + he + "vh + 20px)";
+      if (si == 1) {
+        bu.style.marginLeft = "15vw";
+      } else {
+        bu.style.marginLeft = "45vw";
+      }
+      bu.style.opacity = "1";
+      bu.style.transition = "opacity 2s";
+  
+      var te = document.createElement("p");
+      te.innerHTML = "+" + short(mps.toFixed(1));
+      document.getElementById("clickArea").appendChild(te);
+      te.style.width = "50px";
+      te.style.position = "absolute";
+      te.style.top = "calc(" + he + "vh + 20px)";
+      if (si == 1) {
+        te.style.marginLeft = "calc(15vw + 45px)";
+      } else {
+        te.style.marginLeft = "calc(45vw + 45px)";
+      }
+      te.style.opacity = "1";
+      te.style.transition = "opacity 1s";
+      setTimeout(function(){te.style.opacity = "0"; bu.style.opacity = "0";},400);
+      setTimeout(function(){te.remove(); bu.remove()},1500);
+    }
   }
   if (localStorage.money == "NaN" || localStorage.moneyT == "NaN" || money === undefined || moneyT === undefined) {
-    localStorage.money = 0;
+    localStorage.clear();
     saveN();
     location.reload();
   }
@@ -316,20 +637,55 @@ function load() {
   document.getElementById("grandpaBtn").addEventListener("click", grandpa);
   if (localStorage.grandpas >= 1 || localStorage.money >= 9025) {
     unlok(0);
+    if (localStorage.grandpas >= 1) {
+      unlok(1);
+    }
   }
   
   if (localStorage.diners >= 1 || localStorage.money >= 85730) {
     unlok(1);
+    if (localStorage.diners >= 1) {
+      unlok(2);
+    }
   }
   
   if (localStorage.resturants >= 1 || localStorage.money >= 943030) {
     unlok(2);
+    if (localStorage.resturants >= 1) {
+      unlok(3);
+    }
   }
   if (localStorage.sChains >= 1 || localStorage.money >= 10373000) {
     unlok(3);
+    if (localStorage.sChains >= 1) {
+      unlok(4);
+    }
   }
   
-  document.getElementById("state").addEventListener("click", state);
+  if (localStorage.states >= 1 || localStorage.money >= 124476000) {
+    unlok(4);
+    if (localStorage.states >= 1) {
+      unlok(5);
+    }
+  }
+  
+  if (localStorage.cryptos >= 1 || localStorage.money >= 1618188000) {
+    unlok(5);
+    if (localStorage.cryptos >= 1) {
+      unlok(6);
+    }
+  }
+  
+  if (localStorage.monos >= 1 || localStorage.money >= 22654632000) {
+    unlok(6);
+    if (localStorage.monos >= 1) {
+      unlok(7);
+    }
+  }
+  
+  if (localStorage.spac >= 1 || localStorage.money >= 339819480000) {
+    unlok(7);
+  }
   
   document.getElementById("clickPu").addEventListener("click", upgradeCp);
   document.getElementById("burger").addEventListener("mousedown", dow);
@@ -338,8 +694,8 @@ function load() {
   
   
   document.getElementById("burger").addEventListener("mouseup", function(){
-    this.style.height = "40vh";
-    document.getElementById("burger").style.margin = "3vh auto auto auto";
+    this.style.width = "35%";
+    document.getElementById("burger").style.marginTop = "1vw";
   });
   document.getElementById("mouseBtn").addEventListener("mouseover", function(){
     this.innerHTML = "$0.2 per second";
@@ -358,12 +714,6 @@ function load() {
   
   
   
-  document.getElementById("state").addEventListener("mouseover", function(){
-    this.innerHTML = "$4k per second";
-  });
-  document.getElementById("state").addEventListener("mouseout", function(){
-    this.innerHTML = "State - $124m";
-  });
   
   
   
@@ -395,6 +745,9 @@ function saveN() {
   window.localStorage.setItem("sChains", 0);
   window.localStorage.setItem("lChains", 0);
   window.localStorage.setItem("states", 0);
+  window.localStorage.setItem("cryptos", 0);
+  window.localStorage.setItem("monos", 0);
+  window.localStorage.setItem("spac", 0);
   window.localStorage.setItem("moneyT", 0);
   window.localStorage.setItem("unlocked", 2);
   window.localStorage.setItem("clickPnum", 0);
@@ -408,6 +761,9 @@ function saveN() {
   sChains = 0;
   lChains = 0;
   states = 0;
+  crypto = 0;
+  monos = 0;
+  spac = 0;
   mps = 0;
   unlocked = 2;
   clickPprice = 500;
@@ -453,7 +809,7 @@ function saveY() {
   else if (diners !== 0) {
     document.getElementById("diners_owned").innerHTML = diners + " Diners";
   }
-  if (largeRs !== undefined) {
+  if (localStorage.largeRs !== undefined) {
     largeRs = +(localStorage.largeR);
     if (largeRs == 1) {
       document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturant";
@@ -464,7 +820,7 @@ function saveY() {
   } else {
     largeRs = 0;
   }
-  if (sChains !== undefined) {
+  if (localStorage.sChains !== undefined) {
     sChains = +(localStorage.sChains);
     if (sChains == 1) {
       document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chain";
@@ -475,7 +831,7 @@ function saveY() {
   } else {
     sChains = 0;
   }
-  if (lChains !== undefined) {
+  if (localStorage.lChains !== undefined) {
     lChains = +(localStorage.lChains);
     if (lChains == 1) {
       document.getElementById("lChain_owned").innerHTML = lChains + " Large Resturant Chain";
@@ -486,16 +842,49 @@ function saveY() {
   } else {
     lChains = 0;
   }
-  if (states !== undefined) {
+  if (localStorage.states !== undefined) {
     states = +(localStorage.states);
     if (states == 1) {
-      document.getElementById("states_owned").innerHTML = states + " States";
+      document.getElementById("states_owned").innerHTML = states + " State";
     }
     else if (states !== 0) {
       document.getElementById("states_owned").innerHTML = states + " States";
     }
   } else {
     states = 0;
+  }
+  if (localStorage.cryptos !== undefined) {
+    cryptos = +(localStorage.cryptos);
+    if (cryptos == 1) {
+      document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrency";
+    }
+    else if (cryptos !== 0) {
+      document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrencies";
+    }
+  } else {
+    cryptos = 0;
+  }
+  if (localStorage.monos !== undefined) {
+    monos = +(localStorage.monos);
+    if (monos == 1) {
+      document.getElementById("mono_owned").innerHTML = monos + " Monopoly";
+    }
+    else if (monos !== 0) {
+      document.getElementById("mono_owned").innerHTML = monos + " Monopolies";
+    }
+  } else {
+    monos = 0;
+  }
+  if (localStorage.spac !== undefined) {
+    spac = +(localStorage.spac);
+    if (spac == 1) {
+      document.getElementById("space_owned").innerHTML = "Explored space " + spac + " time";
+    }
+    else if (spac !== 0) {
+      document.getElementById("space_owned").innerHTML = "Explored space " + spac + " times";
+    }
+  } else {
+    spac = 0;
   }
   
   
@@ -557,9 +946,9 @@ function saveY() {
   var sec = Math.floor(diff / 1000);
   var offlineMoney = 0;
   if (largeRs !== undefined && largeRs !== null) {
-      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec);
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec) + ((cryptos * 30000) * sec) + ((monos * 500000) * sec) + ((spac * 2000000) * sec);
     } else {
-      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec);
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec) + ((cryptos * 30000) * sec) + ((monos * 500000) * sec) + ((spac * 2000000) * sec);
     }
   if (sec >= 60 && sec <= 14400) {
     alert("You earned " + short(offlineMoney) + " dollars while you were away!");
@@ -568,11 +957,11 @@ function saveY() {
   } else if (sec >= 14400) {
     sec = 14400;
     if (largeRs !== undefined && largeRs !== null) {
-      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec);
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec) + ((cryptos * 30000) * sec) + ((monos * 500000) * sec) + ((spac * 2000000) * sec);
     } else {
-      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec);
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec) + ((cryptos * 30000) * sec) + ((monos * 500000) * sec) + ((spac * 2000000) * sec);
     }
-    alert("You earned " + short(offlineMoney) + " dollars while you were away!");
+    alert("You earned " + short(Math.floor(offlineMoney)) + " dollars while you were away!");
     money += offlineMoney;
     moneyT += offlineMoney;
   }
@@ -580,8 +969,8 @@ function saveY() {
 }
 
 function dow() {
-    document.getElementById("burger").style.height = "39vh";
-    document.getElementById("burger").style.margin = "3.5vh auto auto auto";
+    document.getElementById("burger").style.width = "34%";
+    document.getElementById("burger").style.marginTop = "1.2vw";
   }
 
 function update() {
@@ -629,7 +1018,7 @@ function update() {
     nodeList[i].innerHTML = moneyS;
   }
   document.getElementById("total_money").innerHTML = "You have made " + short(Math.floor(moneyT)) + " dollars in total.";
-  mps = ((mOuse * 0.2) + grandpas + (diners * 5) + (largeRs * 25) + (sChains * 150) + (lChains * 800) + (states * 4000));
+  mps = ((mOuse * 0.2) + grandpas + (diners * 5) + (largeRs * 25) + (sChains * 150) + (lChains * 800) + (states * 4000)) + (cryptos * 30000) + (monos * 500000);
   document.getElementById("dps").innerHTML = "<i>" + short(mps.toFixed(1)) + " MPS</i>";
   
 }
@@ -652,11 +1041,11 @@ function onCl() {
   li.innerHTML = "+" + clickPower;
   r = (Math.floor(Math.random() * 2) + 1);
   if (r == 1) {
-    lil.style.left = "21vw";
-    li.style.left = "24vw";
+    lil.style.left = "15vw";
+    li.style.left = "calc(15vw + 45px)";
   } else {
-    lil.style.left = "50vw";
-    li.style.left = "53vw";
+    lil.style.left = "45vw";
+    li.style.left = "48vw";
   }
   lil.style.transition = "opacity 2s";
   li.style.transition = "opacity 2s";
