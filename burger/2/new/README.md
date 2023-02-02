@@ -7,7 +7,10 @@ You can support me by buying me a burger: [![Buy me a Burger](https://img.buymea
 
 ## Changelog
 
-## v0.5.0
+### v0.5.1
+- Fixed a typo when buying cryptocurrency item, (cyrpto &rarr; crypto)
+
+### v0.5.0
 - Added 2 new shop items, Monopoly and Explore Space.
 - Fixed support for older versions, I just had to change some of the variables to localStorage.
 - Made the shop tab bigger to fit the max buttons in.
