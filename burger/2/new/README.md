@@ -9,6 +9,7 @@ You can support me by buying me a burger: [![Buy me a Burger](https://img.buymea
 
 ### v0.5.2
 - Fixed a bug that caused large restaurants to not save.
+- Added Google Ads
 
 ### v0.5.1
 - Fixed a typo when buying cryptocurrency item, (cyrpto &rarr; crypto)
