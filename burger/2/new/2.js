@@ -809,7 +809,7 @@ function saveY() {
   else if (diners !== 0) {
     document.getElementById("diners_owned").innerHTML = diners + " Diners";
   }
-  if (localStorage.largeRs !== undefined) {
+  if (localStorage.largeR !== undefined) {
     largeRs = +(localStorage.largeR);
     if (largeRs == 1) {
       document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturant";
