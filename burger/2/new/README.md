@@ -1,11 +1,14 @@
 # Burger Clicker 2
 
-Just some things about [Burger Clicker 2](htpps://hacker19374.github.io/My-Website/burger/2/new). 
+Just some things about [Burger Clicker 2](https://hacker19374.github.io/My-Website/burger/2/new). 
 
 You can support me by buying me a burger: [![Buy me a Burger](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20burger&emoji=%F0%9F%8D%94&slug=beneedum&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff)](https://buymeacoffee.com/beneedum)
 
 
 ## Changelog
+
+### v0.5.2
+- Fixed a bug that caused large restaurants to not save.
 
 ### v0.5.1
 - Fixed a typo when buying cryptocurrency item, (cyrpto &rarr; crypto)
