@@ -7,6 +7,11 @@ You can support me by buying me a burger: [![Buy me a Burger](https://img.buymea
 
 ## Changelog
 
+### v0.6
+- Added 5 new shop items (Planet, Galaxy, time machine, space-time controller, and quantum spaceship).
+- Added a new lottery system, 3 numbers in a row is big prize, 2 numbers the same is small prize. In the future I will finish adding all the prizes.
+- Started a saving system using JSON, a full system of this will be implemented into the full version.
+
 ### v0.5.2
 - Fixed a bug that caused large restaurants to not save.
 - Added Google Ads
