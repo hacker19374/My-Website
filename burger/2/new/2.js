@@ -1,4 +1,4 @@
-// jshint maxerr:1000
+// jshint maxerr:2000
 
 
 
@@ -21,8 +21,8 @@ var money = 0;
 var moneyS = "$" + money;
 var moneyT = 0;
 
-var grandpas = 0;
 var mOuse = 0;
+var grandpas = 0;
 var diners = 0;
 var largeRs = 0;
 var sChains = 0;
@@ -31,6 +31,11 @@ var states = 0;
 var cryptos = 0;
 var monos = 0;
 var spac = 0;
+var planets = 0;
+var galaxies = 0;
+var tim3 = 0;
+var controllers = 0;
+var spaceships = 0;
 
 var mps = 0;
 
@@ -43,6 +48,20 @@ var tic = setInterval(tick, 1000);
 var unlocked = 2;
 var time = 0;
 var startT = false;
+var saveC = {"money":money, "moneyT":moneyT, "mouse":mOuse, "grandpas":grandpas, "diners":diners, "largeRs":largeRs, "sChains":sChains, "lChains":lChains, "states":states, "cryptos":cryptos, "monos":monos, "spac":spac, "planets":planets, "galaxies":galaxies, "tim3":tim3, "controllers":controllers};
+var prizes = {
+  '777': { name: 'Jackpot', money: 1000, clickPower: 2 },
+  '111': { name: 'Small Prize', money: 100, clickPower: 1.5 },
+  '222': { name: 'Medium Prize', money: 500, clickPower: 1.75 },
+  '333': { name: 'Small Prize'},
+  '444': { name: 'Small Prize'},
+  '555': { name: 'Small Prize'},
+  '666': { name: 'Nothing'},
+  '888': { name: 'Small Prize'},
+  '999': { name: 'Small Prize'},
+  '000': { name: 'Small Prize'}
+};
+var price = 100;
 
 
 
@@ -231,8 +250,102 @@ function space() {
     moneyS = "$" + Math.round(money);
     if (spac == 1) {
       document.getElementById("space_owned").innerHTML = "Explored space " + spac + " time";
+      unlok(8);
     } else {
       document.getElementById("space_owned").innerHTML = "Explored space " + spac + " times";
+    }
+    update();
+  }
+  else {
+    console.log("Not enough money!!!!");
+  }
+}
+
+function planet() {
+  if (money >= 5437111600000) {
+    planets++;
+    mps += 15000000;
+    money -= 5437111600000;
+    moneyS = "$" + Math.round(money);
+    if (planets == 1) {
+      document.getElementById("planets_owned").innerHTML = planets + " Planet";
+      unlok(9);
+    } else {
+      document.getElementById("planets_owned").innerHTML = planets + " Planets";
+    }
+    update();
+  }
+  else {
+    console.log("Not enough money!!!!");
+  }
+}
+
+function galaxy() {
+  if (money >= 92430898500000) {
+    galaxies++;
+    mps += 70000000;
+    money -= 92430898500000;
+    moneyS = "$" + Math.round(money);
+    if (galaxies == 1) {
+      document.getElementById("galaxies_owned").innerHTML = galaxies + " Galaxy";
+      unlok(10);
+    } else {
+      document.getElementById("galaxies_owned").innerHTML = galaxies + " Galaxies";
+    }
+    update();
+  }
+  else {
+    console.log("Not enough money!!!!");
+  }
+}
+
+function t1me() {
+  if (money >= 1571325275000000) {
+    tim3++;
+    mps += 200000000;
+    money -= 1571325275000000;
+    moneyS = "$" + Math.round(money);
+    if (tim3 == 1) {
+      document.getElementById("time_owned").innerHTML = tim3 + " Time Machine";
+      unlok(11);
+    } else {
+      document.getElementById("time_owned").innerHTML = tim3 + " Time Machines";
+    }
+    update();
+  }
+  else {
+    console.log("Not enough money!!!!");
+  }
+}
+
+function control() {
+  if (money >= 28283854950000000) {
+    controllers++;
+    mps += 2000000000;
+    money -= 28283854950000000;
+    moneyS = "$" + Math.round(money);
+    if (controllers == 1) {
+      document.getElementById("controller_owned").innerHTML = controllers + " Space Time Controller";
+    } else {
+      document.getElementById("controller_owned").innerHTML = controllers + " Space Time Controllers";
+    }
+    update();
+  }
+  else {
+    console.log("Not enough money!!!!");
+  }
+}
+
+function spaceship() {
+  if (money >= 537393244200000000) {
+    spaceships++;
+    mps += 50000000000;
+    money -= 537393244200000000;
+    moneyS = "$" + Math.round(money);
+    if (spaceships == 1) {
+      document.getElementById("spaceships_owned").innerHTML = spaceships + " Quantum Spaceship";
+    } else {
+      document.getElementById("spaceships_owned").innerHTML = spaceships + " Quantum Spaceships";
     }
     update();
   }
@@ -375,6 +488,7 @@ function max(it) {
       moneyS = "$" + Math.round(money);
       if (cryptos == 1) {
         document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrency";
+        unlok(6);
       } else {
         document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrencies";
       }
@@ -390,6 +504,7 @@ function max(it) {
       moneyS = "$" + Math.round(money);
       if (monos == 1) {
         document.getElementById("mono_owned").innerHTML = monos + " Monopoly";
+        unlok(7);
       } else {
         document.getElementById("mono_owned").innerHTML = monos + " Monopolies";
       }
@@ -405,8 +520,87 @@ function max(it) {
       moneyS = "$" + Math.round(money);
       if (spac == 1) {
         document.getElementById("space_owned").innerHTML = "Explored space " + spac + " time";
+        unlok(8);
       } else {
         document.getElementById("space_owned").innerHTML = "Explored space " + spac + " times";
+      }
+    }
+    update();
+  }
+  if (it == "p") {
+    number = Math.floor(money / 5437111600000);
+    for (var i = 0; i < number && i < 100; i++) {
+      planets++;
+      mps += 15000000;
+      money -= 5437111600000;
+      moneyS = "$" + Math.round(money);
+      if (planets == 1) {
+        document.getElementById("planets_owned").innerHTML = planets + " Planet";
+        unlok(9);
+      } else {
+        document.getElementById("planets_owned").innerHTML = planets + " Planets";
+      }
+    }
+    update();
+  }
+  if (it == "G") {
+    number = Math.floor(money / 92430898500000);
+    for (var i = 0; i < number && i < 100; i++) {
+      galaxies++;
+      mps += 70000000;
+      money -= 92430898500000;
+      moneyS = "$" + Math.round(money);
+      if (galaxies == 1) {
+        document.getElementById("galaxies_owned").innerHTML = galaxies + " Galaxy";
+        unlok(10);
+      } else {
+        document.getElementById("galaxies_owned").innerHTML = galaxies + " Galaxies";
+      }
+    }
+    update();
+  }
+  if (it == "t") {
+    number = Math.floor(money / 1571325275000000);
+    for (var i = 0; i < number && i < 100; i++) {
+      tim3++;
+      mps += 200000000;
+      money -= 1571325275000000;
+      moneyS = "$" + Math.round(money);
+      if (tim3 == 1) {
+        document.getElementById("time_owned").innerHTML = tim3 + " Time Machine";
+        unlok(11);
+      } else {
+        document.getElementById("time_owned").innerHTML = tim3 + " Time Machines";
+      }
+    }
+    update();
+  }
+  if (it == "sT") {
+    number = Math.floor(money / 28283854950000000);
+    for (var i = 0; i < number && i < 100; i++) {
+      controllers++;
+      mps += 2000000000;
+      money -= 28283854950000000;
+      moneyS = "$" + Math.round(money);
+      if (controllers == 1) {
+        document.getElementById("controller_owned").innerHTML = controllers + " Space Time Controller";
+      } else {
+        document.getElementById("controller_owned").innerHTML = controllers + " Space Time Controllers";
+      }
+    }
+    update();
+  }
+  if (it == "q") {
+    number = Math.floor(money / 537393244200000000);
+    for (var i = 0; i < number && i < 100; i++) {
+      spaceships++;
+      mps += 50000000000;
+      money -= 537393244200000000;
+      moneyS = "$" + Math.round(money);
+      if (spaceships == 1) {
+        document.getElementById("spaceships_owned").innerHTML = spaceships + " Quantum Spaceship";
+      } else {
+        document.getElementById("spaceships_owned").innerHTML = spaceships + " Quantum Spaceships";
       }
     }
     update();
@@ -510,6 +704,7 @@ function unlok(num) {
     document.getElementById("monopoly").innerHTML = "Monopoly - $22.7b";
     document.getElementById("maxMn").classList.remove("locked");
     document.getElementById("maxMn").addEventListener("click",function(){max('mn')});
+    unlocked = 9;
   }
   if (num == 7) {
     document.getElementById("space").addEventListener("click", space);
@@ -523,6 +718,77 @@ function unlok(num) {
     document.getElementById("space").innerHTML = "Space Exploration - $340b";
     document.getElementById("maxSp").classList.remove("locked");
     document.getElementById("maxSp").addEventListener("click",function(){max('sp')});
+    unlocked = 10;
+  }
+  if (num == 8) {
+    document.getElementById("planet").addEventListener("click", planet);
+    document.getElementById("planet").addEventListener("mouseover", function(){
+      this.innerHTML = "$15m per second";
+    });
+    document.getElementById("planet").addEventListener("mouseout", function(){
+      this.innerHTML = "Burger Planet - $5.44t";
+    });
+    document.getElementById("planet").classList.remove("locked");
+    document.getElementById("planet").innerHTML = "Burger Planet - $5.44t";
+    document.getElementById("maxP").classList.remove("locked");
+    document.getElementById("maxP").addEventListener("click",function(){max('p')});
+    unlocked = 11;
+  }
+  if (num == 9) {
+    document.getElementById("galaxy").addEventListener("click", galaxy);
+    document.getElementById("galaxy").addEventListener("mouseover", function(){
+      this.innerHTML = "$70m per second";
+    });
+    document.getElementById("galaxy").addEventListener("mouseout", function(){
+      this.innerHTML = "Burger Galaxy - $92t";
+    });
+    document.getElementById("galaxy").classList.remove("locked");
+    document.getElementById("galaxy").innerHTML = "Burger Galaxy - $92t";
+    document.getElementById("maxG").classList.remove("locked");
+    document.getElementById("maxG").addEventListener("click",function(){max('G')});
+    unlocked = 12;
+  }
+  if (num == 10) {
+    document.getElementById("time").addEventListener("click", t1me);
+    document.getElementById("time").addEventListener("mouseover", function(){
+      this.innerHTML = "$200m per second";
+    });
+    document.getElementById("time").addEventListener("mouseout", function(){
+      this.innerHTML = "Time Machine - $1.57Qa";
+    });
+    document.getElementById("time").classList.remove("locked");
+    document.getElementById("time").innerHTML = "Time Machine - $1.57Qa";
+    document.getElementById("maxT").classList.remove("locked");
+    document.getElementById("maxT").addEventListener("click",function(){max('t')});
+    unlocked = 13;
+  }
+  if (num == 11) {
+    document.getElementById("control").addEventListener("click", control);
+    document.getElementById("control").addEventListener("mouseover", function(){
+      this.innerHTML = "$2b per second";
+    });
+    document.getElementById("control").addEventListener("mouseout", function(){
+      this.innerHTML = "Space-Time Controller - $28.3Qa";
+    });
+    document.getElementById("control").classList.remove("locked");
+    document.getElementById("control").innerHTML = "Space-Time Controller - $28.3Qa";
+    document.getElementById("maxSt").classList.remove("locked");
+    document.getElementById("maxSt").addEventListener("click",function(){max('sT')});
+    unlocked = 14;
+  }
+  if (num == 12) {
+    document.getElementById("quantum").addEventListener("click", spaceship);
+    document.getElementById("quantum").addEventListener("mouseover", function(){
+      this.innerHTML = "$50b per second";
+    });
+    document.getElementById("quantum").addEventListener("mouseover", function(){
+      this.innerHTML = "Quantum Spaceship - $537Qa";
+    });
+    document.getElementById("quantum").classList.remove("locked");
+    document.getElementById("quantum").innerHTML = "Quantum Spaceship - $537Qa";
+    document.getElementById("maxQ").classList.remove("locked");
+    document.getElementById("maxQ").addEventListener("click",function(){max("q")});
+    unlocked = 15;
   }
 }
 
@@ -568,6 +834,16 @@ function tick() {
   moneyT += (monos * 500000);
   money += (spac * 2000000);
   moneyT += (spac * 2000000);
+  money += (planets * 15000000);
+  moneyT += (planets * 15000000);
+  money += (galaxies * 70000000);
+  moneyT += (galaxies * 70000000);
+  money += (tim3 * 200000000);
+  moneyT += (tim3 * 200000000);
+  money += (controllers * 2000000000);
+  moneyT += (controllers * 2000000000);
+  money += (spaceships * 50000000000);
+  moneyT += (spaceships * 50000000000);
   moneyS = "$" + Math.floor(money);
   if (startT === true) {
     window.localStorage.setItem("money", Math.floor(money));
@@ -583,7 +859,16 @@ function tick() {
     window.localStorage.setItem("states", states);
     window.localStorage.setItem("cryptos", cryptos);
     window.localStorage.setItem("monos", monos);
+    window.localStorage.setItem("spac", spac);
+    window.localStorage.setItem("planets", planets);
+    window.localStorage.setItem("galaxies", galaxies);
+    window.localStorage.setItem("tim3", tim3);
+    window.localStorage.setItem("controller", controllers);
+    window.localStorage.setItem("spaceships", spaceships);
     window.localStorage.setItem("clickPnum", clickPnum);
+    
+    saveC = {"money":money, "moneyT":moneyT, "mouse":mOuse, "grandpas":grandpas, "diners":diners, "largeRs":largeRs, "sChains":sChains, "lChains":lChains, "states":states, "cryptos":cryptos, "monos":monos, "spac":spac, "planets":planets, "galaxies":galaxies, "tim3":tim3, "controllers":controllers, "spaceships":spaceships};
+
     localStorage.setItem("unlocked", unlocked);
     localStorage.setItem("saveT", Date.now());
     if (mps > 0) {
@@ -685,6 +970,41 @@ function load() {
   
   if (localStorage.spac >= 1 || localStorage.money >= 339819480000) {
     unlok(7);
+    if (localStorage.spac >= 1) {
+      unlok(8);
+    }
+  }
+  
+  if (localStorage.planets >= 1 || localStorage.money >= 5437111600000) {
+    unlok(8);
+    if (localStorage.planets >= 1) {
+      unlok(9);
+    }
+  }
+  
+  if (localStorage.galaxies >= 1 || localStorage.money >= 92430898500000) {
+    unlok(9);
+    if (localStorage.galaxies >= 1) {
+      unlok(10);
+    }
+  }
+  
+  if (localStorage.tim3 >= 1 || localStorage.money >= 1571325275000000) {
+    unlok(10);
+    if (localStorage.tim3 >= 1) {
+      unlok(11);
+    }
+  }
+  
+  if (localStorage.controller >= 1 || localStorage.money >= 28283854950000000) {
+    unlok(11);
+    if (localStorage.controller >= 1) {
+      unlok(12);
+    }
+  }
+  
+  if (localStorage.spaceships >= 1 || localStorage.money >= 537393244200000000) {
+    unlok(12);
   }
   
   document.getElementById("clickPu").addEventListener("click", upgradeCp);
@@ -748,6 +1068,11 @@ function saveN() {
   window.localStorage.setItem("cryptos", 0);
   window.localStorage.setItem("monos", 0);
   window.localStorage.setItem("spac", 0);
+  window.localStorage.setItem("planets", 0);
+  window.localStorage.setItem("galaxies", 0);
+  window.localStorage.setItem("tim3", 0);
+  window.localStorage.setItem("controller", 0);
+  window.localStorage.setItem("spaceships", 0);
   window.localStorage.setItem("moneyT", 0);
   window.localStorage.setItem("unlocked", 2);
   window.localStorage.setItem("clickPnum", 0);
@@ -764,6 +1089,11 @@ function saveN() {
   cryptos = 0;
   monos = 0;
   spac = 0;
+  planets = 0;
+  galaxies = 0;
+  tim3 = 0;
+  controllers = 0;
+  spaceships = 0;
   mps = 0;
   unlocked = 2;
   clickPprice = 500;
@@ -788,13 +1118,10 @@ function check() {
 function saveY() {
   money = +(localStorage.money);
   time = localStorage.time;
-  grandpas = +(localStorage.grandpas);
-  if (grandpas == 1) {
-      document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpa";
-    }
-  else if (grandpas !== 0) {
-      document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpas";
-    }
+  if (localStorage.bidV !== undefined) {
+    price = localStorage.bidV;
+    document.getElementById("spend").innerHTML = short(Math.floor(+price));
+  }
   mOuse = +(localStorage.mice);
   if (mOuse == 1) {
     document.getElementById("mice_owned").innerHTML = mOuse + " Cursor";
@@ -802,6 +1129,13 @@ function saveY() {
   else if (mOuse !== 0) {
     document.getElementById("mice_owned").innerHTML = mOuse + " Cursors";
   }
+  grandpas = +(localStorage.grandpas);
+  if (grandpas == 1) {
+      document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpa";
+    }
+  else if (grandpas !== 0) {
+      document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpas";
+    }
   diners = +(localStorage.diners);
   if (diners == 1) {
     document.getElementById("diners_owned").innerHTML = diners + " Diner";
@@ -886,13 +1220,66 @@ function saveY() {
   } else {
     spac = 0;
   }
+  if (localStorage.planets !== undefined) {
+    planets = +(localStorage.planets);
+    if (planets == 1) {
+      document.getElementById("planets_owned").innerHTML = planets + " Planet";
+    }
+    else if (planets !== 0) {
+      document.getElementById("planets_owned").innerHTML = planets + " Planets";
+    }
+  } else {
+    planets = 0;
+  }
+  if (localStorage.galaxies !== undefined) {
+    galaxies = +(localStorage.galaxies);
+    if (galaxies == 1) {
+      document.getElementById("galaxies_owned").innerHTML = galaxies + " Galaxy";
+    }
+    else if (galaxies !== 0) {
+      document.getElementById("galaxies_owned").innerHTML = galaxies + " Galaxies";
+    }
+  } else {
+    galaxies = 0;
+  }
+  if (localStorage.tim3 !== undefined) {
+    tim3 = +(localStorage.tim3);
+    if (tim3 == 1) {
+      document.getElementById("time_owned").innerHTML = tim3 + " Time Machine";
+    }
+    else if (tim3 !== 0) {
+      document.getElementById("time_owned").innerHTML = tim3 + " Time Machines";
+    }
+  } else {
+    tim3 = 0;
+  }
+  if (localStorage.controller !== undefined) {
+    controllers = +(localStorage.controller);
+    if (controllers == 1) {
+      document.getElementById("controller_owned").innerHTML = controllers + " Space-Time Controller";
+    }
+    else if (controllers !== 0) {
+      document.getElementById("controller_owned").innerHTML = controllers + " Space-Time Controllers";
+    }
+  } else {
+    controllers = 0;
+  }
+  if (localStorage.spaceships !== undefined) {
+    spaceships = +(localStorage.spaceships);
+    if (spaceships == 1) {
+      document.getElementById("spaceships_owned").innerHTML = spaceships + " Quantum Spaceship";
+    }
+    else if (spaceships !== 0) {
+      document.getElementById("controller_owned").innerHTML = controllers + " Quantum Spaceships";
+    }
+  } else {
+    spaceships = 0;
+  }
   
   
   moneyT = +(localStorage.moneyT);
   clickPnum = +(localStorage.clickPnum);
-  if (clickPnum === 0) {
-  }
-  else if (clickPnum == 1) {
+  if (clickPnum == 1) {
       document.getElementById("cP1").style.fill = "rgb(100,120,120)";
       clickPower = 2;
       clickPprice = 4000;
@@ -946,9 +1333,9 @@ function saveY() {
   var sec = Math.floor(diff / 1000);
   var offlineMoney = 0;
   if (largeRs !== undefined && largeRs !== null) {
-      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec) + ((cryptos * 30000) * sec) + ((monos * 500000) * sec) + ((spac * 2000000) * sec);
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec) + ((cryptos * 30000) * sec) + ((monos * 500000) * sec) + ((spac * 2000000) * sec) + ((planets * 15000000) * sec) + ((galaxies * 70000000) * sec) + ((tim3 * 200000000) * sec) + ((controllers * 2000000000) * sec) + ((spaceships * 50000000000) * sec);
     } else {
-      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec) + ((cryptos * 30000) * sec) + ((monos * 500000) * sec) + ((spac * 2000000) * sec);
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec) + ((cryptos * 30000) * sec) + ((monos * 500000) * sec) + ((spac * 2000000) * sec) + ((planets * 15000000) * sec) + ((galaxies * 70000000) * sec) + ((tim3 * 200000000) * sec) + ((controllers * 2000000000) * sec) + ((spaceships * 50000000000) * sec);
     }
   if (sec >= 60 && sec <= 14400) {
     alert("You earned " + short(offlineMoney) + " dollars while you were away!");
@@ -957,9 +1344,9 @@ function saveY() {
   } else if (sec >= 14400) {
     sec = 14400;
     if (largeRs !== undefined && largeRs !== null) {
-      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec) + ((cryptos * 30000) * sec) + ((monos * 500000) * sec) + ((spac * 2000000) * sec);
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec) + ((cryptos * 30000) * sec) + ((monos * 500000) * sec) + ((spac * 2000000) * sec) + ((planets * 15000000) * sec) + ((galaxies * 70000000) * sec) + ((tim3 * 200000000) * sec) + ((controllers * 2000000000) * sec) + ((spaceships * 50000000000) * sec);
     } else {
-      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec) + ((cryptos * 30000) * sec) + ((monos * 500000) * sec) + ((spac * 2000000) * sec);
+      offlineMoney = (grandpas * sec) + ((mOuse * 0.2) * sec) + ((diners * 5) * sec) + ((largeRs * 25) * sec) + ((sChains * 150) * sec) + ((lChains * 800) * sec) + ((states * 4000) * sec) + ((cryptos * 30000) * sec) + ((monos * 500000) * sec) + ((spac * 2000000) * sec) + ((planets * 15000000) * sec) + ((galaxies * 70000000) * sec) + ((tim3 * 200000000) * sec) + ((controllers * 2000000000) * sec) + ((spaceships * 50000000000) * sec);
     }
     alert("You earned " + short(Math.floor(offlineMoney)) + " dollars while you were away!");
     money += offlineMoney;
@@ -975,6 +1362,9 @@ function dow() {
 
 function update() {
   document.querySelectorAll(".money").innerHTML = moneyS;
+  if (bid.value === "" || bid.value === undefined || bid.value == "NaN") {
+    bid.value = "100";
+  }
   const nodeList = document.querySelectorAll(".moneyS");
   for (let i = 0; i < nodeList.length; i++) {
     if (money > 0 && money < 9999) {
@@ -1017,10 +1407,139 @@ function update() {
   }
     nodeList[i].innerHTML = moneyS;
   }
+  for (var i = 0; i < money.toString().length; i++) {
+    if (money.toString().charAt(i) == ".") {
+      money = +(money.toFixed(1));
+    }
+  }
   document.getElementById("total_money").innerHTML = "You have made " + short(Math.floor(moneyT)) + " dollars in total.";
-  mps = ((mOuse * 0.2) + grandpas + (diners * 5) + (largeRs * 25) + (sChains * 150) + (lChains * 800) + (states * 4000)) + (cryptos * 30000) + (monos * 500000);
+  mps = ((mOuse * 0.2) + grandpas + (diners * 5) + (largeRs * 25) + (sChains * 150) + (lChains * 800) + (states * 4000)) + (cryptos * 30000) + (monos * 500000) + (spac * 2000000) + (planets * 15000000) + (galaxies * 70000000) + (tim3 * 200000000) + (controllers * 2000000000) + (spaceships * 50000000000);
   document.getElementById("dps").innerHTML = "<i>" + short(mps.toFixed(1)) + " MPS</i>";
   
+}
+
+function spin() {
+  if (money >= +price) {
+    money -= +price;
+    var o = price;
+    price *= 1.75;
+    price = Math.round(price);
+    localStorage.bidV = price;
+    document.getElementById("spend").innerHTML = short(price);
+    let result1 = Math.floor(Math.random() * 10);
+    let result2 = Math.floor(Math.random() * 10);
+    let result3 = Math.floor(Math.random() * 10);
+  
+    let combination = `${result1}${result2}${result3}`;
+    let prize = prizes[combination];
+    
+    for (var i = 0; i < 20; i++) {
+      setTimeout(function(){
+        document.getElementById("slot1").innerHTML = Math.floor(Math.random() * 10);
+        document.getElementById("slot2").innerHTML = Math.floor(Math.random() * 10);
+        document.getElementById("slot3").innerHTML = Math.floor(Math.random() * 10);
+      },(i * 20));
+    }
+    setTimeout(function(){
+      document.getElementById("slot1").innerHTML = result1;
+      document.getElementById("slot2").innerHTML = result2;
+      document.getElementById("slot3").innerHTML = result3;
+      if (prize !== undefined) {
+        if (prize == "777") {
+          spaceships += controllers;
+          controllers += tim3;
+          tim3 += galaxies;
+          galaxies += planets;
+          planets += spac;
+          spac += monos;
+          monos += cryptos;
+          cryptos += states;
+          states += lChains;
+          lChains += sChains;
+          sChains += largeRs;
+          largeRs += diners;
+          diners += grandpas;
+          grandpas += mOuse;
+          update();
+          document.getElementById("result").innerHTML = "JACKPOT!!! All of your bought items got moved up!";
+          setTimeout(function(){
+            document.getElementById("result").innerHTML = "Test your luck!!";
+          }, 3000);
+        }
+        if (prize == "222") {
+          money *= 2;
+          document.getElementById("result").innerHTML = "Money DOUBLED!!";
+          setTimeout(function(){
+            document.getElementById("result").innerHTML = "Test your luck!!";
+          }, 3000);
+        }
+        if (prize == "000") {
+          clearInterval(tic);
+          tic = setInterval(tick, 200);
+          setTimeout(function(){
+            clearInterval(tic);
+            tic = setInterval(tick, 1000);
+          },60000);
+          document.getElementById("result").innerHTML = "Tick speed set to 0.2 SECONDS for a WHOLE MINUTE!!";
+          setTimeout(function(){
+            document.getElementById("result").innerHTML = "Test your luck!!";
+          }, 3000);
+        }
+        if (prize == "111") {
+          money += Math.round(money * 1.11);
+          document.getElementById("result").innerHTML = "Money multiplied by 2.11!!!";
+          setTimeout(function(){
+            document.getElementById("result").innerHTML = "Test your luck!!";
+          }, 3000);
+        }
+        if (prize == "333") {
+          var old = clickPower;
+          clickPower *= 10000;
+          setTimeout(function(){
+            clickPower = old;
+          },60000);
+          document.getElementById("result").innerHTML = "Click power is now 10000!!! Lasts for a minute!!";
+          setTimeout(function(){
+            document.getElementById("result").innerHTML = "Test your luck!!";
+          }, 3000);
+        }
+        if (prize == "444") {
+          document.getElementById("burger").addEventListener("click",function(){
+            clickPower *= 2;
+          });
+          setTimeout(function(){
+            document.getElementById("burger").removeEventListener("click",function(){
+              clickPower *= 2;
+            });
+          },60000);
+          document.getElementById("result").innerHTML = "Every click DOUBLES your click power for a full minute!";
+          setTimeout(function(){
+            document.getElementById("result").innerHTML = "Test your luck!!";
+          }, 3000);
+        }
+        if (prize == "666") {
+          let p = Math.random();
+          if (p <= 0.5) {
+            window.location = "chrome://hang";
+          } else {
+            if (p <= 0.75) {
+              window.location = "chrome://kill";
+            } else {
+              window.location = "chrome://restart";
+            }
+          }
+        }
+      } else {
+        if (result1 == result2 || result3 == result2 || result1 == result3) {
+          money += o * 1.1;
+          document.getElementById("result").innerHTML = "You get your money back, plus a little bit more!!";
+          setTimeout(function(){
+            document.getElementById("result").innerHTML = "Test your luck!!";
+          }, 3000);
+        }
+      }
+    },450);
+  }
 }
 
 function onCl() {
@@ -1115,9 +1634,9 @@ function short(val) {
   } else if (val >= 100000000000 && val < 1000000000000000) {
     return((val / 1000000000000).toFixed(2) + "t");
   } else if (val >= 100000000000000 && val < 1000000000000000000) {
-    return((val / 1000000000000000).toFixed(2) + "q");
+    return((val / 1000000000000000).toFixed(2) + "Qa");
   } else if (val >= 100000000000000000 && val < 1000000000000000000000) {
-    return((val / 1000000000000000000).toFixed(2) + "Q");
+    return((val / 1000000000000000000).toFixed(2) + "Qi");
   } else if (val >= 100000000000000000000 && val < 1000000000000000000000000) {
     return((val / 1000000000000000000000).toFixed(2) + "Sx");
   } else if (val >= 100000000000000000000000 && val < 1000000000000000000000000000) {
