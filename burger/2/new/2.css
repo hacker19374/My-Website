@@ -123,3 +123,46 @@ body {
 .bottomBar::-webkit-scrollbar {
   display: none;
 }
+#slot-machine {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.slot {
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+  border: 1px solid gray;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+#spin-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #235af3;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+}
+
+#bid {
+  display: block;
+  margin: auto;
+  border: none;
+  font-size: 15pt;
+  border-radius: 5px;
+  margin-top: 3px;
+  background-color: #235af3;
+}
