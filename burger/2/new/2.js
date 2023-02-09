@@ -1270,7 +1270,7 @@ function saveY() {
       document.getElementById("spaceships_owned").innerHTML = spaceships + " Quantum Spaceship";
     }
     else if (spaceships !== 0) {
-      document.getElementById("controller_owned").innerHTML = controllers + " Quantum Spaceships";
+      document.getElementById("controller_owned").innerHTML = spaceships + " Quantum Spaceships";
     }
   } else {
     spaceships = 0;
