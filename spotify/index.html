@@ -4,7 +4,7 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <a onclick="window.location = 'https://accounts.spotify.com/authorize?client_id=7b0a92f3f83441d3bb291eccf7a33f80&amp;response_type=code&amp;redirect_uri=https://hacker19374.github.io/My-Website/spotify/&amp;scope=user-read-private%20user-read-email'">Authorize</a>
+    <a onclick="window.location = 'https://accounts.spotify.com/authorize?client_id=7b0a92f3f83441d3bb291eccf7a33f80&amp;response_type=code&amp;redirect_uri=https://hacker19374.github.io/My-Website/spotify&amp;scope=user-read-private%20user-read-email'">Authorize</a>
     <form>
       <label for="song-name">Enter the name of a song:</label>
       <input type="text" id="song-name" name="song-name">
@@ -12,21 +12,54 @@
     </form>
     <script>
     const form = document.querySelector('form');
-const input = document.querySelector('#song-name');
+    const input = document.querySelector('#song-name');
+    
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const clientId = "7b0a92f3f83441d3bb291eccf7a33f80"
+      const clientSecret = "bb9b0ad33d234fb6ad57bc42f9fce8b5"
+      const searchQuery = input.value;
+      
+      const accessTokenUrl = 'https://accounts.spotify.com/api/token';
+const requestBody = encodeURIComponent('grant_type=client_credentials');
+const authorizationHeader = btoa(`${clientId}:${clientSecret}`);
 
-form.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  
-  const songName = input.value;
-  const response = await fetch(`https://api.spotify.com/v1/search?q=${songName}&type=track`);
-  const data = await response.json();
+fetch(accessTokenUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Authorization': `Basic ${authorizationHeader}`
+  },
+  body: requestBody
+})
+.then(response => response.json())
+.then(data => {
+  const accessToken = data.access_token;
 
-  const song = data.tracks.items[0];
-const featuresResponse = await fetch(`https://api.spotify.com/v1/audio-features/${song.id}`);
-const featuresData = await featuresResponse.json();
-const bpm = featuresData.tempo;
+  // Step 2: Use the access token to search for a track
+  const searchUrl = `https://api.spotify.com/v1/search?q=${searchQuery}&type=track`;
 
+  fetch(searchUrl, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Handle the response from the Spotify API
+    console.log(data);
+  })
+  .catch(error => {
+    // Handle any errors that occur during the request
+    console.error(error);
+  });
+})
+.catch(error => {
+  // Handle any errors that occur while obtaining the access token
+  console.error(error);
 });
+    });
 
     </script>
   </body>
