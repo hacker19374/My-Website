@@ -9,6 +9,7 @@ You can support me by buying me a burger: [![Buy me a Burger](https://img.buymea
 
 ### v0.6.1
 - Fixed a bug where it didn't show how many quantum spaceships there were.
+- Added a hidden troll face
 
 ### v0.6
 - Added 5 new shop items (Planet, Galaxy, time machine, space-time controller, and quantum spaceship).
