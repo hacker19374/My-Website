@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+  <meta charset="UTF-8" />
+  <title>Speed Test</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="Images/gold.jpeg">
+  
+  <script>
+  var board = []
+  var best = []
+  var lastM = ""
+  var timer = 0.00
+  
+    function start() {
+      sjs.open("target",500,500)
+      
+      //
+      //    Background
+      //
+      
+      for (var i = 0; i < 10; i++) {
+        for (var q = 0; q < 10; q++) {
+          var block = new sjs.Image("Images/dirt.jpeg")
+          block.setSize(50,50)
+          block.moveTo(q*50,i*50)
+          block.node.zIndex = 1
+        }
+      }
+      
+      
+      
+      //
+      //    Blocks
+      //
+      
+      for (var i = 0; i < (Math.floor(Math.random() * 10) + 30); i++) {
+        var block = new sjs.Image("Images/gold.jpeg")
+        block.setSize(50,50)
+        block.type = "block"
+        
+        var X = Math.round(Math.floor(Math.random() * 500) / 50) * 50
+        block.x = X;
+        var Y = Math.round(Math.floor(Math.random() * 500) / 50) * 50
+        block.y = Y;
+        
+        board.push([X,Y])
+        
+        if (block.y === 0 && block.x === 0) {
+          block.destroy()
+        }
+        if ((block.y == 450 && block.x == 450) || (block.y == 500 && block.x == 500)) {
+          block.destroy()
+        }
+        
+        console.log(X)
+      }
+      
+      sjs.onHit("player","block",function(){
+        if (lastM == "r") {
+          player.x -= 50
+        }
+        if (lastM == "l") {
+          player.x += 50
+        }
+        if (lastM == "u") {
+          player.y += 50
+        }
+        if (lastM == "d") {
+          player.y -= 50
+        }
+      })
+      sjs.onHit("block","finish",function(x,y){
+        x.destroy()
+      })
+      
+      //
+      //    Player
+      //
+      
+      var player = new sjs.Image("Images/player.jpeg")
+      player.setSize(50,50)
+      player.type = "player"
+      
+      window.addEventListener("keydown",function(e){
+        if (e.keyCode == RIGHT_KEY) {
+          player.x += 50
+          lastM = "r"
+        }
+      })
+      window.addEventListener("keydown",function(e){
+        if (e.keyCode == LEFT_KEY) {
+          player.x -= 50
+          lastM = "l"
+        }
+      })
+      window.addEventListener("keydown",function(e){
+        if (e.keyCode == DOWN_KEY) {
+          player.y += 50
+          lastM = "d"
+        }
+      })
+      window.addEventListener("keydown",function(e){
+        if (e.keyCode == UP_KEY) {
+          player.y -= 50
+          lastM = "u"
+        }
+      })
+      
+      //
+      //    Timer
+      //
+      
+      var bg = new sjs.Image("Images/white.png")
+      bg.right().offset(-20,20)
+      bg.setSize(100,50)
+      var time = new sjs.Text("0.0",40,"red")
+      time.right().offset(-40,20)
+      
+      var t = setInterval(function(){
+        timer += 0.01
+        time.setText(timer.toFixed(2).toString())
+      },10)
+      
+      //
+      //    Finish Line
+      //
+      
+      var finish = new sjs.Image("Images/finish.jpeg")
+      finish.setSize(50,50)
+      finish.moveTo(500,500)
+      finish.type = "finish"
+      
+      sjs.onHit("finish","player",function(){
+        clearInterval(t)
+        if (localStorage.best == undefined) {
+          localStorage.best = []
+        }
+        best = JSON.parse(localStorage.best)
+        best.push(timer)
+        if (best.length >= 11) {
+          best.sort(function(a,b){return a-b})
+          best.pop()
+        }
+        localStorage.best = JSON.stringify(best)
+        if (localStorage.best != undefined) {
+        best = JSON.parse(localStorage.best)
+        best.sort(function(a,b){return a-b})
+        for (var i = 1; i <= best.length; i++) {
+          document.getElementById(i).innerHTML = best[i-1].toFixed(2)
+        }
+      }
+        
+        player.destroy()
+      })
+      
+      if (localStorage.best != undefined) {
+        best = JSON.parse(localStorage.best)
+        best.sort(function(a,b){return a-b})
+        for (var i = 1; i <= best.length; i++) {
+          document.getElementById(i).innerHTML = best[i-1].toFixed(2)
+        }
+      }
+      
+    }
+  </script>
+  
+</head>
+<body onload="start()">
+  <div style="border:1px solid black;display:block;margin:auto;" id="target"></div>
+  <div style="display:block;margin:auto;">
+    <h1><u>High Scores</u></h1>
+    <ol>
+      <li id="1">100</li>
+      <li id="2">100</li>
+      <li id="3">100</li>
+      <li id="4">100</li>
+      <li id="5">100</li>
+      <li id="6">100</li>
+      <li id="7">100</li>
+      <li id="8">100</li>
+      <li id="9">100</li>
+      <li id="10">100</li>
+    </ol>
+  </div>
+</body>
+</html>
