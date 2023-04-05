@@ -1,0 +1,55 @@
+body {
+  background-color: #eee;
+  margin: 0;
+}
+
+#title {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.box {
+  margin: auto;
+  width: 30vw;
+  height: 30%;
+  background-color: #0a19f5;
+  box-shadow: 2px 2px 4px grey;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.box:hover {
+  width: 31vw;
+  height: 31%;
+}
+
+#container {
+  background-color: #fff;
+  width: 50%;
+  margin: auto;
+  padding: 0;
+  height: 100vh;
+  position: absolute;
+  left: 25%;
+  overflow: scroll;
+  box-shadow: 1px 1px 5px grey;
+}
+
+img {
+  display: block;
+  margin: auto;
+  width: 15vw;
+}
+
+a {
+  display: block;
+  width: 50vw;
+}
+p {
+  margin: auto;
+  width: 27vw;
+  font-size: 100%;
+}
