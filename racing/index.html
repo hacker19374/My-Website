@@ -136,7 +136,7 @@
       sjs.onHit("finish","player",function(){
         clearInterval(t)
         if (localStorage.best == undefined) {
-          localStorage.best = []
+          localStorage.best = JSON.stringify([])
         }
         best = JSON.parse(localStorage.best)
         best.push(timer)
