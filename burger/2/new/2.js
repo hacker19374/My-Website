@@ -371,7 +371,7 @@ var number = 0;
 function max(it) {
   if (it == "m") {
     number = Math.floor(money / 100);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       mOuse++;
       money -= 100;
       mps += 0.2;
@@ -385,7 +385,7 @@ function max(it) {
   }
   if (it == "g") {
     number = Math.floor(money / 950);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       grandpas++;
       mps += 1;
       money -= 950;
@@ -401,7 +401,7 @@ function max(it) {
   }
   if (it == "d") {
     number = Math.floor(money / 9025);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       diners++;
       mps += 5;
       money -= 9025;
@@ -417,7 +417,7 @@ function max(it) {
   }
   if (it == "r") {
     number = Math.floor(money / 85730);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       largeRs++;
       mps += 25;
       money -= 85730;
@@ -433,7 +433,7 @@ function max(it) {
   }
   if (it == "sC") {
     number = Math.floor(money / 947030);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       sChains++;
       mps += 150;
       money -= 943030;
@@ -449,7 +449,7 @@ function max(it) {
   }
   if (it == "bC") {
     number = Math.floor(money / 10373000);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       lChains++;
       mps += 800;
       money -= 10373000;
@@ -465,7 +465,7 @@ function max(it) {
   }
   if (it == "s") {
     number = Math.floor(money / 124476000);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       states++;
       mps += 4000;
       money -= 124476000;
@@ -481,7 +481,7 @@ function max(it) {
   }
   if (it == "c") {
     number = Math.floor(money / 1618188000);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       cryptos++;
       mps += 30000;
       money -= 1618188000;
@@ -497,7 +497,7 @@ function max(it) {
   }
   if (it == "mn") {
     number = Math.floor(money / 22654632000);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       monos++;
       mps += 500000;
       money -= 22654632000;
@@ -513,7 +513,7 @@ function max(it) {
   }
   if (it == "sp") {
     number = Math.floor(money / 339819480000);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       spac++;
       mps += 2000000;
       money -= 339819480000;
@@ -529,7 +529,7 @@ function max(it) {
   }
   if (it == "p") {
     number = Math.floor(money / 5437111600000);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       planets++;
       mps += 15000000;
       money -= 5437111600000;
@@ -545,7 +545,7 @@ function max(it) {
   }
   if (it == "G") {
     number = Math.floor(money / 92430898500000);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       galaxies++;
       mps += 70000000;
       money -= 92430898500000;
@@ -561,7 +561,7 @@ function max(it) {
   }
   if (it == "t") {
     number = Math.floor(money / 1571325275000000);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       tim3++;
       mps += 200000000;
       money -= 1571325275000000;
@@ -577,7 +577,7 @@ function max(it) {
   }
   if (it == "sT") {
     number = Math.floor(money / 28283854950000000);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       controllers++;
       mps += 2000000000;
       money -= 28283854950000000;
@@ -592,7 +592,7 @@ function max(it) {
   }
   if (it == "q") {
     number = Math.floor(money / 537393244200000000);
-    for (var i = 0; i < number && i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       spaceships++;
       mps += 50000000000;
       money -= 537393244200000000;
