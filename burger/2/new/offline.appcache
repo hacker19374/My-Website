@@ -1,0 +1,14 @@
+CACHE MANIFEST
+# v1
+CACHE:
+icon.jpeg
+2.js
+2.css
+burger.png
+index.html
+
+NETWORK:
+*
+
+FALLBACK:
+/index.html
