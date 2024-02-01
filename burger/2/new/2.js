@@ -87,9 +87,9 @@ function mous() {
     money -= 100;
     moneyS = "$" + (Math.round(money));
     if (mOuse == 1) {
-      document.getElementById("mice_owned").innerHTML = mOuse + " Cursor";
+      document.getElementById("mice_owned").innerHTML = short(mOuse) + " Cursor";
     } else {
-      document.getElementById("mice_owned").innerHTML = mOuse + " Cursors";
+      document.getElementById("mice_owned").innerHTML = short(mOuse) + " Cursors";
     }
     update();
   } else {
@@ -104,10 +104,10 @@ function grandpa() {
     money -= 950;
     moneyS = "$" + Math.round(money);
     if (grandpas == 1) {
-      document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpa";
+      document.getElementById("gramps_owned").innerHTML = short(grandpas) + " Grandpa";
       unlok(0);
     } else {
-      document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpas";
+      document.getElementById("gramps_owned").innerHTML = short(grandpas) + " Grandpas";
     }
     update();
   } else {
@@ -122,10 +122,10 @@ function diner() {
     money -= 9025;
     moneyS = "$" + Math.round(money);
     if (diners == 1) {
-      document.getElementById("diners_owned").innerHTML = diners + " Diner";
+      document.getElementById("diners_owned").innerHTML = short(diners) + " Diner";
       unlok(1);
     } else {
-      document.getElementById("diners_owned").innerHTML = diners + " Diners";
+      document.getElementById("diners_owned").innerHTML = short(diners) + " Diners";
     }
     update();
   } else {
@@ -140,10 +140,10 @@ function largeR() {
     money -= 85730;
     moneyS = "$" + Math.round(money);
     if (largeRs == 1) {
-      document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturant";
+      document.getElementById("largeR_owned").innerHTML = short(largeRs) + " Large Resturant";
       unlok(2);
     } else {
-      document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturants";
+      document.getElementById("largeR_owned").innerHTML = short(largeRs) + " Large Resturants";
     }
     update();
   } else {
@@ -158,10 +158,10 @@ function sChain() {
     money -= 943030;
     moneyS = "$" + Math.round(money);
     if (sChains == 1) {
-      document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chain";
+      document.getElementById("sChain_owned").innerHTML = short(sChains) + " Small Resturant Chain";
       unlok(3);
     } else {
-      document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chains";
+      document.getElementById("sChain_owned").innerHTML = short(sChains) + " Small Resturant Chains";
     }
     update();
   } else {
@@ -176,10 +176,10 @@ function lChain() {
     money -= 10373000;
     moneyS = "$" + Math.round(money);
     if (lChains == 1) {
-      document.getElementById("lChain_owned").innerHTML = lChains + " Large Resturant Chain";
+      document.getElementById("lChain_owned").innerHTML = short(lChains) + " Large Resturant Chain";
       unlok(4);
     } else {
-      document.getElementById("lChain_owned").innerHTML = lChains + " Large Resturant Chains";
+      document.getElementById("lChain_owned").innerHTML = short(lChains) + " Large Resturant Chains";
     }
     update();
   } else {
@@ -194,10 +194,10 @@ function state() {
     money -= 124476000;
     moneyS = "$" + Math.round(money);
     if (states == 1) {
-      document.getElementById("states_owned").innerHTML = states + " State";
+      document.getElementById("states_owned").innerHTML = short(states) + " State";
       unlok(5);
     } else {
-      document.getElementById("states_owned").innerHTML = states + " States";
+      document.getElementById("states_owned").innerHTML = short(states) + " States";
     }
     update();
   } else {
@@ -212,10 +212,10 @@ function cryptob() {
     money -= 1618188000;
     moneyS = "$" + Math.round(money);
     if (cryptos == 1) {
-      document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrency";
+      document.getElementById("crypto_owned").innerHTML = short(cryptos) + " Cryptocurrency";
       unlok(6);
     } else {
-      document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrencies";
+      document.getElementById("crypto_owned").innerHTML = short(cryptos) + " Cryptocurrencies";
     }
     update();
   } else {
@@ -230,10 +230,10 @@ function monopoly() {
     money -= 22654632000;
     moneyS = "$" + Math.round(money);
     if (monos == 1) {
-      document.getElementById("mono_owned").innerHTML = monos + " Monopoly";
+      document.getElementById("mono_owned").innerHTML = short(monos) + " Monopoly";
       unlok(7);
     } else {
-      document.getElementById("mono_owned").innerHTML = monos + " Monopolies";
+      document.getElementById("mono_owned").innerHTML = short(monos) + " Monopolies";
     }
     update();
   }
@@ -249,10 +249,10 @@ function space() {
     money -= 339819480000;
     moneyS = "$" + Math.round(money);
     if (spac == 1) {
-      document.getElementById("space_owned").innerHTML = "Explored space " + spac + " time";
+      document.getElementById("space_owned").innerHTML = "Explored space " + short(spac) + " time";
       unlok(8);
     } else {
-      document.getElementById("space_owned").innerHTML = "Explored space " + spac + " times";
+      document.getElementById("space_owned").innerHTML = "Explored space " + short(spac) + " times";
     }
     update();
   }
@@ -268,10 +268,10 @@ function planet() {
     money -= 5437111600000;
     moneyS = "$" + Math.round(money);
     if (planets == 1) {
-      document.getElementById("planets_owned").innerHTML = planets + " Planet";
+      document.getElementById("planets_owned").innerHTML = short(planets) + " Planet";
       unlok(9);
     } else {
-      document.getElementById("planets_owned").innerHTML = planets + " Planets";
+      document.getElementById("planets_owned").innerHTML = short(planets) + " Planets";
     }
     update();
   }
@@ -287,10 +287,10 @@ function galaxy() {
     money -= 92430898500000;
     moneyS = "$" + Math.round(money);
     if (galaxies == 1) {
-      document.getElementById("galaxies_owned").innerHTML = galaxies + " Galaxy";
+      document.getElementById("galaxies_owned").innerHTML = short(galaxies) + " Galaxy";
       unlok(10);
     } else {
-      document.getElementById("galaxies_owned").innerHTML = galaxies + " Galaxies";
+      document.getElementById("galaxies_owned").innerHTML = short(galaxies) + " Galaxies";
     }
     update();
   }
@@ -306,10 +306,10 @@ function t1me() {
     money -= 1571325275000000;
     moneyS = "$" + Math.round(money);
     if (tim3 == 1) {
-      document.getElementById("time_owned").innerHTML = tim3 + " Time Machine";
+      document.getElementById("time_owned").innerHTML = short(tim3) + " Time Machine";
       unlok(11);
     } else {
-      document.getElementById("time_owned").innerHTML = tim3 + " Time Machines";
+      document.getElementById("time_owned").innerHTML = short(tim3) + " Time Machines";
     }
     update();
   }
@@ -325,9 +325,9 @@ function control() {
     money -= 28283854950000000;
     moneyS = "$" + Math.round(money);
     if (controllers == 1) {
-      document.getElementById("controller_owned").innerHTML = controllers + " Space Time Controller";
+      document.getElementById("controller_owned").innerHTML = short(controllers) + " Space Time Controller";
     } else {
-      document.getElementById("controller_owned").innerHTML = controllers + " Space Time Controllers";
+      document.getElementById("controller_owned").innerHTML = short(controllers) + " Space Time Controllers";
     }
     update();
   }
@@ -343,9 +343,9 @@ function spaceship() {
     money -= 537393244200000000;
     moneyS = "$" + Math.round(money);
     if (spaceships == 1) {
-      document.getElementById("spaceships_owned").innerHTML = spaceships + " Quantum Spaceship";
+      document.getElementById("spaceships_owned").innerHTML = short(spaceships) + " Quantum Spaceship";
     } else {
-      document.getElementById("spaceships_owned").innerHTML = spaceships + " Quantum Spaceships";
+      document.getElementById("spaceships_owned").innerHTML = short(spaceships) + " Quantum Spaceships";
     }
     update();
   }
@@ -376,9 +376,9 @@ function max(it) {
       money -= 100;
       mps += 0.2;
       if (mOuse == 1) {
-        document.getElementById("mice_owned").innerHTML = mOuse + " Cursor";
+        document.getElementById("mice_owned").innerHTML = short(mOuse) + " Cursor";
       } else {
-        document.getElementById("mice_owned").innerHTML = mOuse + " Cursors";
+        document.getElementById("mice_owned").innerHTML = short(mOuse) + " Cursors";
       }
     }
     update();
@@ -391,10 +391,10 @@ function max(it) {
       money -= 950;
       moneyS = "$" + Math.round(money);
       if (grandpas == 1) {
-        document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpa";
+        document.getElementById("gramps_owned").innerHTML = short(grandpas) + " Grandpa";
         unlok(0);
       } else {
-        document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpas";
+        document.getElementById("gramps_owned").innerHTML = short(grandpas) + " Grandpas";
       }
     }
     update();
@@ -407,10 +407,10 @@ function max(it) {
       money -= 9025;
       moneyS = "$" + Math.round(money);
       if (diners == 1) {
-        document.getElementById("diners_owned").innerHTML = diners + " Diner";
+        document.getElementById("diners_owned").innerHTML = short(diners) + " Diner";
         unlok(1);
       } else {
-        document.getElementById("diners_owned").innerHTML = diners + " Diners";
+        document.getElementById("diners_owned").innerHTML = short(diners) + " Diners";
       }
     }
     update();
@@ -423,10 +423,10 @@ function max(it) {
       money -= 85730;
       moneyS = "$" + Math.round(money);
       if (largeRs == 1) {
-        document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturant";
+        document.getElementById("largeR_owned").innerHTML = short(largeRs) + " Large Resturant";
         unlok(2);
       } else {
-        document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturants";
+        document.getElementById("largeR_owned").innerHTML = short(largeRs) + " Large Resturants";
       }
     }
     update();
@@ -439,10 +439,10 @@ function max(it) {
       money -= 943030;
       moneyS = "$" + Math.round(money);
       if (sChains == 1) {
-        document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chain";
+        document.getElementById("sChain_owned").innerHTML = short(sChains) + " Small Resturant Chain";
         unlok(3);
       } else {
-        document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chains";
+        document.getElementById("sChain_owned").innerHTML = short(sChains) + " Small Resturant Chains";
       }
     }
     update();
@@ -455,10 +455,10 @@ function max(it) {
       money -= 10373000;
       moneyS = "$" + Math.round(money);
       if (lChains == 1) {
-        document.getElementById("lChain_owned").innerHTML = lChains + " Large Resturant Chain";
+        document.getElementById("lChain_owned").innerHTML = short(lChains) + " Large Resturant Chain";
         unlok(4);
       } else {
-        document.getElementById("lChain_owned").innerHTML = lChains + " Large Resturant Chains";
+        document.getElementById("lChain_owned").innerHTML = short(lChains) + " Large Resturant Chains";
       }
     }
     update();
@@ -471,10 +471,10 @@ function max(it) {
       money -= 124476000;
       moneyS = "$" + Math.round(money);
       if (states == 1) {
-        document.getElementById("states_owned").innerHTML = states + " State";
+        document.getElementById("states_owned").innerHTML = short(states) + " State";
         unlok(5);
       } else {
-        document.getElementById("states_owned").innerHTML = states + " States";
+        document.getElementById("states_owned").innerHTML = short(states) + " States";
       }
     }
     update();
@@ -487,10 +487,10 @@ function max(it) {
       money -= 1618188000;
       moneyS = "$" + Math.round(money);
       if (cryptos == 1) {
-        document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrency";
+        document.getElementById("crypto_owned").innerHTML = short(cryptos) + " Cryptocurrency";
         unlok(6);
       } else {
-        document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrencies";
+        document.getElementById("crypto_owned").innerHTML = short(cryptos) + " Cryptocurrencies";
       }
     }
     update();
@@ -503,10 +503,10 @@ function max(it) {
       money -= 22654632000;
       moneyS = "$" + Math.round(money);
       if (monos == 1) {
-        document.getElementById("mono_owned").innerHTML = monos + " Monopoly";
+        document.getElementById("mono_owned").innerHTML = short(monos) + " Monopoly";
         unlok(7);
       } else {
-        document.getElementById("mono_owned").innerHTML = monos + " Monopolies";
+        document.getElementById("mono_owned").innerHTML = short(monos) + " Monopolies";
       }
     }
     update();
@@ -519,10 +519,10 @@ function max(it) {
       money -= 339819480000;
       moneyS = "$" + Math.round(money);
       if (spac == 1) {
-        document.getElementById("space_owned").innerHTML = "Explored space " + spac + " time";
+        document.getElementById("space_owned").innerHTML = "Explored space " + short(spac) + " time";
         unlok(8);
       } else {
-        document.getElementById("space_owned").innerHTML = "Explored space " + spac + " times";
+        document.getElementById("space_owned").innerHTML = "Explored space " + short(spac) + " times";
       }
     }
     update();
@@ -535,10 +535,10 @@ function max(it) {
       money -= 5437111600000;
       moneyS = "$" + Math.round(money);
       if (planets == 1) {
-        document.getElementById("planets_owned").innerHTML = planets + " Planet";
+        document.getElementById("planets_owned").innerHTML = short(planets) + " Planet";
         unlok(9);
       } else {
-        document.getElementById("planets_owned").innerHTML = planets + " Planets";
+        document.getElementById("planets_owned").innerHTML = short(planets) + " Planets";
       }
     }
     update();
@@ -551,10 +551,10 @@ function max(it) {
       money -= 92430898500000;
       moneyS = "$" + Math.round(money);
       if (galaxies == 1) {
-        document.getElementById("galaxies_owned").innerHTML = galaxies + " Galaxy";
+        document.getElementById("galaxies_owned").innerHTML = short(galaxies) + " Galaxy";
         unlok(10);
       } else {
-        document.getElementById("galaxies_owned").innerHTML = galaxies + " Galaxies";
+        document.getElementById("galaxies_owned").innerHTML = short(galaxies) + " Galaxies";
       }
     }
     update();
@@ -567,10 +567,10 @@ function max(it) {
       money -= 1571325275000000;
       moneyS = "$" + Math.round(money);
       if (tim3 == 1) {
-        document.getElementById("time_owned").innerHTML = tim3 + " Time Machine";
+        document.getElementById("time_owned").innerHTML = short(tim3) + " Time Machine";
         unlok(11);
       } else {
-        document.getElementById("time_owned").innerHTML = tim3 + " Time Machines";
+        document.getElementById("time_owned").innerHTML = short(tim3) + " Time Machines";
       }
     }
     update();
@@ -583,9 +583,9 @@ function max(it) {
       money -= 28283854950000000;
       moneyS = "$" + Math.round(money);
       if (controllers == 1) {
-        document.getElementById("controller_owned").innerHTML = controllers + " Space Time Controller";
+        document.getElementById("controller_owned").innerHTML = short(controllers) + " Space Time Controller";
       } else {
-        document.getElementById("controller_owned").innerHTML = controllers + " Space Time Controllers";
+        document.getElementById("controller_owned").innerHTML = short(controllers) + " Space Time Controllers";
       }
     }
     update();
@@ -598,9 +598,9 @@ function max(it) {
       money -= 537393244200000000;
       moneyS = "$" + Math.round(money);
       if (spaceships == 1) {
-        document.getElementById("spaceships_owned").innerHTML = spaceships + " Quantum Spaceship";
+        document.getElementById("spaceships_owned").innerHTML = short(spaceships) + " Quantum Spaceship";
       } else {
-        document.getElementById("spaceships_owned").innerHTML = spaceships + " Quantum Spaceships";
+        document.getElementById("spaceships_owned").innerHTML = short(spaceships) + " Quantum Spaceships";
       }
     }
     update();
