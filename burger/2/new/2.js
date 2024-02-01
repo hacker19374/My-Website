@@ -1124,32 +1124,32 @@ function saveY() {
   }
   mOuse = +(localStorage.mice);
   if (mOuse == 1) {
-    document.getElementById("mice_owned").innerHTML = mOuse + " Cursor";
+    document.getElementById("mice_owned").innerHTML = short(mOuse) + " Cursor";
   }
   else if (mOuse !== 0) {
-    document.getElementById("mice_owned").innerHTML = mOuse + " Cursors";
+    document.getElementById("mice_owned").innerHTML = short(mOuse) + " Cursors";
   }
   grandpas = +(localStorage.grandpas);
   if (grandpas == 1) {
-      document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpa";
+      document.getElementById("gramps_owned").innerHTML = short(grandpas) + " Grandpa";
     }
   else if (grandpas !== 0) {
-      document.getElementById("gramps_owned").innerHTML = grandpas + " Grandpas";
+      document.getElementById("gramps_owned").innerHTML = short(grandpas) + " Grandpas";
     }
   diners = +(localStorage.diners);
   if (diners == 1) {
-    document.getElementById("diners_owned").innerHTML = diners + " Diner";
+    document.getElementById("diners_owned").innerHTML = short(diners) + " Diner";
   }
   else if (diners !== 0) {
-    document.getElementById("diners_owned").innerHTML = diners + " Diners";
+    document.getElementById("diners_owned").innerHTML = short(diners) + " Diners";
   }
   if (localStorage.largeR !== undefined) {
     largeRs = +(localStorage.largeR);
     if (largeRs == 1) {
-      document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturant";
+      document.getElementById("largeR_owned").innerHTML = short(largeRs) + " Large Resturant";
     }
     else if (largeRs !== 0) {
-      document.getElementById("largeR_owned").innerHTML = largeRs + " Large Resturants";
+      document.getElementById("largeR_owned").innerHTML = short(largeRs) + " Large Resturants";
     }
   } else {
     largeRs = 0;
@@ -1157,10 +1157,10 @@ function saveY() {
   if (localStorage.sChains !== undefined) {
     sChains = +(localStorage.sChains);
     if (sChains == 1) {
-      document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chain";
+      document.getElementById("sChain_owned").innerHTML = short(sChains) + " Small Resturant Chain";
     }
     else if (sChains !== 0) {
-      document.getElementById("sChain_owned").innerHTML = sChains + " Small Resturant Chains";
+      document.getElementById("sChain_owned").innerHTML = short(sChains) + " Small Resturant Chains";
     }
   } else {
     sChains = 0;
@@ -1168,10 +1168,10 @@ function saveY() {
   if (localStorage.lChains !== undefined) {
     lChains = +(localStorage.lChains);
     if (lChains == 1) {
-      document.getElementById("lChain_owned").innerHTML = lChains + " Large Resturant Chain";
+      document.getElementById("lChain_owned").innerHTML = short(lChains) + " Large Resturant Chain";
     }
     else if (lChains !== 0) {
-      document.getElementById("lChain_owned").innerHTML = lChains + " Large Resturant Chains";
+      document.getElementById("lChain_owned").innerHTML = short(lChains) + " Large Resturant Chains";
     }
   } else {
     lChains = 0;
@@ -1179,10 +1179,10 @@ function saveY() {
   if (localStorage.states !== undefined) {
     states = +(localStorage.states);
     if (states == 1) {
-      document.getElementById("states_owned").innerHTML = states + " State";
+      document.getElementById("states_owned").innerHTML = short(states) + " State";
     }
     else if (states !== 0) {
-      document.getElementById("states_owned").innerHTML = states + " States";
+      document.getElementById("states_owned").innerHTML = short(states) + " States";
     }
   } else {
     states = 0;
@@ -1190,10 +1190,10 @@ function saveY() {
   if (localStorage.cryptos !== undefined) {
     cryptos = +(localStorage.cryptos);
     if (cryptos == 1) {
-      document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrency";
+      document.getElementById("crypto_owned").innerHTML = short(cryptos) + " Cryptocurrency";
     }
     else if (cryptos !== 0) {
-      document.getElementById("crypto_owned").innerHTML = cryptos + " Cryptocurrencies";
+      document.getElementById("crypto_owned").innerHTML = short(cryptos) + " Cryptocurrencies";
     }
   } else {
     cryptos = 0;
@@ -1201,10 +1201,10 @@ function saveY() {
   if (localStorage.monos !== undefined) {
     monos = +(localStorage.monos);
     if (monos == 1) {
-      document.getElementById("mono_owned").innerHTML = monos + " Monopoly";
+      document.getElementById("mono_owned").innerHTML = short(monos) + " Monopoly";
     }
     else if (monos !== 0) {
-      document.getElementById("mono_owned").innerHTML = monos + " Monopolies";
+      document.getElementById("mono_owned").innerHTML = short(monos) + " Monopolies";
     }
   } else {
     monos = 0;
@@ -1212,10 +1212,10 @@ function saveY() {
   if (localStorage.spac !== undefined) {
     spac = +(localStorage.spac);
     if (spac == 1) {
-      document.getElementById("space_owned").innerHTML = "Explored space " + spac + " time";
+      document.getElementById("space_owned").innerHTML = "Explored space " + short(spac) + " time";
     }
     else if (spac !== 0) {
-      document.getElementById("space_owned").innerHTML = "Explored space " + spac + " times";
+      document.getElementById("space_owned").innerHTML = "Explored space " + short(spac) + " times";
     }
   } else {
     spac = 0;
@@ -1223,10 +1223,10 @@ function saveY() {
   if (localStorage.planets !== undefined) {
     planets = +(localStorage.planets);
     if (planets == 1) {
-      document.getElementById("planets_owned").innerHTML = planets + " Planet";
+      document.getElementById("planets_owned").innerHTML = short(planets) + " Planet";
     }
     else if (planets !== 0) {
-      document.getElementById("planets_owned").innerHTML = planets + " Planets";
+      document.getElementById("planets_owned").innerHTML = short(planets) + " Planets";
     }
   } else {
     planets = 0;
@@ -1234,10 +1234,10 @@ function saveY() {
   if (localStorage.galaxies !== undefined) {
     galaxies = +(localStorage.galaxies);
     if (galaxies == 1) {
-      document.getElementById("galaxies_owned").innerHTML = galaxies + " Galaxy";
+      document.getElementById("galaxies_owned").innerHTML = short(galaxies) + " Galaxy";
     }
     else if (galaxies !== 0) {
-      document.getElementById("galaxies_owned").innerHTML = galaxies + " Galaxies";
+      document.getElementById("galaxies_owned").innerHTML = short(galaxies) + " Galaxies";
     }
   } else {
     galaxies = 0;
@@ -1245,10 +1245,10 @@ function saveY() {
   if (localStorage.tim3 !== undefined) {
     tim3 = +(localStorage.tim3);
     if (tim3 == 1) {
-      document.getElementById("time_owned").innerHTML = tim3 + " Time Machine";
+      document.getElementById("time_owned").innerHTML = short(tim3) + " Time Machine";
     }
     else if (tim3 !== 0) {
-      document.getElementById("time_owned").innerHTML = tim3 + " Time Machines";
+      document.getElementById("time_owned").innerHTML = short(tim3) + " Time Machines";
     }
   } else {
     tim3 = 0;
@@ -1256,10 +1256,10 @@ function saveY() {
   if (localStorage.controller !== undefined) {
     controllers = +(localStorage.controller);
     if (controllers == 1) {
-      document.getElementById("controller_owned").innerHTML = controllers + " Space-Time Controller";
+      document.getElementById("controller_owned").innerHTML = short(controllers) + " Space-Time Controller";
     }
     else if (controllers !== 0) {
-      document.getElementById("controller_owned").innerHTML = controllers + " Space-Time Controllers";
+      document.getElementById("controller_owned").innerHTML = short(controllers) + " Space-Time Controllers";
     }
   } else {
     controllers = 0;
@@ -1267,10 +1267,10 @@ function saveY() {
   if (localStorage.spaceships !== undefined) {
     spaceships = +(localStorage.spaceships);
     if (spaceships == 1) {
-      document.getElementById("spaceships_owned").innerHTML = spaceships + " Quantum Spaceship";
+      document.getElementById("spaceships_owned").innerHTML = short(spaceships) + " Quantum Spaceship";
     }
     else if (spaceships !== 0) {
-      document.getElementById("controller_owned").innerHTML = spaceships + " Quantum Spaceships";
+      document.getElementById("controller_owned").innerHTML = short(spaceships + " Quantum Spaceships";
     }
   } else {
     spaceships = 0;
@@ -1486,8 +1486,8 @@ function spin() {
           }, 3000);
         }
         if (prize == "111") {
-          money += Math.round(money * 1.11);
-          document.getElementById("result").innerHTML = "Money multiplied by 2.11!!!";
+          money += Math.round(money * 11.11);
+          document.getElementById("result").innerHTML = "Money multiplied by 22!!!";
           setTimeout(function(){
             document.getElementById("result").innerHTML = "Test your luck!!";
           }, 3000);
