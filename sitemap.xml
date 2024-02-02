@@ -1,20 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://hacker19374.github.io/My-Website/</loc>
-  <loc>https://hacker19374.github.io/My-Website/burger</loc>
-  <loc>https://hacker19374.github.io/My-Website/burger/1/</loc>
-  <loc>https://hacker19374.github.io/My-Website/burger/2/</loc>
-  <loc>https://hacker19374.github.io/My-Website/lawnmower/</loc>
-  <loc>https://hacker19374.github.io/My-Website/calculator/</loc>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/index.html</loc>
+            <priority>1.0</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/burger/1/index.html</loc>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/burger/2/index.html</loc>
+            <priority>0.3</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/burger/2/new/index.html</loc>
+            <priority>0.8</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/bitcoin-price/index.html</loc>
+            <priority>0.3</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/calculator/index.html</loc>
+            <priority>0.3</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/chatbot/index.html</loc>
+            <priority>0.2</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/citation/index.html</loc>
+            <priority>0.1</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/custom-game/index.html</loc>
+            <priority>0.3</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/dna/index.html</loc>
+            <priority>0.3</priority>
+      </url>
+      
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/fish/index.html</loc>
+            <priority>0.2</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/infinite-miner/index.html</loc>
+            <priority>0.1</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/lawnmower/index.html</loc>
+            <priority>0.4</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/machine/index.html</loc>
+            <priority>0.3</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/notification/index.html</loc>
+            <priority>0.1</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/platformer/index.html</loc>
+            <priority>0.4</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/pong/index.html</loc>
+            <priority>0.4</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/punnet/index.html</loc>
+            <priority>0.3</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/racing/index.html</loc>
+            <priority>0.4</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/responsive/index.html</loc>
+            <priority>0.3</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/spotify/index.html</loc>
+            <priority>0.1</priority>
+      </url>
+      <url>
+            <loc>https://hacker19374.github.io/My-Website/stocks/index.html</loc>
+            <priority>0.2</priority>
+      </url>
 </urlset>
