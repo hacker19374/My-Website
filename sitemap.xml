@@ -8,10 +8,6 @@
             <loc>https://hacker19374.github.io/My-Website/burger/1/index.html</loc>
       </url>
       <url>
-            <loc>https://hacker19374.github.io/My-Website/burger/2/index.html</loc>
-            <priority>0.3</priority>
-      </url>
-      <url>
             <loc>https://hacker19374.github.io/My-Website/burger/2/new/index.html</loc>
             <priority>0.8</priority>
       </url>
