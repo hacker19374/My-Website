@@ -1422,7 +1422,7 @@ function spin() {
   if (money >= +price) {
     money -= +price;
     var o = price;
-    price *= 1.75;
+    price *= 1.3;
     price = Math.round(price);
     localStorage.bidV = price;
     document.getElementById("spend").innerHTML = short(price);
