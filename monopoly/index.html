@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+    
+    var newItem
+    var a
+    var p = ""
+    var randGen = ""
+    var inte
+    var u = 0
+    var checked = 0;
+    var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
+    
+    
+    function chec() {
+      checked++
+      document.getElementById("checked").innerHTML = "Links Checked: " + checked;
+      p = ""
+        for (i = 0; i < 11; i++) {
+          p += chars.charAt(Math.floor(Math.random() * 64))
+        }
+        randGen = p;
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/' + "https://mply.io/" + randGen; // Proxy URL
+  fetch(proxyUrl, { method: 'HEAD' }) // Use HEAD method
+    .then(response => {
+      if (!response.ok) {
+        // Check if the response body contains the text of the custom 404 page
+        response.text().then(text => {
+          if (text.includes('404: Page Not Found')) {
+            console.log('URL returns a custom 404 page');
+          } else {
+            console.log('URL returns a 404 error');
+            if (inte) {
+              chec()
+            }
+          }
+        });
+      } else {
+        console.log('URL is reachable');
+        a = document.createElement("a")
+        a.href = "https://mply.io/" + randGen
+        a.target = "_blank"
+        a.appendChild(document.createTextNode("https://mply.io/" + randGen))
+        newItem = document.createElement("li")
+        newItem.appendChild(a);
+        document.getElementById("list").appendChild(newItem);
+        if (inte) {
+          chec()
+        }
+      }
+    })
+    .catch(error => {
+      console.log('Error:', error);
+    });
+    console.log(randGen)
+}
+
+function sett() {
+  if (!inte) {
+    inte = true
+    chec()
+    document.getElementById("test").innerHTML = "Click to stop..."
+  } else {
+    inte = false
+    document.getElementById("test").innerHTML = "Test"
+  }
+}
+
+    </script>
+  </head>
+  <body>
+    <h1>Monopoly Free Dice</h1>
+    <div id="result">
+      <h3>Working Links:</h3>
+      <br>
+      <ul id="list">
+        <li>
+          <a href="https://mply.io/gt5hzQ">https://mply.io/gt5hzQ</a>
+        </li>
+      </ul>
+      <h3 id="checked">Links Checked: 0</h3>
+    </div>
+    <br>
+    <button id="test" onclick="sett()">Test</button>
+    <script>var result = document.getElementById("result")</script>
+  </body>
+</html>
